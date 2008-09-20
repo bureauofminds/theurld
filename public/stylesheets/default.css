@@ -1,0 +1,105 @@
+@import "reset.css";
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  color: #000;
+  line-height: 15px;
+  background-color: #ddd;
+}
+
+h2, h3 {
+  margin-bottom: 3px;
+}
+
+p,
+ul {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #888;
+  text-decoration: none;
+  background-color: #f0f0f0;
+}
+
+a:hover {
+  color: #fff;
+  background-color: #888;
+}
+
+br.clear {
+  clear: both;
+}
+
+.hide {
+  display: none;
+}
+
+div#repository {
+  padding: 10px;
+}
+
+div#container {
+  padding: 0 20px 10px 20px;
+  background-color: #f5f5f5;
+}
+
+div#header {
+  height: 47px;
+  padding: 10px 0;
+  background-color: #f5f5f5;
+  background-image: url('/images/logo.gif');
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+img#login_badge {
+  position: absolute;
+  top: 62px;
+  right: 30px;
+}
+
+div#content {
+  float: left;
+  width: 700px;
+  padding-bottom: 57px;
+}
+
+div#content span#flash {
+  background-color: #fffff3;
+}
+
+div#content ul li {
+  padding: 5px 0;
+}
+
+div#content ul li span.code {
+  color: #aaa;
+}
+
+div#content ul li:hover span.code {
+  color: #888;
+  background-color: #eee;
+}
+
+div#content ul li span.tag {
+  padding: 0 2px;
+  color: #888000;
+  background-color: #ff0;
+}
+
+div#sidebar {
+  float: left;
+  width: 210px;
+  margin-right: 20px;
+  background-color: #f5f5f5;
+}
+
+div#sidebar p#copyright,
+div#sidebar p#copyright a {
+  font-size: 11px;
+  color: #ccc;
+  line-height: 11px;
+  background-color: #f5f5f5;
+}

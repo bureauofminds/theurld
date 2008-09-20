@@ -1,0 +1,5 @@
+<%- form_tag do -%>
+  <label for="member_username">Username</label> <%= text_field "member", "username" %><br/>
+  <label for="member_password">Password</label> <%= password_field "member", "password" %><br/>
+  <%= submit_tag "Login" %>
+<%- end -%>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Númenor</title>
+    <%= stylesheet_link_tag 'default' %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+  <body>
+    <div id="repository">
+      <div id="header">
+        <h1><%= link_to "<span class=\"hide\">Númenor</span>", :controller => 'neumenor', :action => 'index' %></h1>
+      </div>
+    
+      <div id="container">
+      
+        <div id="substance">
+        
+          <div id="sidebar">
+            <h3>Welcome<%- if session[:logged_in] == true -%> <%= @master_member.username %><%- end -%>!</h3>
+            <%= image_tag "login.png", :size => '60x60', :id => 'login_badge' %>
+            <p><%= link_to "Login", :controller => 'members', :action => 'login' %></p>
+          
+            <h3>Categories</h3>
+            <ul>
+              <li><%= link_to "News" %></li>
+              <li><%= link_to "Politics" %></li>
+              <li><%= link_to "Technology" %></li>
+              <li><%= link_to "Design" %></li>
+              <li><%= link_to "Science" %></li>
+              <li><%= link_to "Gaming" %></li>
+              <li><%= link_to "Lifestyle" %></li>
+              <li><%= link_to "Entertainment" %></li>
+              <li><%= link_to "Sports" %></li>
+              <li><%= link_to "Offbeat" %></li>
+            </ul>
+          
+            <!--
+            <h3>Hi, timerickson</h3>
+            <p><%= link_to "Top" %></p>
+            <ul>
+              <li><%= link_to "New for you!" %></li>
+              <li><%= link_to "My found" %></li>
+              <il><%= link_to "My profile" %></il>
+            </ul>
+            <ul>
+              <li><%= link_to "About" %></li>
+              <li><%= link_to "How to use" %></li>
+              <li><%= link_to "Screensaver" %></li>
+              <li><%= link_to "Invitations" %></li>
+            </ul>
+            <p><%= link_to "Sign out" %></p>
+            -->
+          
+            <p id="copyright">Application &copy; <%= Time.now.year %> Númenor, <%= link_to "Neutyp", "http://neutyp.com" %>.</p>
+          </div>
+        
+          <div id="content">
+            <%- if flash[:notice] or flash[:error] -%>
+            <p><span id="flash"><%= flash[:notice] || flash[:error] %></span></p>
+            <%- end -%>
+          
+            <%= @content_for_layout %>
+          </div>
+        
+          <br class="clear" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
