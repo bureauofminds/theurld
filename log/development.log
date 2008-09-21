@@ -4648,3 +4648,1140 @@ Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:38:02) [GET]
 Rendering  within layouts/application
 Rendering numenor/index
 Completed in 0.01202 (83 reqs/sec) | Rendering: 0.01119 (93%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:25:48) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+ERROR: compiling _run_rhtml_47app47views47layouts47application46rhtml RAISED compile error
+/Volumes/RAID/Sites/Numenor/config/../app/views/layouts/application.rhtml:22: syntax error, unexpected ')', expecting tASSOC
+_erbout.concat "  \t\t\t<h1 id=\"logo\">"; _erbout.concat(( link_to "THE URLD", :controller => 'numenor', { :title => '&lt;&lt; Go home' } ).to_s); _erbout.concat "</h1>\n"
+                                                                                                                                            ^
+Function body: def _run_rhtml_47app47views47layouts47application46rhtml(local_assigns)
+_erbout = ''; _erbout.concat "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
+_erbout.concat "  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
+_erbout.concat "<html>\n"
+_erbout.concat "  <head>\n"
+_erbout.concat "    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">\n"
+_erbout.concat "    <title>The Urld</title>\n"
+_erbout.concat "    "; _erbout.concat(( stylesheet_link_tag 'default' ).to_s); _erbout.concat "\n"
+_erbout.concat "    "; _erbout.concat(( javascript_include_tag :defaults ).to_s); _erbout.concat "\n"
+_erbout.concat "  </head>\n"
+_erbout.concat "  <body>\n"
+_erbout.concat "    \n"
+_erbout.concat "    <div id=\"post\">\n"
+_erbout.concat "  \t\t<div id=\"post_inner\">\t\t\t\n"
+_erbout.concat "  \t\t\t<div id=\"menu\">\n"
+_erbout.concat "  \t\t\t\t<p>"; _erbout.concat(( link_to "About", :controller => 'numenor', :action => 'about' ).to_s); _erbout.concat " "; _erbout.concat(( link_to "Create An Account", :controller => 'members', :action => 'register' ).to_s); _erbout.concat "</p>\n"
+_erbout.concat "  \t\t\t</div>\n"
+_erbout.concat "  \t\t</div>\n"
+_erbout.concat "  \t</div>\n"
+_erbout.concat "  \t\n"
+_erbout.concat "  \t<div id=\"container\">\n"
+_erbout.concat "  \t\t<div id=\"flag\">\n"
+_erbout.concat "  \t\t\t<h1 id=\"logo\">"; _erbout.concat(( link_to "THE URLD", :controller => 'numenor', { :title => '&lt;&lt; Go home' } ).to_s); _erbout.concat "</h1>\n"
+_erbout.concat "  \t\t\t<img src=\"images/newaroundhere.gif\" alt=\"New Around Here? Create An Account!\" />\n"
+_erbout.concat "  \t\t</div>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t<div id=\"wrapper_main\">\n"
+_erbout.concat "  \t\t\t<div id=\"left_side\">\n"
+_erbout.concat "  \t\t\t\t<h2>LOGIN</h2>\n"
+_erbout.concat "  \t\t\t\t<div class=\"post_box\">\n"
+ form_tag :controller => 'members', :action => 'login' do 
+_erbout.concat "  \t\t\t\t\t  <label for=\"member_username\">Username</label>\n"
+_erbout.concat "  \t\t\t\t\t  "; _erbout.concat(( text_field "member", "username" ).to_s); _erbout.concat "\n"
+_erbout.concat "  \t\t\t\t\t  <label for=\"member_password\">Password</label> <strong><a href=\"#\">?</a></strong>\n"
+_erbout.concat "  \t\t\t\t\t  "; _erbout.concat(( password_field "member", "password" ).to_s); _erbout.concat "\n"
+_erbout.concat "  \t\t\t\t\t  "; _erbout.concat(( submit_tag "Login" ).to_s); _erbout.concat "&nbsp;\n"
+_erbout.concat "  \t\t\t\t\t  <label for=\"remember_me\">Remember Me</label>\n"
+_erbout.concat "  \t\t\t\t\t  "; _erbout.concat(( check_box_tag "remember_me", :checked => 'checked' ).to_s); _erbout.concat "&nbsp;\n"
+ end 
+_erbout.concat "  \t\t\t\t</div>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t<h2>CATEGORIES</h2>\n"
+_erbout.concat "  \t\t\t\t<h4>General Categories</h4>\n"
+_erbout.concat "  \t\t\t\t<ul>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">News</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Politics</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Technology</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Design</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Science</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Gaming</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Lifestyle</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Entertainment</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Sports</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Offbeat</a></li>\n"
+_erbout.concat "  \t\t\t\t</ul>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t<h4>Subcategories</h4>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t</div>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t<div id=\"right_side\">\n"
+_erbout.concat "  \t\t\t\t<h2>URLS</h2>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t<div id=\"tabs\">\n"
+_erbout.concat "  \t\t\t\t\t<a href=\"\" class=\"options_on\">Public Url Feed</a>\n"
+_erbout.concat "  \t\t\t\t</div>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t<div class=\"cell\">\n"
+_erbout.concat "  \t\t\t\t\t<h4><a href=\"#\" class=\"toggle\">Toggle Url Description <strong>+</strong></a>Page 1</h4>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t\t<ul>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a><small><strong>VID</strong></small> <a href=\"/tiger01\">YouTube - Tiger Woods 09 - Walk on Water</a> (tiger01)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/room378\">Roomorama - The quick and easy way to arrange short term stays</a> (room378)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/d40myth\">When Things Go Wrong - Mythbusters</a> (d40myth)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/a45rock\">How to build a better rocket - WikiHow</a> (a45rock)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/1combin\">What do you get when you combine, Digg, Delicious, and Elfurl?</a> (1combin)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/20logo\">Toxel.com \302\273 20 Famous Logo Designs</a> (20logo)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">How to survive in the wilderness for two years - WikiHow</a> (wildwood)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Four Score and Seven Years ago I Built a Trebuchet That Contained Lethal Weapons Of Mass Hoover Dam Control ...</a> (longttle)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">News, Weather and Sports for Sioux Falls, South Dakota, Minnesota and Iowa</a> (we09th)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\"><strong>&amp;</strong> How to build a better WMD - Whitehouse.gov</a> (bombrus)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">YouTube - The Evolution of Dance</a> (tubez239)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Top Ten CSS Scripts\ton Listmania</a> (list888)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Amazon Web Services Developer Connection : Running MySQL on Amazon EC2 with Elastic Block Store</a> (ama03e)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Firefox Extensions: Mozilla Crowns Best Firefox 3 Extensions</a> (fir489e)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">11 Things Startups Should Know About Enterprise 2.0 - ReadWriteWeb</a> (rww1120)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Create Free iPhone Ringtones Using iTunes in Windows</a> (tunf19e)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <small><strong>IMG</strong></small> <a href=\"#\">2781717573_1449ce775c_o.jpg (JPEG Image, 413x528 pixels)</a> (cecojpg)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Photosynth : Microsoft Live Labs</a> (msphotol)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <small><strong>NEW</strong></small> <a href=\"#\">Obama: I've decided on my running mate - CNN.com</a> (obamcnn)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Oh, Come On Already!  - The Caucus Blog - NYTimes.com</a> (obamnyt)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">VictoriasSecret.com: The Official Site of Victoria's Secret</a> (3secret)</li>\n"
+_erbout.concat "  \t\t\t\t\t</ul>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t\t<h4>\n"
+_erbout.concat "  \t\t\t\t\t\t<h3><a href=\"#\">Page 2 &rarr;</a> <a href=\"\">3</a> <a href=\"\">4</a> <a href=\"\">5</a> <a href=\"\">6</a> <a href=\"\">7</a> <a href=\"\">8</a> ... <a href=\"\">&infin;</a></h3>\n"
+_erbout.concat "  \t\t\t\t\t</h4>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t</div>\n"
+_erbout.concat "  \t\t\t</div>\n"
+_erbout.concat "  \t\t\t<hr class=\"clear\" />\n"
+_erbout.concat "  \t\t</div>\n"
+_erbout.concat "  \t</div>\n"
+_erbout.concat "    \n"
+_erbout.concat "  </body>\n"
+_erbout.concat "</html>"; _erbout
+end
+Backtrace: /Volumes/RAID/Sites/Numenor/config/../app/views/layouts/application.rhtml:106:in `compile_template'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_view/base.rb:319:in `compile_and_render_template'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_view/base.rb:301:in `render_template'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_view/base.rb:260:in `render_file'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/layout.rb:254:in `render_without_benchmark'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:632:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/rescue.rb:83:in `perform_action'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/base.rb:430:in `send'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/base.rb:430:in `process_without_filters'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/session_management.rb:114:in `process'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/base.rb:330:in `process'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/railties/lib/dispatcher.rb:41:in `dispatch'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+ActionView::TemplateError (compile error
+/Volumes/RAID/Sites/Numenor/config/../app/views/layouts/application.rhtml:22: syntax error, unexpected ')', expecting tASSOC
+_erbout.concat "  \t\t\t<h1 id=\"logo\">"; _erbout.concat(( link_to "THE URLD", :controller => 'numenor', { :title => '&lt;&lt; Go home' } ).to_s); _erbout.concat "</h1>\n"
+                                                                                                                                            ^) on line #22 of app/views/layouts/application.rhtml:
+19:   	
+20:   	<div id="container">
+21:   		<div id="flag">
+22:   			<h1 id="logo"><%= link_to "THE URLD", :controller => 'numenor', { :title => '&lt;&lt; Go home' } %></h1>
+23:   			<img src="images/newaroundhere.gif" alt="New Around Here? Create An Account!" />
+24:   		</div>
+25: 
+
+    #{RAILS_ROOT}/app/views/layouts/application.rhtml:106:in `compile_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:319:in `compile_and_render_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:301:in `render_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:260:in `render_file'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/layout.rb:254:in `render_without_benchmark'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:632:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/rescue.rb:83:in `perform_action'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:430:in `send'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:430:in `process_without_filters'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/session_management.rb:114:in `process'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:330:in `process'
+    #{RAILS_ROOT}/vendor/rails/railties/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:26:09) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+ERROR: compiling _run_rhtml_47app47views47layouts47application46rhtml RAISED compile error
+/Volumes/RAID/Sites/Numenor/config/../app/views/layouts/application.rhtml:22: syntax error, unexpected ')', expecting tASSOC
+_erbout.concat "  \t\t\t<h1 id=\"logo\">"; _erbout.concat(( link_to("THE URLD", :controller => 'numenor', { :title => '&lt;&lt; Go home' }) ).to_s); _erbout.concat "</h1>\n"
+                                                                                                                                           ^
+Function body: def _run_rhtml_47app47views47layouts47application46rhtml(local_assigns)
+_erbout = ''; _erbout.concat "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
+_erbout.concat "  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
+_erbout.concat "<html>\n"
+_erbout.concat "  <head>\n"
+_erbout.concat "    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">\n"
+_erbout.concat "    <title>The Urld</title>\n"
+_erbout.concat "    "; _erbout.concat(( stylesheet_link_tag 'default' ).to_s); _erbout.concat "\n"
+_erbout.concat "    "; _erbout.concat(( javascript_include_tag :defaults ).to_s); _erbout.concat "\n"
+_erbout.concat "  </head>\n"
+_erbout.concat "  <body>\n"
+_erbout.concat "    \n"
+_erbout.concat "    <div id=\"post\">\n"
+_erbout.concat "  \t\t<div id=\"post_inner\">\t\t\t\n"
+_erbout.concat "  \t\t\t<div id=\"menu\">\n"
+_erbout.concat "  \t\t\t\t<p>"; _erbout.concat(( link_to "About", :controller => 'numenor', :action => 'about' ).to_s); _erbout.concat " "; _erbout.concat(( link_to "Create An Account", :controller => 'members', :action => 'register' ).to_s); _erbout.concat "</p>\n"
+_erbout.concat "  \t\t\t</div>\n"
+_erbout.concat "  \t\t</div>\n"
+_erbout.concat "  \t</div>\n"
+_erbout.concat "  \t\n"
+_erbout.concat "  \t<div id=\"container\">\n"
+_erbout.concat "  \t\t<div id=\"flag\">\n"
+_erbout.concat "  \t\t\t<h1 id=\"logo\">"; _erbout.concat(( link_to("THE URLD", :controller => 'numenor', { :title => '&lt;&lt; Go home' }) ).to_s); _erbout.concat "</h1>\n"
+_erbout.concat "  \t\t\t<img src=\"images/newaroundhere.gif\" alt=\"New Around Here? Create An Account!\" />\n"
+_erbout.concat "  \t\t</div>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t<div id=\"wrapper_main\">\n"
+_erbout.concat "  \t\t\t<div id=\"left_side\">\n"
+_erbout.concat "  \t\t\t\t<h2>LOGIN</h2>\n"
+_erbout.concat "  \t\t\t\t<div class=\"post_box\">\n"
+ form_tag :controller => 'members', :action => 'login' do 
+_erbout.concat "  \t\t\t\t\t  <label for=\"member_username\">Username</label>\n"
+_erbout.concat "  \t\t\t\t\t  "; _erbout.concat(( text_field "member", "username" ).to_s); _erbout.concat "\n"
+_erbout.concat "  \t\t\t\t\t  <label for=\"member_password\">Password</label> <strong><a href=\"#\">?</a></strong>\n"
+_erbout.concat "  \t\t\t\t\t  "; _erbout.concat(( password_field "member", "password" ).to_s); _erbout.concat "\n"
+_erbout.concat "  \t\t\t\t\t  "; _erbout.concat(( submit_tag "Login" ).to_s); _erbout.concat "&nbsp;\n"
+_erbout.concat "  \t\t\t\t\t  <label for=\"remember_me\">Remember Me</label>\n"
+_erbout.concat "  \t\t\t\t\t  "; _erbout.concat(( check_box_tag "remember_me", :checked => 'checked' ).to_s); _erbout.concat "&nbsp;\n"
+ end 
+_erbout.concat "  \t\t\t\t</div>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t<h2>CATEGORIES</h2>\n"
+_erbout.concat "  \t\t\t\t<h4>General Categories</h4>\n"
+_erbout.concat "  \t\t\t\t<ul>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">News</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Politics</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Technology</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Design</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Science</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Gaming</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Lifestyle</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Entertainment</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Sports</a></li>\n"
+_erbout.concat "  \t\t\t\t\t<li><a href=\"#\">Offbeat</a></li>\n"
+_erbout.concat "  \t\t\t\t</ul>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t<h4>Subcategories</h4>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t</div>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t<div id=\"right_side\">\n"
+_erbout.concat "  \t\t\t\t<h2>URLS</h2>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t<div id=\"tabs\">\n"
+_erbout.concat "  \t\t\t\t\t<a href=\"\" class=\"options_on\">Public Url Feed</a>\n"
+_erbout.concat "  \t\t\t\t</div>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t<div class=\"cell\">\n"
+_erbout.concat "  \t\t\t\t\t<h4><a href=\"#\" class=\"toggle\">Toggle Url Description <strong>+</strong></a>Page 1</h4>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t\t<ul>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a><small><strong>VID</strong></small> <a href=\"/tiger01\">YouTube - Tiger Woods 09 - Walk on Water</a> (tiger01)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/room378\">Roomorama - The quick and easy way to arrange short term stays</a> (room378)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/d40myth\">When Things Go Wrong - Mythbusters</a> (d40myth)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/a45rock\">How to build a better rocket - WikiHow</a> (a45rock)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/1combin\">What do you get when you combine, Digg, Delicious, and Elfurl?</a> (1combin)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"/20logo\">Toxel.com \302\273 20 Famous Logo Designs</a> (20logo)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">How to survive in the wilderness for two years - WikiHow</a> (wildwood)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Four Score and Seven Years ago I Built a Trebuchet That Contained Lethal Weapons Of Mass Hoover Dam Control ...</a> (longttle)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">News, Weather and Sports for Sioux Falls, South Dakota, Minnesota and Iowa</a> (we09th)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\"><strong>&amp;</strong> How to build a better WMD - Whitehouse.gov</a> (bombrus)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">YouTube - The Evolution of Dance</a> (tubez239)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Top Ten CSS Scripts\ton Listmania</a> (list888)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Amazon Web Services Developer Connection : Running MySQL on Amazon EC2 with Elastic Block Store</a> (ama03e)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Firefox Extensions: Mozilla Crowns Best Firefox 3 Extensions</a> (fir489e)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">11 Things Startups Should Know About Enterprise 2.0 - ReadWriteWeb</a> (rww1120)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Create Free iPhone Ringtones Using iTunes in Windows</a> (tunf19e)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <small><strong>IMG</strong></small> <a href=\"#\">2781717573_1449ce775c_o.jpg (JPEG Image, 413x528 pixels)</a> (cecojpg)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Photosynth : Microsoft Live Labs</a> (msphotol)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <small><strong>NEW</strong></small> <a href=\"#\">Obama: I've decided on my running mate - CNN.com</a> (obamcnn)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">Oh, Come On Already!  - The Caucus Blog - NYTimes.com</a> (obamnyt)</li>\n"
+_erbout.concat "  \t\t\t\t\t\t<li><a href=\"#\" class=\"expand\">+</a> <a href=\"#\">VictoriasSecret.com: The Official Site of Victoria's Secret</a> (3secret)</li>\n"
+_erbout.concat "  \t\t\t\t\t</ul>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t\t<h4>\n"
+_erbout.concat "  \t\t\t\t\t\t<h3><a href=\"#\">Page 2 &rarr;</a> <a href=\"\">3</a> <a href=\"\">4</a> <a href=\"\">5</a> <a href=\"\">6</a> <a href=\"\">7</a> <a href=\"\">8</a> ... <a href=\"\">&infin;</a></h3>\n"
+_erbout.concat "  \t\t\t\t\t</h4>\n"
+_erbout.concat "\n"
+_erbout.concat "  \t\t\t\t</div>\n"
+_erbout.concat "  \t\t\t</div>\n"
+_erbout.concat "  \t\t\t<hr class=\"clear\" />\n"
+_erbout.concat "  \t\t</div>\n"
+_erbout.concat "  \t</div>\n"
+_erbout.concat "    \n"
+_erbout.concat "  </body>\n"
+_erbout.concat "</html>"; _erbout
+end
+Backtrace: /Volumes/RAID/Sites/Numenor/config/../app/views/layouts/application.rhtml:106:in `compile_template'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_view/base.rb:319:in `compile_and_render_template'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_view/base.rb:301:in `render_template'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_view/base.rb:260:in `render_file'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/layout.rb:254:in `render_without_benchmark'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:632:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/rescue.rb:83:in `perform_action'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/base.rb:430:in `send'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/base.rb:430:in `process_without_filters'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/session_management.rb:114:in `process'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/base.rb:330:in `process'
+/Volumes/RAID/Sites/Numenor/config/../vendor/rails/railties/lib/dispatcher.rb:41:in `dispatch'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+/Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+ActionView::TemplateError (compile error
+/Volumes/RAID/Sites/Numenor/config/../app/views/layouts/application.rhtml:22: syntax error, unexpected ')', expecting tASSOC
+_erbout.concat "  \t\t\t<h1 id=\"logo\">"; _erbout.concat(( link_to("THE URLD", :controller => 'numenor', { :title => '&lt;&lt; Go home' }) ).to_s); _erbout.concat "</h1>\n"
+                                                                                                                                           ^) on line #22 of app/views/layouts/application.rhtml:
+19:   	
+20:   	<div id="container">
+21:   		<div id="flag">
+22:   			<h1 id="logo"><%= link_to("THE URLD", :controller => 'numenor', { :title => '&lt;&lt; Go home' }) %></h1>
+23:   			<img src="images/newaroundhere.gif" alt="New Around Here? Create An Account!" />
+24:   		</div>
+25: 
+
+    #{RAILS_ROOT}/app/views/layouts/application.rhtml:106:in `compile_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:319:in `compile_and_render_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:301:in `render_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:260:in `render_file'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/layout.rb:254:in `render_without_benchmark'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:632:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/rescue.rb:83:in `perform_action'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:430:in `send'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:430:in `process_without_filters'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/session_management.rb:114:in `process'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:330:in `process'
+    #{RAILS_ROOT}/vendor/rails/railties/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:26:24) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01419 (70 reqs/sec) | Rendering: 0.01332 (93%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:26:24) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/images/logo_urld.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:26:25) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/newaroundhere.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:26:53) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.00710 (140 reqs/sec) | Rendering: 0.00619 (87%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:26:53) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/newaroundhere.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:26:53) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/images/logo_urld.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:27:01) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.00673 (148 reqs/sec) | Rendering: 0.00589 (87%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:01) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/newaroundhere.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:01) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/images/logo_urld.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:27:04) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.00677 (147 reqs/sec) | Rendering: 0.00590 (87%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:04) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/newaroundhere.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:04) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/images/logo_urld.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:27:16) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.00693 (144 reqs/sec) | Rendering: 0.00605 (87%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:16) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/newaroundhere.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:16) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/images/logo_urld.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:27:23) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.00711 (140 reqs/sec) | Rendering: 0.00616 (86%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:24) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/newaroundhere.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:24) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/images/logo_urld.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:27:27) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.07306 (13 reqs/sec) | Rendering: 0.07217 (98%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:27) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/newaroundhere.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:27) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/images/logo_urld.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:27:30) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.00669 (149 reqs/sec) | Rendering: 0.00585 (87%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:30) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/newaroundhere.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:27:30) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/images/logo_urld.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:28:58) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.00665 (150 reqs/sec) | Rendering: 0.00579 (87%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-21 13:28:58) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/newaroundhere.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 13:29:57) [GET]
+  Session ID: b56acb8cbdb776bee96ab1f309735f97
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.07767 (12 reqs/sec) | Rendering: 0.07682 (98%) | 200 OK [http://localhost/]

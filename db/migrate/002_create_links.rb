@@ -4,6 +4,8 @@ class CreateLinks < ActiveRecord::Migration
       t.column :member_id, :integer, :null => false
       t.column :domain_id, :integer, :null => false
       
+      
+      t.column :title, :text, :null => false
       t.column :uri, :text, :null => false
       t.column :path, :text
       t.column :variables, :text

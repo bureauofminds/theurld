@@ -3,70 +3,103 @@
 <html>
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <title>Númenor</title>
+    <title>The Urld</title>
     <%= stylesheet_link_tag 'default' %>
     <%= javascript_include_tag :defaults %>
   </head>
   <body>
-    <div id="repository">
-      <div id="header">
-        <h1><%= link_to "<span class=\"hide\">Númenor</span>", :controller => 'neumenor', :action => 'index' %></h1>
-      </div>
     
-      <div id="container">
-      
-        <div id="substance">
-        
-          <div id="sidebar">
-            <h3>Welcome<%- if session[:logged_in] == true -%> <%= @master_member.username %><%- end -%>!</h3>
-            <%= image_tag "login.png", :size => '60x60', :id => 'login_badge' %>
-            <p><%= link_to "Login", :controller => 'members', :action => 'login' %></p>
-          
-            <h3>Categories</h3>
-            <ul>
-              <li><%= link_to "News" %></li>
-              <li><%= link_to "Politics" %></li>
-              <li><%= link_to "Technology" %></li>
-              <li><%= link_to "Design" %></li>
-              <li><%= link_to "Science" %></li>
-              <li><%= link_to "Gaming" %></li>
-              <li><%= link_to "Lifestyle" %></li>
-              <li><%= link_to "Entertainment" %></li>
-              <li><%= link_to "Sports" %></li>
-              <li><%= link_to "Offbeat" %></li>
-            </ul>
-          
-            <!--
-            <h3>Hi, timerickson</h3>
-            <p><%= link_to "Top" %></p>
-            <ul>
-              <li><%= link_to "New for you!" %></li>
-              <li><%= link_to "My found" %></li>
-              <il><%= link_to "My profile" %></il>
-            </ul>
-            <ul>
-              <li><%= link_to "About" %></li>
-              <li><%= link_to "How to use" %></li>
-              <li><%= link_to "Screensaver" %></li>
-              <li><%= link_to "Invitations" %></li>
-            </ul>
-            <p><%= link_to "Sign out" %></p>
-            -->
-          
-            <p id="copyright">Application &copy; <%= Time.now.year %> Númenor, <%= link_to "Neutyp", "http://neutyp.com" %>.</p>
-          </div>
-        
-          <div id="content">
-            <%- if flash[:notice] or flash[:error] -%>
-            <p><span id="flash"><%= flash[:notice] || flash[:error] %></span></p>
-            <%- end -%>
-          
-            <%= @content_for_layout %>
-          </div>
-        
-          <br class="clear" />
-        </div>
-      </div>
-    </div>
+    <div id="post">
+  		<div id="post_inner">			
+  			<div id="menu">
+  				<p><%= link_to "About", :controller => 'numenor', :action => 'about' %> <%= link_to "Create An Account", :controller => 'members', :action => 'register' %></p>
+  			</div>
+  		</div>
+  	</div>
+  	
+  	<div id="container">
+  		<div id="flag">
+  			<h1 id="logo"><%= link_to("THE URLD", {:controller => 'numenor'}, :title => '&lt;&lt; Go home') %></h1>
+  			<%= image_tag "interface/newaroundhere.gif", :size => '230x35', :alt => "New around here? Create an account!" %>
+  		</div>
+
+  		<div id="wrapper_main">
+  			<div id="left_side">
+  				<h2>LOGIN</h2>
+  				<div class="post_box">
+  					<%- form_tag :controller => 'members', :action => 'login' do -%>
+  					  <label for="member_username">Username</label>
+  					  <%= text_field "member", "username" %>
+  					  <label for="member_password">Password</label> <strong><a href="#">?</a></strong>
+  					  <%= password_field "member", "password" %>
+  					  <%= submit_tag "Login" %>&nbsp;
+  					  <label for="remember_me">Remember Me</label>
+  					  <%= check_box_tag "remember_me", :checked => 'checked' %>&nbsp;
+  					<%- end -%>
+  				</div>
+
+  				<h2>CATEGORIES</h2>
+  				<h4>General Categories</h4>
+  				<ul>
+  					<li><a href="#">News</a></li>
+  					<li><a href="#">Politics</a></li>
+  					<li><a href="#">Technology</a></li>
+  					<li><a href="#">Design</a></li>
+  					<li><a href="#">Science</a></li>
+  					<li><a href="#">Gaming</a></li>
+  					<li><a href="#">Lifestyle</a></li>
+  					<li><a href="#">Entertainment</a></li>
+  					<li><a href="#">Sports</a></li>
+  					<li><a href="#">Offbeat</a></li>
+  				</ul>
+
+  				<h4>Subcategories</h4>
+
+  			</div>
+
+  			<div id="right_side">
+  				<h2>URLS</h2>
+
+  				<div id="tabs">
+  					<a href="" class="options_on">Public Url Feed</a>
+  				</div>
+
+  				<div class="cell">
+  					<h4><a href="#" class="toggle">Toggle Url Description <strong>+</strong></a>Page 1</h4>
+
+  					<ul>
+  						<li><a href="#" class="expand">+</a><small><strong>VID</strong></small> <a href="/tiger01">YouTube - Tiger Woods 09 - Walk on Water</a> (tiger01)</li>
+  						<li><a href="#" class="expand">+</a> <a href="/room378">Roomorama - The quick and easy way to arrange short term stays</a> (room378)</li>
+  						<li><a href="#" class="expand">+</a> <a href="/d40myth">When Things Go Wrong - Mythbusters</a> (d40myth)</li>
+  						<li><a href="#" class="expand">+</a> <a href="/a45rock">How to build a better rocket - WikiHow</a> (a45rock)</li>
+  						<li><a href="#" class="expand">+</a> <a href="/1combin">What do you get when you combine, Digg, Delicious, and Elfurl?</a> (1combin)</li>
+  						<li><a href="#" class="expand">+</a> <a href="/20logo">Toxel.com » 20 Famous Logo Designs</a> (20logo)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">How to survive in the wilderness for two years - WikiHow</a> (wildwood)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">Four Score and Seven Years ago I Built a Trebuchet That Contained Lethal Weapons Of Mass Hoover Dam Control ...</a> (longttle)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">News, Weather and Sports for Sioux Falls, South Dakota, Minnesota and Iowa</a> (we09th)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#"><strong>&amp;</strong> How to build a better WMD - Whitehouse.gov</a> (bombrus)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">YouTube - The Evolution of Dance</a> (tubez239)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">Top Ten CSS Scripts	on Listmania</a> (list888)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">Amazon Web Services Developer Connection : Running MySQL on Amazon EC2 with Elastic Block Store</a> (ama03e)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">Firefox Extensions: Mozilla Crowns Best Firefox 3 Extensions</a> (fir489e)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">11 Things Startups Should Know About Enterprise 2.0 - ReadWriteWeb</a> (rww1120)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">Create Free iPhone Ringtones Using iTunes in Windows</a> (tunf19e)</li>
+  						<li><a href="#" class="expand">+</a> <small><strong>IMG</strong></small> <a href="#">2781717573_1449ce775c_o.jpg (JPEG Image, 413x528 pixels)</a> (cecojpg)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">Photosynth : Microsoft Live Labs</a> (msphotol)</li>
+  						<li><a href="#" class="expand">+</a> <small><strong>NEW</strong></small> <a href="#">Obama: I've decided on my running mate - CNN.com</a> (obamcnn)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">Oh, Come On Already!  - The Caucus Blog - NYTimes.com</a> (obamnyt)</li>
+  						<li><a href="#" class="expand">+</a> <a href="#">VictoriasSecret.com: The Official Site of Victoria's Secret</a> (3secret)</li>
+  					</ul>
+
+  					<h4>
+  						<h3><a href="#">Page 2 &rarr;</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> <a href="">6</a> <a href="">7</a> <a href="">8</a> ... <a href="">&infin;</a></h3>
+  					</h4>
+
+  				</div>
+  			</div>
+  			<hr class="clear" />
+  		</div>
+  	</div>
+    
   </body>
 </html>

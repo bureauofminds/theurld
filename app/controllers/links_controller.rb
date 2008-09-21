@@ -33,18 +33,18 @@ class LinksController < ApplicationController
           # perhaps there's a way to get the title
           # of the page without having to use mechanize
           # i.e. lots of gems
-          @domain.title = WWW::Mechanize.new.get(uri).title
+          @domain.title = WWW::Mechanize.new.get(uri.host).title
           @domain.scheme = uri.scheme
           @domain.domain = uri.host
           @domain.save
         end
 
-
-        # TODO - Angelo Ashmore, 9/20/08 8:42 PM: below is old, needs to be rewritten
         @link = Link.new
         @link.domain_id = @domain.id
-        @link.uri = params[:link][:uri]
-        @link.path = @link.uri.gsub("http://", '').gsub(@domain.domain, '')
+        @link.title = WWW::Mechanize.new.get(uri).title
+        @link.uri = uri
+        @link.path = uri.path
+        @link.save
       end
     end
   end
