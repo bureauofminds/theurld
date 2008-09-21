@@ -2,12 +2,33 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "categories", :force => true do |t|
+    t.column "name",            :string,   :default => "", :null => false
+    t.column "description",     :text,     :default => "", :null => false
+    t.column "number_of_links", :integer,                  :null => false
+    t.column "created_on",      :datetime,                 :null => false
+    t.column "updated_on",      :datetime,                 :null => false
+  end
+
+  create_table "domains", :force => true do |t|
+    t.column "title",           :text
+    t.column "domain",          :string,   :default => "", :null => false
+    t.column "number_of_links", :integer,                  :null => false
+    t.column "created_on",      :datetime,                 :null => false
+    t.column "updated_on",      :datetime,                 :null => false
   end
 
   create_table "links", :force => true do |t|
+    t.column "member_id",  :integer,                  :null => false
+    t.column "domain_id",  :integer,                  :null => false
+    t.column "full_path",  :text,     :default => "", :null => false
+    t.column "path",       :text
+    t.column "variables",  :text
+    t.column "code",       :string,   :default => "", :null => false
+    t.column "created_on", :datetime,                 :null => false
+    t.column "updated_on", :datetime,                 :null => false
   end
 
   create_table "members", :force => true do |t|

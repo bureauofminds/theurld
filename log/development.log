@@ -4368,3 +4368,283 @@ Processing NumenorController#index (for 127.0.0.1 at 2008-09-11 18:15:51) [GET]
 Rendering  within layouts/application
 Rendering numenor/index
 Completed in 0.02593 (38 reqs/sec) | Rendering: 0.00808 (31%) | DB: 0.00205 (7%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 11:39:40) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01923 (52 reqs/sec) | Rendering: 0.01837 (95%) | 200 OK [http://localhost/]
+
+
+Processing MembersController#login (for 127.0.0.1 at 2008-09-20 11:40:06) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"login", "controller"=>"members"}
+Rendering  within layouts/application
+Rendering members/login
+Completed in 0.00589 (169 reqs/sec) | Rendering: 0.00507 (86%) | 200 OK [http://localhost/login]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 11:43:51) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.07173 (13 reqs/sec) | Rendering: 0.00780 (10%) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.000168)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.024990)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000153)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000121)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000149)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateDomains (4)
+  [4;35;1mSQL (0.056457)[0m   [0mCREATE TABLE domains (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` text DEFAULT NULL, `domain` varchar(255) NOT NULL, `number_of_links` int(11) NOT NULL, `created_on` datetime NOT NULL, `updated_on` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.024020)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000155)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000280)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001373)[0m   [0mSHOW FIELDS FROM domains[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mSHOW KEYS FROM domains[0m
+  [4;35;1mSQL (0.001469)[0m   [0mSHOW FIELDS FROM members[0m
+  [4;36;1mSQL (0.000332)[0m   [0;1mSHOW KEYS FROM members[0m
+  [4;36;1mSQL (0.000174)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.001430)[0m   [0mCREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000503)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000194)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (1)
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'members' already exists: CREATE TABLE members (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) NOT NULL, `password` varchar(255) NOT NULL, `first_name` varchar(255) NOT NULL, `last_name` varchar(255) NOT NULL, `email_address` varchar(255) NOT NULL, `created_on` datetime NOT NULL, `updated_on` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000169)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000220)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (1)
+  [4;36;1mSQL (0.001653)[0m   [0;1mCREATE TABLE members (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) NOT NULL, `password` varchar(255) NOT NULL, `first_name` varchar(255) NOT NULL, `last_name` varchar(255) NOT NULL, `email_address` varchar(255) NOT NULL, `created_on` datetime NOT NULL, `updated_on` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000221)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateLinks (2)
+  [4;35;1mSQL (0.015821)[0m   [0mCREATE TABLE links (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `member_id` int(11) NOT NULL, `domain_id` int(11) NOT NULL, `full_path` text NOT NULL, `path` text DEFAULT NULL, `variables` text DEFAULT NULL, `code` varchar(255) NOT NULL, `created_on` datetime NOT NULL, `updated_on` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000257)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000121)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateCategories (3)
+  [4;36;1mSQL (0.006842)[0m   [0;1mCREATE TABLE categories (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `description` text NOT NULL, `number_of_links` int(11) NOT NULL, `created_on` datetime NOT NULL, `updated_on` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000241)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000142)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateDomains (4)
+  [4;35;1mSQL (0.001412)[0m   [0mCREATE TABLE domains (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` text DEFAULT NULL, `domain` varchar(255) NOT NULL, `number_of_links` int(11) NOT NULL, `created_on` datetime NOT NULL, `updated_on` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000316)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000143)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000320)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001402)[0m   [0mSHOW FIELDS FROM categories[0m
+  [4;36;1mSQL (0.000416)[0m   [0;1mSHOW KEYS FROM categories[0m
+  [4;35;1mSQL (0.001387)[0m   [0mSHOW FIELDS FROM domains[0m
+  [4;36;1mSQL (0.000289)[0m   [0;1mSHOW KEYS FROM domains[0m
+  [4;35;1mSQL (0.001366)[0m   [0mSHOW FIELDS FROM links[0m
+  [4;36;1mSQL (0.000341)[0m   [0;1mSHOW KEYS FROM links[0m
+  [4;35;1mSQL (0.001665)[0m   [0mSHOW FIELDS FROM members[0m
+  [4;36;1mSQL (0.000306)[0m   [0;1mSHOW KEYS FROM members[0m
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:28:34) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.00781 (127 reqs/sec) | Rendering: 0.00688 (88%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:35:15) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+
+
+ActionView::TemplateError (undefined method `domain' for #<#<Class:0x2697c7c>:0x2697c54>) on line #16 of app/views/layouts/application.rhtml:
+13:         <h1><%= link_to "<span class=\"hide\">Númenor</span>", :controller => 'neumenor', :action => 'index' %></h1>
+14:       </div>
+15:       
+16:       <%= domain("http://dl.studiopd.com/") %>
+17:     
+18:       <div id="container">
+19:       
+
+    #{RAILS_ROOT}/app/views/layouts/application.rhtml:16:in `_run_rhtml_47app47views47layouts47application46rhtml'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:326:in `send'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:326:in `compile_and_render_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:301:in `render_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:260:in `render_file'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/layout.rb:254:in `render_without_benchmark'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:632:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/rescue.rb:83:in `perform_action'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:430:in `send'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:430:in `process_without_filters'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/session_management.rb:114:in `process'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:330:in `process'
+    #{RAILS_ROOT}/vendor/rails/railties/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:36:11) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+
+
+ActionView::TemplateError (undefined local variable or method `tld_length' for #<#<Class:0x27aff10>:0x27afee8>) on line #16 of app/views/layouts/application.rhtml:
+13:         <h1><%= link_to "<span class=\"hide\">Númenor</span>", :controller => 'neumenor', :action => 'index' %></h1>
+14:       </div>
+15:       
+16:       <%= "http://dl.studiopd.com/".split('.').last(1 + tld_length).join('.') %>
+17:     
+18:       <div id="container">
+19:       
+
+    #{RAILS_ROOT}/app/views/layouts/application.rhtml:16:in `_run_rhtml_47app47views47layouts47application46rhtml'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:326:in `send'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:326:in `compile_and_render_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:301:in `render_template'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_view/base.rb:260:in `render_file'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/layout.rb:254:in `render_without_benchmark'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:50:in `render'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:632:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:638:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:438:in `call'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:637:in `call_filter'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/rescue.rb:83:in `perform_action'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:430:in `send'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:430:in `process_without_filters'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/session_management.rb:114:in `process'
+    #{RAILS_ROOT}/vendor/rails/actionpack/lib/action_controller/base.rb:330:in `process'
+    #{RAILS_ROOT}/vendor/rails/railties/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Volumes/RAID/Sites/Numenor/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:36:17) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01204 (83 reqs/sec) | Rendering: 0.01117 (92%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:36:21) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01252 (79 reqs/sec) | Rendering: 0.01168 (93%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:36:25) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01302 (76 reqs/sec) | Rendering: 0.01209 (92%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:36:53) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01314 (76 reqs/sec) | Rendering: 0.01226 (93%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:37:44) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01271 (78 reqs/sec) | Rendering: 0.01185 (93%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:37:56) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01267 (78 reqs/sec) | Rendering: 0.01182 (93%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-20 13:38:02) [GET]
+  Session ID: f2216fd21557aed0920e6dde7b085152
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01202 (83 reqs/sec) | Rendering: 0.01119 (93%) | 200 OK [http://localhost/]

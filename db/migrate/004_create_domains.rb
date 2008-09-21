@@ -1,8 +1,10 @@
-class CreateCategories < ActiveRecord::Migration
+class CreateDomains < ActiveRecord::Migration
   def self.up
-    create_table :categories do |t|
-      t.column :name, :string, :null => false
-      t.column :description, :text, :null => false
+    create_table :domains do |t|
+      t.column :title, :text
+      
+      t.column :scheme, :string, :null => false
+      t.column :domain, :string, :null => false
       
       t.column :number_of_links, :integer, :default => 0, :null => false
       
@@ -12,6 +14,6 @@ class CreateCategories < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :categories
+    drop_table :domains
   end
 end
