@@ -11,7 +11,7 @@ class LinksController < ApplicationController
       require 'mechanize'
       
       scheme = URI.parse(params[:link][:uri]).scheme
-      if scheme != nil or scheme.downcase != "http"
+      if scheme.downcase != "http"
         flash[:error] = "Sorry, only HTTP URIs are currently supported."
         # TODO - Angelo Ashmore, 9/20/08: Make this redirect somewhere
         return redirect_to "/"
@@ -21,7 +21,7 @@ class LinksController < ApplicationController
       
       response = Net::HTTP.new(uri.host).request_head(uri.path)
       
-      if response != 200
+      if response == 404
         flash[:error] = "Looks like that page doesn't exist!"
         # TODO - Angelo Ashmore, 9/20/08: Make this redirect somewhere
         redirect_to "/"
@@ -33,18 +33,22 @@ class LinksController < ApplicationController
           # perhaps there's a way to get the title
           # of the page without having to use mechanize
           # i.e. lots of gems
-          @domain.title = WWW::Mechanize.new.get(uri.host).title
+          @domain.title = WWW::Mechanize.new.get("#{uri.scheme}://#{uri.host}").title
           @domain.scheme = uri.scheme
           @domain.domain = uri.host
           @domain.save
         end
 
         @link = Link.new
+        @link.member_id = @master_member.id
         @link.domain_id = @domain.id
-        @link.title = WWW::Mechanize.new.get(uri).title
-        @link.uri = uri
-        @link.path = uri.path
+        @link.title = WWW::Mechanize.new.get(uri).title.to_s
+        @link.uri = params[:link][:uri]
+        @link.path = uri.path.to_s
+        @link.code = "hello"
         @link.save
+        
+        @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
       end
     end
   end

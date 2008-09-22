@@ -2,5 +2,5 @@
 mode: development
 port: 3020
 bundle: /Applications/Locomotive2.0.8/Bundles/rmagickRailsMar2007_i386.locobundle
-runs_at_launch: 0
+runs_at_launch: 1
 identifier: Numenor
