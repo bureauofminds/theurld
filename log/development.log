@@ -7254,3 +7254,23 @@ Processing LinksController#add (for 127.0.0.1 at 2008-09-21 14:31:57) [POST]
 Rendering  within layouts/application
 Rendering links/add
 Completed in 3.35888 (0 reqs/sec) | Rendering: 0.00429 (0%) | DB: 0.02557 (0%) | 200 OK [http://localhost/links/add]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 15:23:31) [GET]
+  Session ID: 350ae6dbf52e04976939c1c304692014
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+  [4;36;1mMember Columns (0.001711)[0m   [0;1mSHOW FIELDS FROM members[0m
+  [4;35;1mMember Load (0.000272)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01812 (55 reqs/sec) | Rendering: 0.01026 (56%) | DB: 0.00198 (10%) | 200 OK [http://localhost/]
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-09-21 15:24:44) [GET]
+  Session ID: 350ae6dbf52e04976939c1c304692014
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+  [4;36;1mMember Columns (0.001635)[0m   [0;1mSHOW FIELDS FROM members[0m
+  [4;35;1mMember Load (0.001166)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendering  within layouts/application
+Rendering numenor/index
+Completed in 0.01689 (59 reqs/sec) | Rendering: 0.00793 (46%) | DB: 0.00280 (16%) | 200 OK [http://localhost/]
