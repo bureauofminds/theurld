@@ -1,7 +1,8 @@
 class LinksController < ApplicationController
   
   def view
-    ###
+    @link = Link.find_by_code(params[:code])
+    redirect_to @link.uri
   end
   
   def add
@@ -45,11 +46,17 @@ class LinksController < ApplicationController
         @link = Link.new
         @link.member_id = @master_member.id
         @link.domain_id = @domain.id
-        @link.title = WWW::Mechanize.new.get(uri).title.to_s
+        # images won't return a title, so filename is used
+        # hopefully we can come up with a better method/alternative
+        begin
+          @link.title = WWW::Mechanize.new.get(uri).title.to_s
+        rescue
+          @link.title = WWW::Mechanize.new.get(uri).filename.to_s
+        end
         @link.uri = params[:link][:uri]
         @link.path = uri.path.to_s
+        @link.code = md5(Time.now)
         @link.save
-        @link.update_attribute("code", md5(@link.created_on))
         
         @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
       end

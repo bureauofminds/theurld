@@ -72,6 +72,11 @@
   				</ul>
 
   				<h4>Subcategories</h4>
+  				<ul>
+  					<%- @subcategories.each do |c| -%>
+  					<li><%= link_to c.name, :controller => 'numenor', :action => 'category', :id => c.id %></li>
+  					<%- end -%>
+  				</ul>
 
   			</div>
 

@@ -5,7 +5,7 @@
 <li class="<%= cycle("row1", "row2") %>">
   <a class="expand" id="toggle_<%= link.id %>_plus" onclick="Element.show('info_<%= link.id %>'); Element.hide(this); Element.show('toggle_<%= link.id %>_minus')">+</a>
   <a class="expand" id="toggle_<%= link.id %>_minus" style="display: none;" onclick="Element.hide('info_<%= link.id %>'); Element.hide(this); Element.show('toggle_<%= link.id %>_plus')">-</a>
-  <%= link_to "#{truncate(link.title, 100)}", :controller => 'links', :action => 'view', :code => link.code %> (<%= link.code %>)
+  <%= link_to "#{truncate(link.title, 100)}", :controller => 'links', :action => 'view', :code => link.code %> (<%= truncate(link.code, 6, '') %>)
   <div id="info_<%= link.id %>" class="desc" style="display: none;">
     <%= domain.domain %> &#8212; <span class="text">Temporarily blank for now.</span>
     <%- if category -%>Filed in <em><%= link_to category.name, :controller => 'category', :action => 'view', :id => category.id %></em> on<%- end -%>

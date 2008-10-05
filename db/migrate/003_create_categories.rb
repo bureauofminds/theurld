@@ -4,6 +4,8 @@ class CreateCategories < ActiveRecord::Migration
       t.column :name, :string, :null => false
       t.column :description, :text
       
+      t.column :subcategory, :integer, :default => 0, :null => false
+      
       t.column :number_of_links, :integer, :default => 0, :null => false
       
       t.column :created_on, :datetime, :null => false
