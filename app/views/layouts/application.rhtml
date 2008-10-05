@@ -16,19 +16,7 @@
   			<small>quick submit</small>
   			<%- form_tag :controller => 'links', :action => 'add' do -%>
     			<%= text_field "link", "uri", :value => "http://" %>
-    			<select name="category">
-    				<option value="">Unsorted</option>
-    				<option value="">News</option>
-    				<option value="">Politics</option>
-    				<option value="">Technology</option>
-    				<option value="">Design</option>
-    				<option value="">Science</option>
-    				<option value="">Gaming</option>
-    				<option value="">Lifestyle</option>
-    				<option value="">Entertainment</option>
-    				<option value="">Sports</option>
-    				<option value="">Offbeat</option>
-    			</select>
+    			<%= collection_select 'link', 'category_id', @categories, 'id', 'name' %>
           <%= submit_tag "Go" %>
     			<%= hidden_field "link", "quick", :value => true %>
   			<%- end -%>
@@ -78,16 +66,9 @@
   				<h2>CATEGORIES</h2>
   				<h4>General Categories</h4>
   				<ul>
-  					<li><a href="#">News</a></li>
-  					<li><a href="#">Politics</a></li>
-  					<li><a href="#">Technology</a></li>
-  					<li><a href="#">Design</a></li>
-  					<li><a href="#">Science</a></li>
-  					<li><a href="#">Gaming</a></li>
-  					<li><a href="#">Lifestyle</a></li>
-  					<li><a href="#">Entertainment</a></li>
-  					<li><a href="#">Sports</a></li>
-  					<li><a href="#">Offbeat</a></li>
+  					<%- @categories.each do |c| -%>
+  					<li><%= link_to c.name, :controller => 'numenor', :action => 'category', :id => c.id %></li>
+  					<%- end -%>
   				</ul>
 
   				<h4>Subcategories</h4>

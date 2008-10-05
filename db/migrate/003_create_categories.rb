@@ -2,7 +2,7 @@ class CreateCategories < ActiveRecord::Migration
   def self.up
     create_table :categories do |t|
       t.column :name, :string, :null => false
-      t.column :description, :text, :null => false
+      t.column :description, :text
       
       t.column :number_of_links, :integer, :default => 0, :null => false
       
