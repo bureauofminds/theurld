@@ -34,8 +34,7 @@ class LinksController < ApplicationController
                               :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
         if !@domain
           @domain = Domain.new
-          # perhaps there's a way to get the title
-          # of the page without having to use mechanize
+          # perhaps there's a way to get the title of the page without having to use mechanize
           # i.e. lots of gems
           @domain.title = WWW::Mechanize.new.get("#{uri.scheme}://#{uri.host}").title
           @domain.scheme = uri.scheme
@@ -54,6 +53,8 @@ class LinksController < ApplicationController
         
         @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
       end
+      
+      redirect_to :controller => '/'
     end
   end
   

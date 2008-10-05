@@ -3,7 +3,7 @@ class CreateLinks < ActiveRecord::Migration
     create_table :links do |t|
       t.column :member_id, :integer, :null => false
       t.column :domain_id, :integer, :null => false
-      
+      t.column :category_id, :integer
       
       t.column :title, :text, :null => false
       t.column :uri, :text, :null => false

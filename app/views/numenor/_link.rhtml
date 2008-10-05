@@ -1,7 +1,14 @@
+<%-
+  domain = link.domain
+  category = link.category
+-%>
 <li class="<%= cycle("row1", "row2") %>">
-  <a class="expand" id="toggle_<%= link.id %>" onclick="Element.toggle('info_<%= link.id %>');">+</a>
-  <%= link_to "#{truncate(link.domain.title, 25)} - #{truncate(link.title, 60)}", :controller => 'links', :action => 'view', :code => link.code %> (<%= link.code %>)
-  <div id="info_<%= link.id %>" style="display: none;">
-    <small><strong>Originally added <%= datetime(link.created_on) %></strong> by <%= link_to link.member.username, :controller => 'members', :action => 'view', :id => link.member.id %></small><br/>
+  <a class="expand" id="toggle_<%= link.id %>_plus" onclick="Element.show('info_<%= link.id %>'); Element.hide(this); Element.show('toggle_<%= link.id %>_minus')">+</a>
+  <a class="expand" id="toggle_<%= link.id %>_minus" style="display: none;" onclick="Element.hide('info_<%= link.id %>'); Element.hide(this); Element.show('toggle_<%= link.id %>_plus')">-</a>
+  <%= link_to "#{truncate(link.title, 100)}", :controller => 'links', :action => 'view', :code => link.code %> (<%= link.code %>)
+  <div id="info_<%= link.id %>" class="desc" style="display: none;">
+    <%= domain.domain %> &#8212; <span class="text">Temporarily blank for now.</span>
+    <%- if category -%>Filed in <em><%= link_to category.name, :controller => 'category', :action => 'view', :id => category.id %></em> on<%- end -%>
+    <em><%= longdate(link.created_on) %></em> by <em><%= link_to link.member.username, :controller => 'members', :action => 'view', :id => link.member.id %></em>
   </div>
 </li>

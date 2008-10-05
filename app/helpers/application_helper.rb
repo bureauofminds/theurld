@@ -5,4 +5,8 @@ module ApplicationHelper
     date.strftime("%B %e, %Y at %I:%M %p")
   end
   
+  def longdate(date)
+    date.strftime("%A, %B %e, %Y")
+  end
+  
 end

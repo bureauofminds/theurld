@@ -23,6 +23,9 @@ div#post_inner {
 	margin: 0 auto;
 	text-align: left;
 }
+div#post_inner form {
+	display: inline;
+}
 div#menu {
 	font: normal 11px Helvetica, Arial, Verdana, sans-serif;
 	position: absolute;
