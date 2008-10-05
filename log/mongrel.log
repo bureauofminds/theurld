@@ -114,3 +114,71 @@
 /Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
 /Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
 /Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3020
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3020
+** Writing PID file to /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3020
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3020
+** Writing PID file to /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3020
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3020
+** Writing PID file to /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3020
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3020
+** Writing PID file to /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:17: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:21: warning: parenthesize argument(s) for future version
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3020
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3020
+** Writing PID file to /Volumes/RAID/Sites/Numenor/trunk/log/locomotive.pid
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:21: warning: parenthesize argument(s) for future version
+/Volumes/RAID/Sites/Numenor/trunk/config/../app/controllers/links_controller.rb:21: warning: parenthesize argument(s) for future version

@@ -300,11 +300,17 @@ li {
 	font: normal 12px Helvetica, Arial, Verdana, sans-serif;
 	padding: .5em 0;
 }
+  li.row1 {
+    background-color: #fff;
+  }
+  li.row2 {
+    background-color: #f5f7fB;
+  }
 	li a {
 		color: #06c;
 		text-decoration: underline;
 	}
-	li a:visited {
+	ul.feed li a:visited {
 		color: #69c;
 		text-decoration: underline;
 	}
@@ -333,10 +339,7 @@ li {
 		color: #fff;
 		background: #333;
 	}
-.altrow {
-	background-color: #f5f7fB;
-}
-
+	
 .post_box input, .post_box select {
 	margin: 2px 0 5px 0;
 }

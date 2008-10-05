@@ -17,7 +17,7 @@ class MembersController < ApplicationController
           flash[:error] = "A blank password is not allowed. Please try again."
           redirect_to :action => 'view', :id => @member.id and return
         else
-          params[:member][:password] = Digest::MD5.hexdigest(params[:member][:password])
+          params[:member][:password] = md5(params[:member][:password])
         end
         
         if @member.update_attributes(params[:member])
@@ -46,7 +46,7 @@ class MembersController < ApplicationController
   
   def new
     if request.post?
-      params[:member][:password] = Digest::MD5.hexdigest(params[:member][:password])
+      params[:member][:password] = md5(params[:member][:password])
       @member = Member.new(params[:member])
       existing_member = Member.find_by_username(@member.username)
       
@@ -64,12 +64,12 @@ class MembersController < ApplicationController
     if request.post?
       @member = Member.new(params[:member])
       existing_member = Member.find(:first,
-                                    :conditions => ['username = ? AND password = ?', @member.username, Digest::MD5.hexdigest(@member.password)])
+                                    :conditions => ['username = ? AND password = ?', @member.username, md5(@member.password)])
       
       if existing_member
         session[:member_id] = existing_member.id
         session[:logged_in] = true
-        flash[:notice] = "Loggedin successfully."
+        # flash[:notice] = "Loggedin successfully."
         redirect_to session[:referrer] || '/' and return
       else
         flash[:notice] = "The username or password you specified is incorrect. Please try again."
@@ -82,7 +82,7 @@ class MembersController < ApplicationController
     session[:logged_in] = false
     if session[:logged_in] == false && session[:member_id] == nil
       flash[:notice] = "You have logged out."
-      redirect_to :action => 'login'
+      redirect_to :controller => '/'
     else
       flash[:notice] = "An error occured while logging out. Please try again."
       redirect_to :controller => '/'

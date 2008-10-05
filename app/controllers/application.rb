@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
   session :session_key => '_Numenor_session_id'
   
   before_filter :setup, :except => ['login', 'logout']
-  before_filter :save_referrer, :except => ['login', 'logout']
+  
+  def md5(input)
+    Digest::MD5.hexdigest(input.to_s)
+  end
   
   def setup
     @master_member = Member.find(session[:member_id]) if session[:logged_in] == true
-  end
-  
-  def save_referrer
     session[:referrer] = request.request_uri
   end
 end

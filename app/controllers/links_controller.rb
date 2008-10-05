@@ -1,5 +1,9 @@
 class LinksController < ApplicationController
   
+  def view
+    ###
+  end
+  
   def add
     case request.method
     when :get
@@ -45,8 +49,8 @@ class LinksController < ApplicationController
         @link.title = WWW::Mechanize.new.get(uri).title.to_s
         @link.uri = params[:link][:uri]
         @link.path = uri.path.to_s
-        @link.code = "hello"
         @link.save
+        @link.update_attribute("code", md5(@link.created_on))
         
         @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
       end

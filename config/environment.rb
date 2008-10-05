@@ -42,6 +42,16 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
   
   # See Rails::Configuration for more options
+  
+  # Get rid of text_field's default size of 30
+  # http://www.thought-scope.com/2008/04/rails-input-text-size-redo.html
+  module ActionView
+    module Helpers
+      class InstanceTag
+        DEFAULT_FIELD_OPTIONS = { }
+      end
+    end
+  end
 end
 
 # Add new inflection rules using the following format 

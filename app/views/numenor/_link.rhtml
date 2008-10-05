@@ -1,0 +1,1 @@
+<li class="<%= cycle("row1", "row2") %>"><a class="expand">+</a><small><strong>VID</strong></small> <%= link_to "#{truncate(link.domain.title, 25)} - #{truncate(link.title, 60)}", :controller => 'links', :action => 'view', :code => link.code %> (<%= link.code %>)</li>
