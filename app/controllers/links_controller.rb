@@ -11,9 +11,11 @@ class LinksController < ApplicationController
       ###
     
     when :post
+      # Angelo Ashmore, 10/5/08: I think I can remove uri from the list below and use open-uri
       require 'uri'
       require 'net/http'
-      require 'mechanize'
+      require 'open-uri'
+      require 'hpricot'
       
       scheme = URI.parse(params[:link][:uri]).scheme
       if scheme.downcase != "http"
@@ -37,7 +39,11 @@ class LinksController < ApplicationController
           @domain = Domain.new
           # perhaps there's a way to get the title of the page without having to use mechanize
           # i.e. lots of gems
-          @domain.title = WWW::Mechanize.new.get("#{uri.scheme}://#{uri.host}").title
+          begin
+            @domain.title = Hpricot(open("#{uri.scheme}://#{uri.host}")).at("title").inner_html
+          rescue
+            @domain.title = uri.host.titleize
+          end
           @domain.scheme = uri.scheme
           @domain.domain = uri.host
           @domain.save
@@ -49,9 +55,9 @@ class LinksController < ApplicationController
         # images won't return a title, so filename is used
         # hopefully we can come up with a better method/alternative
         begin
-          @link.title = WWW::Mechanize.new.get(uri).title.to_s
+          @link.title = Hpricot(open(uri)).at("title").inner_html
         rescue
-          @link.title = WWW::Mechanize.new.get(uri).filename.to_s
+          @link.title = File.basename(uri.to_s)
         end
         @link.uri = params[:link][:uri]
         @link.path = uri.path.to_s
