@@ -5,7 +5,7 @@ class LinksController < ApplicationController
     redirect_to @link.uri
   end
   
-  def add
+  def new
     case request.method
     when :get
       ###
@@ -18,7 +18,7 @@ class LinksController < ApplicationController
       require 'hpricot'
       
       scheme = URI.parse(params[:link][:uri]).scheme
-      if scheme.downcase != "http"
+      if !scheme or scheme.downcase != "http"
         flash[:error] = "Sorry, only HTTP URIs are currently supported."
         # TODO - Angelo Ashmore, 9/20/08: Make this redirect somewhere
         return redirect_to "/"
@@ -26,7 +26,7 @@ class LinksController < ApplicationController
       params[:link][:uri] = "http://" + params[:link][:uri] if scheme == nil
       uri = URI.parse(params[:link][:uri])
       
-      response = Net::HTTP.new(uri.host).request_head(uri.path)
+      response = Net::HTTP.new(uri.host).request_head(uri.path || 'index')
       
       if response == 404
         flash[:error] = "Looks like that page doesn't exist!"

@@ -14,5 +14,12 @@ class ApplicationController < ActionController::Base
   def setup
     @master_member = Member.find(session[:member_id]) if session[:logged_in] == true
     session[:referrer] = request.request_uri
+    
+    @categories = Category.find(:all,
+                                :conditions => 'subcategory = 0',
+                                :order => 'name ASC')
+    @subcategories = Category.find(:all,
+                                   :conditions => 'subcategory = 1',
+                                   :order => 'name ASC')
   end
 end

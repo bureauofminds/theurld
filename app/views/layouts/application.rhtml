@@ -14,12 +14,12 @@
   		  <%- if session[:logged_in] == true -%>
   		  <h3><%= link_to "post a url", :controller => 'links', :action => 'new' %></h3>
   			<small>quick submit</small>
-  			<%- form_tag :controller => 'links', :action => 'add' do -%>
+  			<% form_tag :controller => 'links', :action => 'new' do %>
     			<%= text_field "link", "uri", :value => "http://" %>
     			<%= collection_select 'link', 'category_id', @categories, 'id', 'name' %>
           <%= submit_tag "Go" %>
     			<%= hidden_field "link", "quick", :value => true %>
-  			<%- end -%>
+  			<% end %>
 
   			<div id="menu">
   				<p><a href="#">My Account</a> <a href="#">Settings</a> <%= link_to "Logout", :controller => 'members', :action => 'logout' %></p>
@@ -51,7 +51,7 @@
   			  <%- else -%>
   				<h2>LOGIN</h2>
   				<div class="post_box">
-  					<%- form_tag :controller => 'members', :action => 'login' do -%>
+  					<% form_tag :controller => 'members', :action => 'login' do %>
   					  <label for="member_username">Username</label>
   					  <%= text_field "member", "username" %>
   					  <label for="member_password">Password</label> <strong><a href="#">?</a></strong>
@@ -59,7 +59,7 @@
   					  <%= submit_tag "Login" %>&nbsp;
   					  <label for="remember_me">Remember Me</label>
   					  <%= check_box_tag "remember_me", :checked => 'checked' %>&nbsp;
-  					<%- end -%>
+  					<% end %>
   				</div>
   				<%- end -%>
 
@@ -82,12 +82,14 @@
 
   			<div id="right_side">
   			  <%- if flash[:notice] or flash[:error] -%>
-          <p><span id="flash"><%= flash[:notice] || flash[:error] %></span></p>
+          <div id="flash">
+            <a class="red" onclick="Element.hide('flash');"><%= flash[:notice] || flash[:error] %></a>
+          </div>
           <%- end -%>
   			  
   			  <%= @content_for_layout %>
   			</div>
-  			<hr class="clear" />
+  			<br class="clear" />
   		</div>
   	</div>
     
