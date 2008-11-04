@@ -43,9 +43,14 @@
   </div>
   
   <div id="container">
-    <h1><a href="#"><span class="hide">The Urld</span></a></h1>
+    <h1><%= link_to "<span class=\"hide\">The Urld</span>", :controller => 'numenor' %></h1>
     <!-- <%= image_tag "interface/newaroundhere.gif", :size => '230x35', :alt => "New around here? Create an account!" unless session[:logged_in] == true %> -->
     <div id="substance">
+      <%- if flash[:notice] or flash[:error] -%>
+      <p id="flash" class="fake_link" onclick="Element.hide('flash');">
+        <span class="highlight"><%= flash[:notice] || flash[:error] %></span>
+      </p>
+      <%- end -%>
       
       <div id="sidebar">
         <%- if session[:logged_in] == true -%>
@@ -102,7 +107,7 @@
           <% form_tag :controller => 'members', :action => 'login' do %>
             <p>
               <%= label_tag "member", "username" %> <%= text_field "member", "username" %>
-              <%= label_tag "member", "password" %> <strong><a href="#">?</a></strong> <%= password_field "member", "password" %>
+              <%= label_tag "member", "password", :name => "Password <strong><a href=\"#\">?</a></strong>" %> <%= password_field "member", "password" %>
               <%= submit_tag "Login" %>
             </p>
           <% end %>
@@ -122,13 +127,8 @@
           <li><a href="/numenor/category/3">Apple</a></li>
         </ul>
       </div>
-    
+      
       <div id="content">
-        <%- if flash[:notice] or flash[:error] -%>
-        <div id="flash">
-          <a class="red" onclick="Element.hide('flash');"><%= flash[:notice] || flash[:error] %></a>
-        </div>
-        <%- end -%>
         <%= @content_for_layout %>
       </div>
       

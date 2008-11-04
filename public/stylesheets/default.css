@@ -1,6 +1,6 @@
-/* generic elements */
-
 @import "reset.css";
+
+/* generic elements */
 
 body {
   font-family: Helvetica, Arial, Verdana, sans-serif;
@@ -24,12 +24,21 @@ ul {
   margin-bottom: 10px;
 }
 
+input.submit {
+  width: auto;
+}
+
 br.clear {
   clear: both;
 }
 
 .small {
   font-size: 11px;
+}
+
+.highlight {
+  padding: 2px;
+  background-color: #ff9;
 }
 
 .fade {
@@ -132,7 +141,7 @@ div#container {
 }
 
 div#container h1 {
-  width: 100%;
+  width: 190px;
 }
 
 div#container h1 a {
@@ -143,6 +152,15 @@ div#container h1 a {
   background-image: url('/images/interface/logo.gif');
   background-position: left center;
   background-repeat: no-repeat;
+}
+
+div#container p#flash {
+  padding-top: 10px;
+  color: #c00;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+  border-top: 1px solid #999;
 }
 
 /* sidebar */
@@ -180,9 +198,24 @@ div#sidebar h5 {
 
 div#sidebar div.box {
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 15px 15px 5px 15px;
+  font-size: 11px;
   border-top: 4px solid #ccc;
   background-color: #ebebeb;
+}
+
+div#sidebar div.box form label {
+  display: block;
+  margin-bottom: 2px;
+}
+
+div#sidebar div.box form input {
+  width: 155px;
+  margin: 0 0 5px 0;
+}
+
+div#sidebar div.box form input.submit {
+  width: auto;
 }
 
 div#sidebar div#friends p.icons {
@@ -231,7 +264,7 @@ div#content ul.tabs {
 
 div#content ul.tabs li {
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
   line-height: 12px;
   background-color: #d6d6d6;
   background-image: url('/images/interface/tab_left.gif');
