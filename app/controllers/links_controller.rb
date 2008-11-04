@@ -26,7 +26,7 @@ class LinksController < ApplicationController
       params[:link][:uri] = "http://" + params[:link][:uri] if scheme == nil
       uri = URI.parse(params[:link][:uri])
       
-      response = Net::HTTP.new(uri.host).request_head(uri.path || 'index')
+      response = Net::HTTP.new(uri.host).request_head((uri.path.length > 0 ? uri.path : "index"))
       
       if response == 404
         flash[:error] = "Looks like that page doesn't exist!"
@@ -52,6 +52,7 @@ class LinksController < ApplicationController
         @link = Link.new
         @link.member_id = @master_member.id
         @link.domain_id = @domain.id
+        @link.category_id = params[:link][:category_id] || 0
         # images won't return a title, so filename is used
         # hopefully we can come up with a better method/alternative
         begin
@@ -61,13 +62,26 @@ class LinksController < ApplicationController
         end
         @link.uri = params[:link][:uri]
         @link.path = uri.path.to_s
-        @link.code = md5(Time.now)
+        @link.code = generate_code
         @link.save
         
         @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
       end
       
       redirect_to :controller => '/'
+    end
+  end
+  
+  private
+  
+  def generate_code
+    chars = ("a".."z").to_a + ("1".."9").to_a
+    code = Array.new(5, '').collect{chars[rand(chars.size)]}.join
+    existing_code = Link.find_by_code(code)
+    if existing_code
+      generate_code and return false
+    else
+      code
     end
   end
   

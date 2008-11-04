@@ -1,9 +1,8 @@
 class NumenorController < ApplicationController
   
   def index
-    @links = Link.find(:all,
-                       :order => 'updated_on DESC',
-                       :limit => 20)
+    @links = Link.paginate(:page => params[:page],
+                           :order => 'updated_on DESC')
   end
   
 end

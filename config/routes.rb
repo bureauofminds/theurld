@@ -5,6 +5,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/login', :controller => 'members', :action => 'login'
   
   map.connect '/:code', :controller => 'links', :action => 'view'
+  
+  map.connect '/page/:page', :controller => 'numenor'
+  
+  map.connect '/category/:id', :controller => 'categories', :action => 'view'
 
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id.:format'

@@ -1,18 +1,27 @@
-<h2>URLS</h2>
+<h2>URLs</h2>
+<div class="box">
+  <ul class="tabs">
+    <li><strong>Public Url Feed</strong></li>
+  </ul>
+  
+  <div class="small">
+    <p class="page_info fade">Page 1 &mdash; <%= page_entries_info @links, :entry_name => 'URL' %></p>
+    <p class="toggle_descs">
+      <a id="toggle_all_plus" class="fake_link" onclick="Element.hide(this); Element.show('toggle_all_minus')">
+        <img src="/images/interface/url_all_plus.gif" width="30" height="14" alt="Show all details" />
+      </a>
+      <a id="toggle_all_minus" class="fake_link" style="display: none;" onclick="Element.hide(this); Element.show('toggle_all_plus')">
+        <img src="/images/interface/url_all_minus.gif" width="30" height="14" alt="Hide all details" />
+      </a>
+    </p>
+    <br class="clear" />
+  </div>
 
-<div id="tabs">
-	<a href="" class="options_on">Public Url Feed</a>
-</div>
-
-<div class="cell">
-	<h4><a href="#" class="toggle">Toggle Url Description <strong>+</strong></a>Page 1</h4>
-
-	<ul class="feed">
-	 <%= render :partial => 'link', :collection => @links %>
+  <ul class="feed">
+    <%= render :partial => 'link', :collection => @links %>
 	</ul>
 
-	<h4>
-		<h3><a href="#">Page 2 &rarr;</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> <a href="">6</a> <a href="">7</a> <a href="">8</a> ... <a href="">&infin;</a></h3>
-	</h4>
-	
+  <p class="pagination">
+    <a href="#">Page 2 &rarr;</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> <a href="">6</a> <a href="">7</a> <a href="">8</a> <span class="ellipse">...</span> <a href="">&infin;</a>
+  </p>
 </div>
