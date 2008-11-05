@@ -6,6 +6,8 @@ class MembersController < ApplicationController
   
   def view
     @member = Member.find(params[:id])
+    @links = @member.links.paginate(:page => params[:page],
+                                    :order => 'updated_on DESC')
   end
   
   def edit
@@ -44,7 +46,7 @@ class MembersController < ApplicationController
     end
   end
   
-  def new
+  def register
     if request.post?
       params[:member][:password] = md5(params[:member][:password])
       @member = Member.new(params[:member])

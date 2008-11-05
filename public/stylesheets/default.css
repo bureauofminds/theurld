@@ -98,7 +98,7 @@ div#quick_bar_container div#quick_bar p.post_url {
 
 div#quick_bar_container div#quick_bar p.post_url a {
   display: block;
-  padding: 5px;
+  padding: 5px 7px;
   color: #333;
   font-weight: bold;
   text-decoration: none;
@@ -190,7 +190,7 @@ div#sidebar h4 {
 }
 
 div#sidebar h5 {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   font-size: 11px;
   color: #999;
   font-weight: normal;
@@ -202,6 +202,20 @@ div#sidebar div.box {
   font-size: 11px;
   border-top: 4px solid #ccc;
   background-color: #ebebeb;
+}
+
+div#sidebar div.box p {
+  line-height: 15px;
+}
+
+div#sidebar div.box p.friends {
+  font-size: 0px;
+}
+
+div#sidebar p.friends img {
+  margin: 2px;
+  border: 3px solid #fff;
+  background-color: #fff;
 }
 
 div#sidebar div.box form label {
@@ -216,16 +230,6 @@ div#sidebar div.box form input {
 
 div#sidebar div.box form input.submit {
   width: auto;
-}
-
-div#sidebar div#friends p.icons {
-  font-size: 0px;
-}
-
-div#sidebar div#friends p.icons img {
-  margin: 2px;
-  border: 3px solid #fff;
-  background-color: #fff;
 }
 
 div#sidebar ul {
@@ -294,6 +298,7 @@ div#content ul.feed {
 
 div#content ul.feed li {
   padding: 7px 0;
+  color: #666;
 }
 
 div#content ul.feed li a:visited {
@@ -305,9 +310,12 @@ div#content ul.feed li a.expand {
   margin-top: -1px;
 }
 
+div#content ul.feed li img.favicon {
+  margin-right: 7px;
+}
+
 div#content ul.feed li p.desc {
   margin: 7px 0 0 0;
-  color: #666;
 }
 
 div#content ul.feed li p.desc span.text {

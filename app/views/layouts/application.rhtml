@@ -17,12 +17,12 @@
   <div id="quick_bar_container">
     <div id="quick_bar">
       <%- if session[:logged_in] == true -%>
-      <p class="post_url"><a href="#">Post a URL</a></p>
+      <p class="post_url"><%= link_to "Post a URL", :controller => 'links', :action => 'new' %></p>
       <% form_tag :controller => 'links', :action => 'new' do %>
         <p>
           <%= label_tag "link", "uri", :name => "Quick submit" %>
           <%= text_field "link", "uri", :value => "http://", :style => "color: #aaa;", :onfocus => "this.value = ''; this.style.color = '#000';" %>
-          <%= collection_select 'link', 'category_id', @categories, 'id', 'name' %>
+          <%= collection_select 'link', 'category_id', @categories, 'id', 'name', {:prompt => "Select category"} %>
           <%= submit_tag "Go" %>
           <%= hidden_field "link", "quick", :value => true %>
         </p>
@@ -35,7 +35,7 @@
       <%- else -%>
       <ul id="quick_navigation">
         <li><a href="#">About</a></li>
-        <li><a href="#">Create An Account</a></li>
+        <li><%= link_to "Create An Account", :controller => 'members', :action => 'register' %></li>
         <li><%= link_to "Login", :controller => 'members', :action => 'login' %></li>
       </ul>
       <%- end -%>
@@ -44,7 +44,7 @@
   
   <div id="container">
     <h1><%= link_to "<span class=\"hide\">The Urld</span>", :controller => 'numenor' %></h1>
-    <!-- <%= image_tag "interface/newaroundhere.gif", :size => '230x35', :alt => "New around here? Create an account!" unless session[:logged_in] == true %> -->
+    <!-- <%= image_tag "interface/newaroundhere.gif", :size => "230x35", :alt => "New around here? Create an account!" unless session[:logged_in] == true %> -->
     <div id="substance">
       <%- if flash[:notice] or flash[:error] -%>
       <p id="flash" class="fake_link" onclick="Element.hide('flash');">
@@ -53,11 +53,17 @@
       <%- end -%>
       
       <div id="sidebar">
+        <%-
+          sidebar = File.join(RAILS_ROOT, "app", "views", "sidebars", params[:controller], params[:action] + ".rhtml")
+          if File.exists?(sidebar)
+        -%>
+        <%= render "/sidebars/#{params[:controller]}/#{params[:action]}" %>
+        <%- else -%>
         <%- if session[:logged_in] == true -%>
         <h3>Hi, Angelo</h3>
-        <div id="friends" class="box">
+        <div class="box">
           <h5>You &amp; Your Friends</h5>
-          <p class="icons">
+          <p class="friends">
             <a href="#"><img src="/images/avatars/me.gif" width="16" height="16" alt="" /></a>
             <a href="#"><img src="/images/avatars/1.gif" width="16" height="16" alt="" /></a>
             <a href="#"><img src="/images/avatars/2.gif" width="16" height="16" alt="" /></a>
@@ -117,15 +123,18 @@
         <h3>Categories</h3>
         <h4>General Categories</h4>
         <ul>
-          <li><a href="/numenor/category/4">Apparel</a></li>
-          <li><a href="/numenor/category/1">Design</a></li>
-          <li><a href="/numenor/category/2">Programming</a></li>
+          <%- @categories.each do |c| -%>
+          <li><%= link_to c.name, :controller => 'categories', :action => 'view', :id => c.id %></li>
+          <%- end -%>
         </ul>
 
         <h4>Subcategories</h4>
         <ul>
-          <li><a href="/numenor/category/3">Apple</a></li>
+          <%- @subcategories.each do |c| -%>
+          <li><%= link_to c.name, :controller => 'categories', :action => 'view', :id => c.id %></li>
+          <%- end -%>
         </ul>
+        <%- end -%>
       </div>
       
       <div id="content">

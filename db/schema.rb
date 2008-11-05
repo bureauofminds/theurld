@@ -5,42 +5,45 @@
 ActiveRecord::Schema.define(:version => 4) do
 
   create_table "categories", :force => true do |t|
-    t.column "name",            :string,   :default => "", :null => false
-    t.column "description",     :text,     :default => "", :null => false
-    t.column "number_of_links", :integer,  :default => 0,  :null => false
-    t.column "created_on",      :datetime,                 :null => false
-    t.column "updated_on",      :datetime,                 :null => false
+    t.column "name",            :string,                  :null => false
+    t.column "description",     :text
+    t.column "subcategory",     :integer,  :default => 0, :null => false
+    t.column "number_of_links", :integer,  :default => 0, :null => false
+    t.column "created_on",      :datetime,                :null => false
+    t.column "updated_on",      :datetime,                :null => false
   end
 
   create_table "domains", :force => true do |t|
     t.column "title",           :text
-    t.column "scheme",          :string,   :default => "", :null => false
-    t.column "domain",          :string,   :default => "", :null => false
-    t.column "number_of_links", :integer,  :default => 0,  :null => false
-    t.column "created_on",      :datetime,                 :null => false
-    t.column "updated_on",      :datetime,                 :null => false
+    t.column "scheme",          :string,                  :null => false
+    t.column "domain",          :string,                  :null => false
+    t.column "favicon",         :integer,  :default => 0, :null => false
+    t.column "number_of_links", :integer,  :default => 0, :null => false
+    t.column "created_on",      :datetime,                :null => false
+    t.column "updated_on",      :datetime,                :null => false
   end
 
   create_table "links", :force => true do |t|
-    t.column "member_id",  :integer,                  :null => false
-    t.column "domain_id",  :integer,                  :null => false
-    t.column "title",      :text,     :default => "", :null => false
-    t.column "uri",        :text,     :default => "", :null => false
-    t.column "path",       :text
-    t.column "variables",  :text
-    t.column "code",       :string,   :default => "", :null => false
-    t.column "created_on", :datetime,                 :null => false
-    t.column "updated_on", :datetime,                 :null => false
+    t.column "member_id",   :integer,  :null => false
+    t.column "domain_id",   :integer,  :null => false
+    t.column "category_id", :integer
+    t.column "title",       :text,     :null => false
+    t.column "uri",         :text,     :null => false
+    t.column "path",        :text
+    t.column "variables",   :text
+    t.column "code",        :string,   :null => false
+    t.column "created_on",  :datetime, :null => false
+    t.column "updated_on",  :datetime, :null => false
   end
 
   create_table "members", :force => true do |t|
-    t.column "username",      :string,   :default => "", :null => false
-    t.column "password",      :string,   :default => "", :null => false
-    t.column "first_name",    :string,   :default => "", :null => false
-    t.column "last_name",     :string,   :default => "", :null => false
-    t.column "email_address", :string,   :default => "", :null => false
-    t.column "created_on",    :datetime,                 :null => false
-    t.column "updated_on",    :datetime,                 :null => false
+    t.column "username",      :string,   :null => false
+    t.column "password",      :string,   :null => false
+    t.column "first_name",    :string,   :null => false
+    t.column "last_name",     :string,   :null => false
+    t.column "email_address", :string,   :null => false
+    t.column "created_on",    :datetime, :null => false
+    t.column "updated_on",    :datetime, :null => false
   end
 
 end

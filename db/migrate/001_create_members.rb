@@ -7,6 +7,7 @@ class CreateMembers < ActiveRecord::Migration
       t.column :first_name, :string, :null => false
       t.column :last_name, :string, :null => false
       t.column :email_address, :string, :null => false
+      t.column :gender, :string, :null => false
       
       t.column :created_on, :datetime, :null => false
       t.column :updated_on, :datetime, :null => false

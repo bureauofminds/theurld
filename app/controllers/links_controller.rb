@@ -64,8 +64,6 @@ class LinksController < ApplicationController
   
   def add_domain(uri)
     @domain = Domain.new
-    # perhaps there's a way to get the title of the page without having to use mechanize
-    # i.e. lots of gems
     begin
       @domain.title = Hpricot(open("#{uri.scheme}://#{uri.host}")).at("title").inner_html
     rescue
@@ -89,6 +87,10 @@ class LinksController < ApplicationController
           }
         
           original_file = Magick::Image.read(favicon_location + ".ico").first.resize_to_fit(16,16)
+          # this doesn't work apparently
+          # transparent GIFs are given a black background
+          # 
+          # original_file.background_color = 'none'
           original_file.write(favicon_location + ".gif")
         
           @domain.update_attribute('favicon', 1)
