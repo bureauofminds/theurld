@@ -3,16 +3,16 @@
   category = link.category
 -%>
 <li class="<%= cycle("row1", "row2") %>">
+  <%= link_to "#{truncate(link.title, 100)}", :controller => 'links', :action => 'view', :code => link.code %>
+  (<span onclick="copyIntoClipboard('<%= short_url link.code %>')" class="fake_link"><%= link.code %></span>)
   <a class="expand fake_link" id="toggle_<%= link.id %>_plus" onclick="Element.show('info_<%= link.id %>'); Element.hide(this); Element.show('toggle_<%= link.id %>_minus')">
     <img src="/images/interface/url_plus.gif" width="14" height="14" alt="Show details" />
   </a>
   <a class="expand fake_link" id="toggle_<%= link.id %>_minus" style="display: none;" onclick="Element.hide('info_<%= link.id %>'); Element.hide(this); Element.show('toggle_<%= link.id %>_plus')">
     <img src="/images/interface/url_minus.gif" width="14" height="14" alt="Hide details" />
   </a>
-  <%= link_to "#{truncate(link.title, 100)}", :controller => 'links', :action => 'view', :code => link.code %>
-  (<span onclick="copyIntoClipboard('<%= short_url link.code %>')" class="fake_link"><%= link.code %></span>)
   <p id="info_<%= link.id %>" class="desc" style="display: none;">
-    <%=h domain.domain %> &#8212; <span class="text">Temporarily blank for now.</span>
+    <%= favicon domain %> <%=h domain.domain %> &#8212; <span class="text">Temporarily blank for now.</span>
     <%- if category -%>Filed in <em><%= link_to category.name, :controller => 'categories', :action => 'view', :id => category.id %></em> on<%- end -%>
     <em><%= longdate(link.created_on) %></em> by <em><%= link_to link.member.username, :controller => 'members', :action => 'view', :id => link.member.id %></em>
   </p>

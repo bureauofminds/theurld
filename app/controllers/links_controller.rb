@@ -35,19 +35,7 @@ class LinksController < ApplicationController
       else
         @domain = Domain.find(:first,
                               :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
-        if !@domain
-          @domain = Domain.new
-          # perhaps there's a way to get the title of the page without having to use mechanize
-          # i.e. lots of gems
-          begin
-            @domain.title = Hpricot(open("#{uri.scheme}://#{uri.host}")).at("title").inner_html
-          rescue
-            @domain.title = uri.host.titleize
-          end
-          @domain.scheme = uri.scheme
-          @domain.domain = uri.host
-          @domain.save
-        end
+        add_domain(uri) if !@domain
 
         @link = Link.new
         @link.member_id = @master_member.id
@@ -73,6 +61,46 @@ class LinksController < ApplicationController
   end
   
   private
+  
+  def add_domain(uri)
+    @domain = Domain.new
+    # perhaps there's a way to get the title of the page without having to use mechanize
+    # i.e. lots of gems
+    begin
+      @domain.title = Hpricot(open("#{uri.scheme}://#{uri.host}")).at("title").inner_html
+    rescue
+      @domain.title = uri.host.titleize
+    end
+    @domain.scheme = uri.scheme
+    @domain.domain = uri.host
+    @domain.save
+    thread = Thread.new do
+      if Net::HTTP.new(@domain.domain).request_head(("favicon.ico")) != 404
+        require 'RMagick'
+      
+        begin
+          favicon_location  = File.join(FAVICONS_LOCATION, "#{@domain.id}")
+        
+          Net::HTTP.start(@domain.domain) { |http|
+            resp = http.get("/favicon.ico")
+            open(favicon_location + ".ico", "w") { |favicon|
+              favicon.write(resp.body)
+            }
+          }
+        
+          original_file = Magick::Image.read(favicon_location + ".ico").first.resize_to_fit(16,16)
+          original_file.write(favicon_location + ".gif")
+        
+          @domain.update_attribute('favicon', 1)
+        rescue Exception => e
+          log_error(e)
+          # doesn't really matter if it fails to get the favicon
+        end
+      
+        File.delete(favicon_location + ".ico") if File.exists?(favicon_location + ".ico")
+      end
+    end
+  end
   
   def generate_code
     chars = ("a".."z").to_a + ("1".."9").to_a

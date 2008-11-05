@@ -22,4 +22,8 @@ module ApplicationHelper
     "<input name=\"commit\" type=\"submit\" value=\"#{name}\" class=\"submit\" />"
   end
   
+  def favicon(domain)
+    image_tag("favicons/#{domain.id}.gif", :size => "16x16", :alt => domain.title) if domain.favicon == 1 and File.exists?(File.join(FAVICONS_LOCATION, "#{domain.id}.gif"))
+  end
+  
 end

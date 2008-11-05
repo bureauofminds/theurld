@@ -6,6 +6,7 @@ class CreateDomains < ActiveRecord::Migration
       t.column :scheme, :string, :null => false
       t.column :domain, :string, :null => false
       
+      t.column :favicon, :integer, :default => 0, :null => false
       t.column :number_of_links, :integer, :default => 0, :null => false
       
       t.column :created_on, :datetime, :null => false
