@@ -6,6 +6,7 @@ body {
   font-family: Helvetica, Arial, Verdana, sans-serif;
   font-size: 12px;
   color: #333;
+  line-height: 16px;
 	background-color: #fff;
 }
 
@@ -14,9 +15,19 @@ a {
 	text-decoration: underline;
 }
 
+a.disguised {
+  color: #666;
+  text-decoration: none;
+}
+
 a:hover {
   color: #333;
 	text-decoration: none;
+}
+
+a.disguised:hover {
+  color: inherit;
+  text-decoration: underline;
 }
 
 p,
@@ -190,7 +201,6 @@ div#sidebar h4 {
 }
 
 div#sidebar h5 {
-  margin-bottom: 5px;
   font-size: 11px;
   color: #999;
   font-weight: normal;
@@ -311,6 +321,7 @@ div#content ul.feed li a.expand {
 }
 
 div#content ul.feed li img.favicon {
+  float: left;
   margin-right: 7px;
 }
 
@@ -330,6 +341,22 @@ div#content ul.feed li.row2 {
   background-color: #f5f7fB;
 }
 
+div#content form {
+  margin-bottom: 20px;
+  padding: 15px 15px 5px 15px;
+  font-size: 11px;
+  border-top: 4px solid #ccc;
+  background-color: #ebebeb;
+}
+
+div#content form label {
+  float: left;
+  display: block;
+  width: 100px;
+  font-size: 11px;
+  line-height: 20px;
+}
+
 div#content p.pagination {
   padding: 20px 0 10px 0;
   font-size: 11px;
@@ -342,4 +369,27 @@ div#content p.pagination span.ellipse {
   color: #333;
   font-weight: bold;
   text-decoration: none;
+}
+
+div#content div.pagination {
+  padding: 20px 0 10px 0;
+  font-size: 11px;
+  border-top: 4px solid #d6d6d6;
+}
+
+div#content div.pagination span.disabled {
+  display: none;
+}
+
+div#content div.pagination a,
+div#content div.pagination span.current,
+div#content div.pagination span.ellipse {
+  padding-right: 10px;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div#content div.pagination span.current {
+  color: #666;
 }

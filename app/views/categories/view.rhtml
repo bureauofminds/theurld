@@ -1,5 +1,7 @@
-<h2>URLs</h2>
+<h2>URLs in <%= @category.name %></h2>
 <div class="box">
+  <%= format_text @category.description %>
+  
   <ul class="tabs">
     <li><strong>Public Url Feed</strong></li>
   </ul>
@@ -20,6 +22,6 @@
   <ul class="feed">
     <%= render :partial => 'link', :collection => @links %>
 	</ul>
-	
-	<%= will_paginate @links %>
+
+  <%= will_paginate @links %>
 </div>

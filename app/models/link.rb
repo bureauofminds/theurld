@@ -5,7 +5,7 @@ class Link < ActiveRecord::Base
   belongs_to :category
   
   def self.per_page
-    10
+    20
   end
   
 end

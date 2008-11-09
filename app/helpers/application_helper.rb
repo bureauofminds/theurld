@@ -10,7 +10,7 @@ module ApplicationHelper
   end
   
   def short_url(code)
-    "http://localhost:3020/#{code}"
+    "http://theurld.com/#{code}"
   end
   
   def format_text(text)
@@ -28,6 +28,14 @@ module ApplicationHelper
   
   def favicon(domain, options = {})
     image_tag("favicons/#{domain.id}.gif", :size => (options[:size] || "16x16"), :alt => domain.title, :class => 'favicon') if domain.favicon == 1 and File.exists?(File.join(FAVICONS_LOCATION, "#{domain.id}.gif"))
+  end
+  
+  def toggle_infos(links, action)
+    infos = ["Element.hide(this); Element.show('toggle_all_#{action == "show" ? "minus" : "plus"}'); "]
+    links.each do |l|
+      infos << "Element.#{action}('info_#{l.id}'); Element.hide('toggle_#{l.id}_#{action == "show" ? "plus" : "minus"}'); Element.show('toggle_#{l.id}_#{action == "show" ? "minus" : "plus"}'); "
+    end
+    infos.to_s
   end
   
   def pronoun(member, type)

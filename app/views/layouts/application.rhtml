@@ -60,7 +60,7 @@
         <%= render "/sidebars/#{params[:controller]}/#{params[:action]}" %>
         <%- else -%>
         <%- if session[:logged_in] == true -%>
-        <h3>Hi, Angelo</h3>
+        <h3>Hi, <%= @master_member.username %></h3>
         <div class="box">
           <h5>You &amp; Your Friends</h5>
           <p class="friends">
@@ -124,14 +124,14 @@
         <h4>General Categories</h4>
         <ul>
           <%- @categories.each do |c| -%>
-          <li><%= link_to c.name, :controller => 'categories', :action => 'view', :id => c.id %></li>
+          <li><%= link_to c.name, :controller => 'categories', :action => 'view', :name => c.name %></li>
           <%- end -%>
         </ul>
 
         <h4>Subcategories</h4>
         <ul>
           <%- @subcategories.each do |c| -%>
-          <li><%= link_to c.name, :controller => 'categories', :action => 'view', :id => c.id %></li>
+          <li><%= link_to c.name, :controller => 'categories', :action => 'view', :name => c.name %></li>
           <%- end -%>
         </ul>
         <%- end -%>

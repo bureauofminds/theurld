@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect '/page/:page', :controller => 'numenor'
   
-  map.connect '/category/:id', :controller => 'categories', :action => 'view'
+  map.connect '/category/:name', :controller => 'categories', :action => 'view'
   
   map.connect '/members/:id', :controller => 'members', :action => 'view'
 
