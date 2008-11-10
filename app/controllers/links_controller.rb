@@ -20,8 +20,7 @@ class LinksController < ApplicationController
       scheme = URI.parse(params[:link][:uri]).scheme
       if !scheme or scheme.downcase != "http"
         flash[:error] = "Sorry, only HTTP URIs are currently supported."
-        # TODO - Angelo Ashmore, 9/20/08: Make this redirect somewhere
-        return redirect_to "/"
+        return redirect_to session[:referrer] || '/'
       end
       params[:link][:uri] = "http://" + params[:link][:uri] if scheme == nil
       uri = URI.parse(params[:link][:uri])
@@ -30,8 +29,7 @@ class LinksController < ApplicationController
       
       if response == 404
         flash[:error] = "Looks like that page doesn't exist!"
-        # TODO - Angelo Ashmore, 9/20/08: Make this redirect somewhere
-        redirect_to "/"
+        return redirect_to session[:referrer] || '/'
       else
         @domain = Domain.find(:first,
                               :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
@@ -42,9 +40,10 @@ class LinksController < ApplicationController
         @link.domain_id = @domain.id
         @link.category_id = params[:link][:category_id] || 0
         # images won't return a title, so filename is used
-        # hopefully we can come up with a better method/alternative
+        # hopefully we can come up with a better method
         begin
-          @link.title = Hpricot(open(uri)).at("title").inner_html
+          title = Hpricot(open(uri)).at("title").inner_html
+          @link.title = title.length > 0 ? title : File.basename(uri.to_s)
         rescue
           @link.title = File.basename(uri.to_s)
         end
@@ -65,42 +64,44 @@ class LinksController < ApplicationController
   def add_domain(uri)
     @domain = Domain.new
     begin
-      @domain.title = Hpricot(open("#{uri.scheme}://#{uri.host}")).at("title").inner_html
+      title = Hpricot(open("#{uri.scheme}://#{uri.host}")).at("title").inner_html
+      @domain.title = title.length > 0 ? title : uri.host
     rescue
-      @domain.title = uri.host.titleize
+      @domain.title = uri.host
     end
     @domain.scheme = uri.scheme
     @domain.domain = uri.host
     @domain.save
-    thread = Thread.new do
-      if Net::HTTP.new(@domain.domain).request_head(("favicon.ico")) != 404
-        require 'RMagick'
+    if Net::HTTP.new(@domain.domain).request_head(("favicon.ico")) != 404
+      require 'RMagick'
       
-        begin
-          favicon_location  = File.join(FAVICONS_LOCATION, "#{@domain.id}")
-        
+      favicon_location  = File.join(FAVICONS_LOCATION, "#{@domain.id}")
+      
+      begin
+        thread = Thread.new do
           Net::HTTP.start(@domain.domain) { |http|
             resp = http.get("/favicon.ico")
             open(favicon_location + ".ico", "w") { |favicon|
               favicon.write(resp.body)
             }
           }
-        
+      
           original_file = Magick::Image.read(favicon_location + ".ico").first.resize_to_fit(16,16)
           # this doesn't work apparently
           # transparent GIFs are given a black background
           # 
           # original_file.background_color = 'none'
           original_file.write(favicon_location + ".gif")
-        
-          @domain.update_attribute('favicon', 1)
-        rescue Exception => e
-          log_error(e)
-          # doesn't really matter if it fails to get the favicon
-        end
       
-        File.delete(favicon_location + ".ico") if File.exists?(favicon_location + ".ico")
+          @domain.update_attribute('favicon', 1)
+        end
+        thread.join(2)
+      rescue Exception => e
+        log_error(e)
+        # doesn't really matter if it fails to get the favicon
       end
+    
+      File.delete(favicon_location + ".ico") if File.exists?(favicon_location + ".ico")
     end
   end
   
@@ -108,7 +109,7 @@ class LinksController < ApplicationController
     chars = ("a".."z").to_a + ("1".."9").to_a
     code = Array.new(5, '').collect{chars[rand(chars.size)]}.join
     existing_code = Link.find_by_code(code)
-    if existing_code
+    if existing_code or FORBIDDEN_NAMES.include?(code)
       generate_code and return false
     else
       code

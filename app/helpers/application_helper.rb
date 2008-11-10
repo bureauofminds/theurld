@@ -38,6 +38,22 @@ module ApplicationHelper
     infos.to_s
   end
   
+  def friends_icons(member, options = {})
+    friends = (options[:include_member] || '') == true ? [member.id] : []
+    YAML.load(member.friends).each { |f| friends << f }
+    
+    if friends.length > 0
+      html = ""
+      friends.each do |f|
+        friend = Member.find(f)
+        html << link_to(image_tag("avatars/#{f}.gif", :size => "16x16", :alt => friend.username), :controller => 'members', :action => 'view', :id => friend.id)
+      end
+      html
+    else
+      "<span class=\"small\">#{pronoun(member, 'he_she').capitalize} is friendless :(</span>"
+    end
+  end
+  
   def pronoun(member, type)
     gender = member.gender.downcase
     

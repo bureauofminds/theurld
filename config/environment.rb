@@ -23,3 +23,4 @@ Rails::Initializer.run do |config|
 end
 
 FAVICONS_LOCATION = File.join(RAILS_ROOT, "public", "images", "favicons")
+FORBIDDEN_NAMES = ['index', 'new', 'edit', 'delete']

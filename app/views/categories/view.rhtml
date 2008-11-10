@@ -1,9 +1,9 @@
-<h2>URLs in <%= @category.name %></h2>
+<h2>URLs <%= @category ? "in #{@category.name}" : "not categorized" %></h2>
 <div class="box">
-  <%= format_text @category.description %>
+  <%= format_text @category.description if @category %>
   
   <ul class="tabs">
-    <li><strong>Public Url Feed</strong></li>
+    <li class="active"><strong>Public URL Feed</strong></li>
   </ul>
   
   <div class="small">

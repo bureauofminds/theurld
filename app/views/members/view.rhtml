@@ -1,19 +1,21 @@
 <h2><%= @member.username %>'s URL Feed</h2>
 <div class="box">
   <ul class="tabs">
-    <li><strong>All Saved URLs</strong></li>
+    <li class="active"><strong>Public URL Feed</strong></li>
   </ul>
   
   <div class="small">
     <p class="page_info fade">Page 1 &mdash; <%= page_entries_info @links, :entry_name => 'URL' %></p>
+    <%- unless @links.empty? -%>
     <p class="toggle_descs">
-      <a id="toggle_all_plus" class="fake_link" onclick="Element.hide(this); Element.show('toggle_all_minus')">
+      <a id="toggle_all_plus" class="fake_link" onclick="<%= toggle_infos(@links, 'show') %>">
         <img src="/images/interface/url_all_plus.gif" width="30" height="14" alt="Show all details" />
       </a>
-      <a id="toggle_all_minus" class="fake_link" style="display: none;" onclick="Element.hide(this); Element.show('toggle_all_plus')">
+      <a id="toggle_all_minus" class="fake_link" style="display: none;" onclick="<%= toggle_infos(@links, 'hide') %>">
         <img src="/images/interface/url_all_minus.gif" width="30" height="14" alt="Hide all details" />
       </a>
     </p>
+    <%- end -%>
     <br class="clear" />
   </div>
 
@@ -21,7 +23,5 @@
     <%= render :partial => 'link', :collection => @links %>
 	</ul>
 
-  <p class="pagination">
-    <a href="#">Page 2 &rarr;</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> <a href="">6</a> <a href="">7</a> <a href="">8</a> <span class="ellipse">...</span> <a href="">&infin;</a>
-  </p>
+  <%= will_paginate @links %>
 </div>

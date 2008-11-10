@@ -12,7 +12,7 @@
     <img src="/images/interface/url_minus.gif" width="14" height="14" alt="Hide details" />
   </a>
   <p id="info_<%= link.id %>" class="desc" style="display: none;">
-    <%= link_to domain.domain, domain.domain, :class => "disguised" %> &#8212; <span class="text">Temporarily blank for now.</span>
+    <%= link_to domain.domain, "#{domain.scheme}://#{domain.domain}", :class => "disguised" %> &#8212; <span class="text">Temporarily blank for now.</span>
     <%- if category -%>Filed in <em><%= link_to category.name, :controller => 'categories', :action => 'view', :id => category.id %></em> on<%- end -%>
     <em><%= longdate(link.created_on) %></em> by <em><%= link_to link.member.username, :controller => 'members', :action => 'view', :id => link.member.id %></em>
   </p>

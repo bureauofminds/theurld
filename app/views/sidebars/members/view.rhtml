@@ -1,53 +1,16 @@
-<h3>About</h3>
+<h3>About <%= @member.username %></h3>
 <div class="box">
   <h5>Options</h5>
-  <p>hey</p>
+  <ul>
+    <li><%= link_to "Befriend #{@member.username}", :action => 'befriend', :id => @member.id %></li>
+    <li><%= link_to "Enemize #{@member.username}", :action => 'enemize', :id => @member.id %></li>
+  </ul>
   
   <h5><%= pronoun(@member, 'his_her').capitalize %> Biography</h5>
   <%= format_text(@member.biography || "#{@member.username.capitalize} is too lazy to write a biography.") %>
   
   <h5><%= pronoun(@member, 'his_her').capitalize %> Friends</h5>
   <p class="friends">
-    <a href="#"><img src="/images/avatars/me.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/1.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/2.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/3.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/4.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/5.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/6.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/7.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/8.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/9.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/10.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/11.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/12.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/13.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/14.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/15.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/16.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/17.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/18.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/19.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/20.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/21.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/22.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/23.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/24.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/25.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/26.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/27.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/28.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/29.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/30.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/31.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/32.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/33.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/34.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/35.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/36.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/37.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/38.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/39.gif" width="16" height="16" alt="" /></a>
-    <a href="#"><img src="/images/avatars/40.gif" width="16" height="16" alt="" /></a>
+    <%= friends_icons @member %>
   </p>
 </div>

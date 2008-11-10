@@ -9,6 +9,9 @@ class CreateMembers < ActiveRecord::Migration
       t.column :email_address, :string, :null => false
       t.column :gender, :string, :null => false
       
+      t.column :friends, :text
+      t.column :enemies, :text
+      
       t.column :created_on, :datetime, :null => false
       t.column :updated_on, :datetime, :null => false
     end

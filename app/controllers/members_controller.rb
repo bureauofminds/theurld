@@ -10,6 +10,22 @@ class MembersController < ApplicationController
                                     :order => 'updated_on DESC')
   end
   
+  def befriend
+    @member = Member.find(params[:id])
+    existing_friends = YAML.load(@master_member.friends)
+    
+    if existing_friends.include?(@member.id)
+      flash[:notice] = "You are already <em>great</em> friends with #{@member.username}"
+      redirect_to :action => 'view', :id => @member.id
+    else
+      existing_friends << @member.id
+      @master_member.update_attribute('friends', YAML.dump(existing_friends))
+      
+      flash[:notice] = "You have just befriended #{@member.username}"
+      redirect_to :action => 'view', :id => @member.id
+    end
+  end
+  
   def edit
     if request.post?
       @member = Member.find(params[:id])
@@ -55,6 +71,8 @@ class MembersController < ApplicationController
       if existing_member
         flash[:error] = "A member with the username &quot;#{@member.username}&quot; already exists. Please chose a new, unique username." and return
       else
+        @member.friends = YAML.dump([])
+        @member.enemies = YAML.dump([])
         @member.save
         flash[:notice] = "Member &quot;#{@member.username}&quot; has been added successfully."
         redirect_to :action => 'view', :id => @member.id
@@ -75,6 +93,7 @@ class MembersController < ApplicationController
         redirect_to session[:referrer] || '/' and return
       else
         flash[:notice] = "The username or password you specified is incorrect. Please try again."
+        @member.password = nil
       end
     end
   end

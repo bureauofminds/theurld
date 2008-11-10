@@ -60,51 +60,11 @@
         <%= render "/sidebars/#{params[:controller]}/#{params[:action]}" %>
         <%- else -%>
         <%- if session[:logged_in] == true -%>
-        <h3>Hi, <%= @master_member.username %></h3>
+        <h3>Hi, <%= link_to @master_member.username, :controller => 'members', :action => 'view', :id => @master_member.id %></h3>
         <div class="box">
           <h5>You &amp; Your Friends</h5>
           <p class="friends">
-            <a href="#"><img src="/images/avatars/me.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/1.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/2.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/3.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/4.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/5.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/6.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/7.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/8.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/9.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/10.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/11.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/12.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/13.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/14.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/15.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/16.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/17.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/18.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/19.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/20.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/21.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/22.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/23.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/24.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/25.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/26.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/27.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/28.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/29.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/30.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/31.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/32.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/33.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/34.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/35.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/36.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/37.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/38.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/39.gif" width="16" height="16" alt="" /></a>
-            <a href="#"><img src="/images/avatars/40.gif" width="16" height="16" alt="" /></a>
+            <%= friends_icons @master_member, :include_member => true %>
           </p>
         </div>
         <%- else -%>
