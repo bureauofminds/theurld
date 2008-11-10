@@ -37800,3 +37800,287 @@ ActionController::RoutingError (no route found to match "/images/interface/tab_l
 
 
 Rendering /Users/imac/Sites/Numenor/trunk/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing MembersController#view (for 127.0.0.1 at 2008-11-09 20:35:08) [GET]
+  Session ID: b678423730df60ff3918f9375c63fb43
+  Parameters: {"action"=>"view", "id"=>"3", "controller"=>"members"}
+  [4;35;1mMember Columns (0.001405)[0m   [0mSHOW FIELDS FROM members[0m
+  [4;36;1mMember Load (0.012847)[0m   [0;1mSELECT * FROM members WHERE (members.`id` = 1) [0m
+  [4;35;1mCategory Load (0.000301)[0m   [0mSELECT * FROM categories WHERE (subcategory = 0) ORDER BY name ASC[0m
+  [4;36;1mCategory Load (0.000187)[0m   [0;1mSELECT * FROM categories WHERE (subcategory = 1) ORDER BY name ASC[0m
+  [4;35;1mMember Load (0.000175)[0m   [0mSELECT * FROM members WHERE (members.`id` = 3) [0m
+  [4;36;1mLink Load (0.000445)[0m   [0;1mSELECT * FROM links WHERE (links.member_id = 3) ORDER BY updated_on DESC LIMIT 0, 20[0m
+Rendering  within layouts/application
+Rendering members/view
+  [4;35;1mCategory Columns (0.001365)[0m   [0mSHOW FIELDS FROM categories[0m
+Completed in 0.04549 (21 reqs/sec) | Rendering: 0.01510 (33%) | DB: 0.01673 (36%) | 200 OK [http://localhost/members/3]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-11-09 20:35:08) [GET]
+  Session ID: b678423730df60ff3918f9375c63fb43
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/interface/tab_left_inactive.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Users/imac/Sites/Numenor/trunk/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-11-09 20:35:08) [GET]
+  Session ID: b678423730df60ff3918f9375c63fb43
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/interface/tab_left_active.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Users/imac/Sites/Numenor/trunk/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing NumenorController#index (for 127.0.0.1 at 2008-11-09 20:35:09) [GET]
+  Session ID: b678423730df60ff3918f9375c63fb43
+  Parameters: {"action"=>"index", "controller"=>"numenor"}
+  [4;36;1mMember Columns (0.001534)[0m   [0;1mSHOW FIELDS FROM members[0m
+  [4;35;1mMember Load (0.000204)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+  [4;36;1mCategory Load (0.000482)[0m   [0;1mSELECT * FROM categories WHERE (subcategory = 0) ORDER BY name ASC[0m
+  [4;35;1mCategory Load (0.000158)[0m   [0mSELECT * FROM categories WHERE (subcategory = 1) ORDER BY name ASC[0m
+  [4;36;1mLink Load (0.000410)[0m   [0;1mSELECT * FROM links ORDER BY updated_on DESC LIMIT 0, 20[0m
+  [4;35;1mLink Columns (0.004758)[0m   [0mSHOW FIELDS FROM links[0m
+  [4;36;1mSQL (0.000145)[0m   [0;1mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering numenor/index
+  [4;35;1mDomain Columns (0.002536)[0m   [0mSHOW FIELDS FROM domains[0m
+  [4;36;1mDomain Load (0.000262)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 14) [0m
+  [4;35;1mCategory Columns (0.001145)[0m   [0mSHOW FIELDS FROM categories[0m
+  [4;36;1mCategory Load (0.000601)[0m   [0;1mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;35;1mMember Load (0.000201)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.01540)
+  [4;36;1mDomain Load (0.000188)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 27) [0m
+  [4;35;1mMember Load (0.000217)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00233)
+  [4;36;1mDomain Load (0.000150)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 26) [0m
+  [4;35;1mMember Load (0.000185)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00212)
+  [4;36;1mDomain Load (0.000110)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 25) [0m
+  [4;35;1mMember Load (0.000134)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00189)
+  [4;36;1mDomain Load (0.000150)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 3) [0m
+  [4;35;1mCategory Load (0.000149)[0m   [0mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;36;1mMember Load (0.000151)[0m   [0;1mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00252)
+  [4;35;1mDomain Load (0.000118)[0m   [0mSELECT * FROM domains WHERE (domains.`id` = 24) [0m
+  [4;36;1mCategory Load (0.000097)[0m   [0;1mSELECT * FROM categories WHERE (categories.`id` = 3) [0m
+  [4;35;1mMember Load (0.000113)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00200)
+  [4;36;1mDomain Load (0.000118)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 23) [0m
+  [4;35;1mCategory Load (0.000100)[0m   [0mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;36;1mMember Load (0.000119)[0m   [0;1mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00218)
+  [4;35;1mDomain Load (0.000100)[0m   [0mSELECT * FROM domains WHERE (domains.`id` = 22) [0m
+  [4;36;1mCategory Load (0.000096)[0m   [0;1mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;35;1mMember Load (0.000110)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00222)
+  [4;36;1mDomain Load (0.060851)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 21) [0m
+  [4;35;1mCategory Load (0.000286)[0m   [0mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;36;1mMember Load (0.000195)[0m   [0;1mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.06352)
+  [4;35;1mDomain Load (0.000138)[0m   [0mSELECT * FROM domains WHERE (domains.`id` = 20) [0m
+  [4;36;1mCategory Load (0.000098)[0m   [0;1mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;35;1mMember Load (0.000125)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00219)
+  [4;36;1mDomain Load (0.000123)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 19) [0m
+  [4;35;1mCategory Load (0.000141)[0m   [0mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;36;1mMember Load (0.000190)[0m   [0;1mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00282)
+  [4;35;1mDomain Load (0.000253)[0m   [0mSELECT * FROM domains WHERE (domains.`id` = 18) [0m
+  [4;36;1mCategory Load (0.000120)[0m   [0;1mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;35;1mMember Load (0.000168)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00297)
+  [4;36;1mDomain Load (0.000128)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 17) [0m
+  [4;35;1mCategory Load (0.000099)[0m   [0mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;36;1mMember Load (0.000138)[0m   [0;1mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00216)
+  [4;35;1mDomain Load (0.000186)[0m   [0mSELECT * FROM domains WHERE (domains.`id` = 16) [0m
+  [4;36;1mCategory Load (0.000107)[0m   [0;1mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;35;1mMember Load (0.000156)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00242)
+  [4;36;1mDomain Load (0.000141)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 15) [0m
+  [4;35;1mCategory Load (0.000097)[0m   [0mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;36;1mMember Load (0.000149)[0m   [0;1mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00213)
+  [4;35;1mDomain Load (0.000112)[0m   [0mSELECT * FROM domains WHERE (domains.`id` = 14) [0m
+  [4;36;1mCategory Load (0.000125)[0m   [0;1mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;35;1mMember Load (0.000168)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00263)
+  [4;36;1mDomain Load (0.000110)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 13) [0m
+  [4;35;1mCategory Load (0.000107)[0m   [0mSELECT * FROM categories WHERE (categories.`id` = 2) [0m
+  [4;36;1mMember Load (0.000197)[0m   [0;1mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00247)
+  [4;35;1mDomain Load (0.000195)[0m   [0mSELECT * FROM domains WHERE (domains.`id` = 12) [0m
+  [4;36;1mCategory Load (0.000179)[0m   [0;1mSELECT * FROM categories WHERE (categories.`id` = 3) [0m
+  [4;35;1mMember Load (0.000475)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00370)
+  [4;36;1mDomain Load (0.000181)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 11) [0m
+  [4;35;1mMember Load (0.000161)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00220)
+  [4;36;1mDomain Load (0.000156)[0m   [0;1mSELECT * FROM domains WHERE (domains.`id` = 10) [0m
+  [4;35;1mMember Load (0.000165)[0m   [0mSELECT * FROM members WHERE (members.`id` = 1) [0m
+Rendered numenor/_link (0.00212)
+  [4;36;1mMember Load (0.000216)[0m   [0;1mSELECT * FROM members WHERE (members.`id` = 1) [0m
+  [4;35;1mMember Load (0.000115)[0m   [0mSELECT * FROM members WHERE (members.`id` = 3) [0m
+Completed in 0.15290 (6 reqs/sec) | Rendering: 0.05797 (37%) | DB: 0.08139 (53%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-11-09 20:35:09) [GET]
+  Session ID: b678423730df60ff3918f9375c63fb43
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/interface/tab_right_active.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Users/imac/Sites/Numenor/trunk/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-11-09 20:35:09) [GET]
+  Session ID: b678423730df60ff3918f9375c63fb43
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/interface/tab_left_inactive.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Users/imac/Sites/Numenor/trunk/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-11-09 20:35:09) [GET]
+  Session ID: b678423730df60ff3918f9375c63fb43
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/images/interface/tab_left_active.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1282:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/rmagickRailsMar2007_i386.locobundle/framework/bin/mongrel_rails:16
+
+
+Rendering /Users/imac/Sites/Numenor/trunk/config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
