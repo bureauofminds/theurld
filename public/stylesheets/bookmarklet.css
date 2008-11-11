@@ -1,0 +1,167 @@
+/* v1.0 | 20080212 */
+/* http://meyerweb.com/eric/tools/css/reset/ */
+div#theurld-n3jj4 html,
+div#theurld-n3jj4 body,
+div#theurld-n3jj4 div,
+div#theurld-n3jj4 span,
+div#theurld-n3jj4 applet,
+div#theurld-n3jj4 object,
+div#theurld-n3jj4 iframe,
+div#theurld-n3jj4 h1,
+div#theurld-n3jj4 h2,
+div#theurld-n3jj4 h3,
+div#theurld-n3jj4 h4,
+div#theurld-n3jj4 h5,
+div#theurld-n3jj4 h6,
+div#theurld-n3jj4 p,
+div#theurld-n3jj4 blockquote,
+div#theurld-n3jj4 pre,
+div#theurld-n3jj4 a,
+div#theurld-n3jj4 abbr,
+div#theurld-n3jj4 acronym,
+div#theurld-n3jj4 address,
+div#theurld-n3jj4 big,
+div#theurld-n3jj4 cite,
+div#theurld-n3jj4 code,
+div#theurld-n3jj4 del,
+div#theurld-n3jj4 dfn,
+div#theurld-n3jj4 em,
+div#theurld-n3jj4 font,
+div#theurld-n3jj4 img,
+div#theurld-n3jj4 ins,
+div#theurld-n3jj4 kbd,
+div#theurld-n3jj4 q,
+div#theurld-n3jj4 s,
+div#theurld-n3jj4 samp,
+div#theurld-n3jj4 small,
+div#theurld-n3jj4 strike,
+div#theurld-n3jj4 strong,
+div#theurld-n3jj4 sub,
+div#theurld-n3jj4 sup,
+div#theurld-n3jj4 tt,
+div#theurld-n3jj4 var,
+div#theurld-n3jj4 b,
+div#theurld-n3jj4 u,
+div#theurld-n3jj4 i,
+div#theurld-n3jj4 center,
+div#theurld-n3jj4 dl,
+div#theurld-n3jj4 dt,
+div#theurld-n3jj4 dd,
+div#theurld-n3jj4 ol,
+div#theurld-n3jj4 ul,
+div#theurld-n3jj4 li,
+div#theurld-n3jj4 fieldset,
+div#theurld-n3jj4 form,
+div#theurld-n3jj4 label,
+div#theurld-n3jj4 legend,
+div#theurld-n3jj4 table,
+div#theurld-n3jj4 caption,
+div#theurld-n3jj4 tbody,
+div#theurld-n3jj4 tfoot,
+div#theurld-n3jj4 thead,
+div#theurld-n3jj4 tr,
+div#theurld-n3jj4 th,
+div#theurld-n3jj4 td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+div#theurld-n3jj4 body{line-height:1;}
+div#theurld-n3jj4 ol,
+div#theurld-n3jj4 ul{list-style:none;}
+div#theurld-n3jj4 blockquote,
+div#theurld-n3jj4 q{quotes:none;}
+div#theurld-n3jj4 blockquote:before,
+div#theurld-n3jj4 blockquote:after,
+div#theurld-n3jj4 q:before,
+div#theurld-n3jj4 q:after{content:'';content:none;}
+div#theurld-n3jj4 :focus{outline:0;}
+div#theurld-n3jj4 ins{text-decoration:none;}
+div#theurld-n3jj4 del{text-decoration:line-through;}
+div#theurld-n3jj4 table{border-collapse:collapse;border-spacing:0;}
+div#theurld-n3jj4 img{vertical-align:bottom;}
+
+
+body {
+  padding-top: 23px;
+}
+
+div#theurld-n3jj4 {
+  width: 100%;
+  padding: 5px 0;
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+  color: #999;
+  letter-spacing: 0;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+div#theurld-n3jj4 div#quick_bar {
+  width: 900px;
+  height: 23px;
+  margin: 0 auto;
+  font-size: 11px;
+  line-height: 11px;
+}
+
+div#theurld-n3jj4 div#quick_bar a {
+  color: #999;
+}
+
+div#theurld-n3jj4 div#quick_bar a:hover {
+  color: #ddd;
+}
+
+div#theurld-n3jj4 div#quick_bar p {
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+div#theurld-n3jj4 div#quick_bar p.post_url {
+  height: 21px;
+  margin: 1px 15px 1px 0;
+  text-transform: lowercase;
+  background-color: #fff;
+  background-image: url('/images/interface/quick_bar_post_url_left.gif');
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+div#theurld-n3jj4 div#quick_bar p.post_url a {
+  display: block;
+  padding: 5px 7px;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  background-image: url('/images/interface/quick_bar_post_url_right.gif');
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+div#theurld-n3jj4 div#quick_bar form label {
+  margin-right: 5px;
+  text-transform: lowercase;
+}
+
+div#theurld-n3jj4 div#quick_bar form input {
+  width: 150px;
+  margin-right: 5px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Verdana, sans-serif;
+  font-size: 11px;
+  color: #000;
+  letter-spacing: 0;
+}
+
+div#theurld-n3jj4 div#quick_bar form select,
+div#theurld-n3jj4 div#quick_bar form input.submit {
+  width: auto;
+  margin-right: 5px;
+}
+
+div#theurld-n3jj4 div#quick_bar ul#quick_navigation {
+  float: right;
+  padding: 5px 0;
+}
+
+div#theurld-n3jj4 div#quick_bar ul#quick_navigation li {
+  float: left;
+  margin-left: 10px;
+}
