@@ -27,7 +27,7 @@ module ApplicationHelper
   end
   
   def favicon(domain, options = {})
-    image_tag("favicons/#{domain.id}.gif", :size => (options[:size] || "16x16"), :alt => domain.title, :class => 'favicon') if domain.favicon == 1 and File.exists?(File.join(FAVICONS_LOCATION, "#{domain.id}.gif"))
+    image_tag("favicons/#{domain.id}.gif", :size => (options[:size] || "16x16"), :alt => domain.title, :class => 'favicon') if domain.favicon == 1
   end
   
   def toggle_infos(links, action)

@@ -12,7 +12,6 @@ class LinksController < ApplicationController
     
     when :post
       # Angelo Ashmore, 10/5/08: I think I can remove uri from the list below and use open-uri
-      require 'uri'
       require 'net/http'
       require 'open-uri'
       require 'hpricot'
@@ -38,13 +37,15 @@ class LinksController < ApplicationController
         @link = Link.new
         @link.member_id = @master_member.id
         @link.domain_id = @domain.id
-        @link.category_id = params[:link][:category_id] || 0
+        @link.category_id = params[:link][:category_id] || nil
         # images won't return a title, so filename is used
         # hopefully we can come up with a better method
         begin
-          title = Hpricot(open(uri)).at("title").inner_html
+          document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
+          title = document_html.search("title").html.strip
           @link.title = title.length > 0 ? title : File.basename(uri.to_s)
-        rescue
+        rescue Exception => e
+          log_error(e)
           @link.title = File.basename(uri.to_s)
         end
         @link.uri = params[:link][:uri]
@@ -53,6 +54,7 @@ class LinksController < ApplicationController
         @link.save
         
         @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
+        @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @link.category
       end
       
       redirect_to :controller => '/'
@@ -72,12 +74,13 @@ class LinksController < ApplicationController
     @domain.scheme = uri.scheme
     @domain.domain = uri.host
     @domain.save
-    if Net::HTTP.new(@domain.domain).request_head(("favicon.ico")) != 404
-      require 'RMagick'
+    
+    favicon_location  = File.join(FAVICONS_LOCATION, "#{@domain.id}")
+    
+    begin
+      if Net::HTTP.new(@domain.domain).request_head(("favicon.ico")).to_s != "404"
+        require 'RMagick'
       
-      favicon_location  = File.join(FAVICONS_LOCATION, "#{@domain.id}")
-      
-      begin
         thread = Thread.new do
           Net::HTTP.start(@domain.domain) { |http|
             resp = http.get("/favicon.ico")
@@ -85,24 +88,28 @@ class LinksController < ApplicationController
               favicon.write(resp.body)
             }
           }
-      
+    
           original_file = Magick::Image.read(favicon_location + ".ico").first.resize_to_fit(16,16)
           # this doesn't work apparently
           # transparent GIFs are given a black background
           # 
           # original_file.background_color = 'none'
           original_file.write(favicon_location + ".gif")
-      
+    
           @domain.update_attribute('favicon', 1)
         end
         thread.join(2)
-      rescue Exception => e
-        log_error(e)
-        # doesn't really matter if it fails to get the favicon
       end
-    
-      File.delete(favicon_location + ".ico") if File.exists?(favicon_location + ".ico")
+    rescue Exception => e
+      log_error(e)
+      # Angelo Ashmore, 11/10/08: 
+      # doesn't really matter if it fails to get the favicon
+      # but maybe there should be a way for it to try
+      # to get the favicon again when a user submits the same
+      # domain again and the favicon has yet to be retrieved
     end
+    
+    File.delete(favicon_location + ".ico") if File.exists?(favicon_location + ".ico")
   end
   
   def generate_code

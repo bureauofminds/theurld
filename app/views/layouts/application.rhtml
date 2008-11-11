@@ -86,6 +86,7 @@
           <%- @categories.each do |c| -%>
           <li><%= link_to c.name, :controller => 'categories', :action => 'view', :name => c.name %></li>
           <%- end -%>
+          <li><%= link_to "Uncategorized", :controller => 'categories', :action => 'view', :name => "Uncategorized" %></li>
         </ul>
 
         <h4>Subcategories</h4>

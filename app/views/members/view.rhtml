@@ -1,18 +1,19 @@
 <h2><%= @member.username %>'s URL Feed</h2>
 <div class="box">
   <ul class="tabs">
-    <li class="active"><strong>Public URL Feed</strong></li>
+    <li class="active"><%= link_to "Public URL Feed", :action => 'view', :id => @member.id %></li>
+    <li><%= link_to "Friends URL Feed", :action => 'friends_urls', :id => @member.id %></li>
   </ul>
   
   <div class="small">
-    <p class="page_info fade">Page 1 &mdash; <%= page_entries_info @links, :entry_name => 'URL' %></p>
+    <p class="page_info fade">Page <%= params[:page] || 1 %> &mdash; <%= page_entries_info @links, :entry_name => 'URL' %></p>
     <%- unless @links.empty? -%>
     <p class="toggle_descs">
       <a id="toggle_all_plus" class="fake_link" onclick="<%= toggle_infos(@links, 'show') %>">
-        <img src="/images/interface/url_all_plus.gif" width="30" height="14" alt="Show all details" />
+        <%= image_tag "interface/url_all_plus.gif", :size => "33x16", :alt => "Show all details" %>
       </a>
       <a id="toggle_all_minus" class="fake_link" style="display: none;" onclick="<%= toggle_infos(@links, 'hide') %>">
-        <img src="/images/interface/url_all_minus.gif" width="30" height="14" alt="Hide all details" />
+        <%= image_tag "interface/url_all_minus.gif", :size => "33x16", :alt => "Hide all details" %>
       </a>
     </p>
     <%- end -%>

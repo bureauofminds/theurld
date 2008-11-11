@@ -10,6 +10,26 @@ class MembersController < ApplicationController
                                     :order => 'updated_on DESC')
   end
   
+  def friends_urls
+    @member = Member.find(params[:id])
+    
+    # Angelo Ashmore, 11/10/08: this is a very inefficient process
+    
+    friends = YAML.load(@member.friends)
+    @friends = []
+    friends.each { |f| @friends << Member.find(f) }
+    
+    @links = []
+    @friends.each do |f|
+      f.links.each do |l|
+        @links << l
+      end
+    end
+    
+    @links = @links.sort_by { |l| l.created_on }
+    @links = @links.reverse.paginate(:page => params[:page])
+  end
+  
   def befriend
     @member = Member.find(params[:id])
     existing_friends = YAML.load(@master_member.friends)
@@ -74,8 +94,8 @@ class MembersController < ApplicationController
         @member.friends = YAML.dump([])
         @member.enemies = YAML.dump([])
         @member.save
-        flash[:notice] = "Member &quot;#{@member.username}&quot; has been added successfully."
-        redirect_to :action => 'view', :id => @member.id
+        flash[:notice] = "Member &quot;#{@member.username}&quot; has been created successfully. You may now login."
+        redirect_to :controller => 'members', :action => 'login'
       end
     end
   end

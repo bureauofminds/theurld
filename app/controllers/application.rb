@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
   
   def setup
-    unless ['login', 'logout'].include?(params[:action])
+    unless ['login', 'logout', 'register'].include?(params[:action])
       @master_member = Member.find(session[:member_id]) if session[:logged_in] == true
       session[:referrer] = request.request_uri
     end

@@ -1,10 +1,8 @@
-<h2>URLs <%= @category.name == "Uncategorized" ? "not categorized" : "in #{@category.name}" %></h2>
+<h2><%= @member.username %>'s URL Feed</h2>
 <div class="box">
-  <%= format_text @category.description if @category %>
-  
   <ul class="tabs">
-    <li class="active"><%= link_to "Public URL Feed", :action => 'index' %></li>
-    <li><%= link_to "Friends URL Feed", :action => 'friends_urls', :name => @category.name %></li>
+    <li><%= link_to "Public URL Feed", :action => 'view', :id => @member.id %></li>
+    <li class="active"><%= link_to "Friends URL Feed", :action => 'friends_urls', :id => @member.id %></li>
   </ul>
   
   <div class="small">
