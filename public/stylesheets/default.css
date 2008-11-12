@@ -56,6 +56,10 @@ br.clear {
   color: #999;
 }
 
+.superfade {
+  color: #ccc;
+}
+
 .hide {
   display: none;
 }

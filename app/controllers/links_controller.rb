@@ -46,7 +46,7 @@ class LinksController < ApplicationController
         # hopefully we can come up with a better method
         temp_page_location = File.join(TEMP_PAGES_LOCATION, "#{@link.id}.html")
         begin
-          system("wget #{uri.to_s} -O #{temp_page_location}")
+          system("wget \"#{uri.to_s}\" -O \"#{temp_page_location}\"")
           
           document_html = Hpricot(File.open(temp_page_location).read)
           title = document_html.at("title").inner_html
@@ -90,7 +90,7 @@ class LinksController < ApplicationController
         require 'RMagick'
         
         # be sure to have wget available
-        system("wget #{@domain.scheme}://#{@domain.domain}/favicon.ico -O #{favicon_location}.ico")
+        system("wget \"#{@domain.scheme}://#{@domain.domain}/favicon.ico\" -O \"#{favicon_location}.ico\"")
         
         if File.exists?(favicon_location + ".ico")
           original_file = Magick::Image.read(favicon_location + ".ico").first.resize_to_fit(16,16)
