@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   require 'will_paginate'
   
   before_filter :setup
+  before_filter :svn_info
   
   def md5(input)
     Digest::MD5.hexdigest(input.to_s)
@@ -25,6 +26,10 @@ class ApplicationController < ActionController::Base
     @subcategories = Category.find(:all,
                                    :conditions => 'subcategory = 1',
                                    :order => 'name ASC')
+  end
+  
+  def svn_info
+    @svn_info = YAML.load(`svn info`)
   end
   
   # user Application helpers in the controllers

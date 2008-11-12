@@ -44,12 +44,12 @@ class LinksController < ApplicationController
         
         # images won't return a title, so filename is used
         # hopefully we can come up with a better method
-        temp_page_location = File.join(TEMP_PAGES_LOCATION, "#{@link.id}.html")
+        temp_page_location = File.join(TEMP_PAGES_LOCATION, "link_#{@link.id}.html")
         begin
           system("wget \"#{uri.to_s}\" -O \"#{temp_page_location}\"")
           
           document_html = Hpricot(File.open(temp_page_location).read)
-          title = document_html.at("title").inner_html
+          title = document_html.at("title").inner_html.strip
           
           @link.title = title.length > 0 ? title : File.basename(uri.to_s)
         rescue Exception => e
@@ -72,16 +72,25 @@ class LinksController < ApplicationController
   
   def add_domain(uri)
     @domain = Domain.new
-    begin
-      document_html = Hpricot(open("#{uri.scheme}://#{uri.host}", "User-Agent" => "theurld"))
-      title = document_html.at("title").inner_html
-      @domain.title = title.length > 0 ? title : uri.host
-    rescue
-      @domain.title = uri.host
-    end
     @domain.scheme = uri.scheme
     @domain.domain = uri.host
     @domain.save
+    
+    temp_page_location = File.join(TEMP_PAGES_LOCATION, "domain_#{@domain.id}.html")
+    
+    begin
+      system("wget \"#{uri.scheme}://#{uri.host}\" -O \"#{temp_page_location}\"")
+      
+      document_html = Hpricot(File.open(temp_page_location).read)
+      title = document_html.at("title").inner_html.strip
+      
+      @domain.title = title.length > 0 ? title : uri.host
+    rescue Exception => e
+      log_error(e)
+      @domain.title = uri.host
+    end
+    
+    File.delete(temp_page_location) if File.exists?(temp_page_location)
     
     favicon_location  = File.join(FAVICONS_LOCATION, "#{@domain.id}")
     
@@ -100,7 +109,7 @@ class LinksController < ApplicationController
           # original_file.background_color = 'none'
           original_file.write(favicon_location + ".gif")
   
-          @domain.update_attribute('favicon', 1)
+          @domain.favicon = 1
         end
       end
     rescue Exception => e
@@ -111,6 +120,8 @@ class LinksController < ApplicationController
       # to get the favicon again when a user submits the same
       # domain again and the favicon has yet to be retrieved
     end
+    
+    @domain.save
     
     File.delete(favicon_location + ".ico") if File.exists?(favicon_location + ".ico")
   end
