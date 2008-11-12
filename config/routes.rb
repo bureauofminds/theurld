@@ -12,8 +12,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/category/:name', :controller => 'categories', :action => 'view'
   map.connect '/category/:name/friends_urls', :controller => 'categories', :action => 'friends_urls'
   
-  map.connect '/members/:id', :controller => 'members', :action => 'view'
-  map.connect '/members/:id/friends_urls', :controller => 'members', :action => 'friends_urls'
+  map.connect '/members/:username', :controller => 'members', :action => 'view'
+  map.connect '/members/:username/friends_urls', :controller => 'members', :action => 'friends_urls'
+  map.connect '/members/:username/befriend', :controller => 'members', :action => 'befriend'
+  map.connect '/members/:username/unfriend', :controller => 'members', :action => 'unfriend'
   
   # This should be of lowest priority (the below routes are the defaults from Rails)
   map.connect '/:code', :controller => 'links', :action => 'view'

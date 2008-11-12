@@ -11,7 +11,6 @@ class LinksController < ApplicationController
       ###
     
     when :post
-      # Angelo Ashmore, 10/5/08: I think I can remove uri from the list below and use open-uri
       require 'net/http'
       require 'open-uri'
       require 'hpricot'

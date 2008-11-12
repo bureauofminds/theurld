@@ -60,7 +60,7 @@
         <%= render "/sidebars/#{params[:controller]}/#{params[:action]}" %>
         <%- else -%>
         <%- if session[:logged_in] == true -%>
-        <h3>Hi, <%= link_to @master_member.username, :controller => 'members', :action => 'view', :id => @master_member.id %></h3>
+        <h3>Hi, <%= link_to @master_member.username, :controller => 'members', :action => 'view', :username => @master_member.username %></h3>
         <div class="box">
           <h5>You &amp; Your Friends</h5>
           <p class="friends">

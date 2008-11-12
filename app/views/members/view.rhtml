@@ -1,8 +1,8 @@
 <h2><%= @member.username %>'s URL Feed</h2>
 <div class="box">
   <ul class="tabs">
-    <li class="active"><%= link_to "Public URL Feed", :action => 'view', :id => @member.id %></li>
-    <li><%= link_to "Friends URL Feed", :action => 'friends_urls', :id => @member.id %></li>
+    <li class="active"><%= link_to "Public URL Feed", :action => 'view', :username => @member.username %></li>
+    <li><%= link_to "Friends URL Feed", :action => 'friends_urls', :username => @member.username %></li>
   </ul>
   
   <div class="small">

@@ -46,7 +46,7 @@ module ApplicationHelper
       html = ""
       friends.each do |f|
         friend = Member.find(f)
-        html << link_to(image_tag("avatars/#{f}.gif", :size => "16x16", :alt => friend.username), :controller => 'members', :action => 'view', :id => friend.id)
+        html << link_to(image_tag("avatars/#{f}.gif", :size => "16x16", :alt => friend.username), :controller => 'members', :action => 'view', :username => friend.username)
       end
       html
     else

@@ -26,4 +26,14 @@ class ApplicationController < ActionController::Base
                                    :conditions => 'subcategory = 1',
                                    :order => 'name ASC')
   end
+  
+  # user Application helpers in the controllers
+  def helpers
+    Helper.instance
+  end
+  
+  class Helper
+    include Singleton
+    include ApplicationHelper
+  end
 end

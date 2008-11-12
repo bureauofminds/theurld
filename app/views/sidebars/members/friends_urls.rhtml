@@ -2,8 +2,9 @@
 <div class="box">
   <h5>Options</h5>
   <div class="buttons">
-    <p class="button"><%= link_to "Befriend #{@member.username}", :action => 'befriend', :id => @member.id %></p>
-    <p class="button"><%= link_to "Enemize #{@member.username}", :action => 'enemize', :id => @member.id %></p>
+    <%- unless @member == @master_member -%>
+    <p class="button"><%= link_to "Befriend #{@member.username}", :action => 'befriend', :username => @member.username %></p>
+    <%- end -%>
     <br class="clear" />
   </div>
   

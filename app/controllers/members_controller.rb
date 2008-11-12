@@ -5,13 +5,13 @@ class MembersController < ApplicationController
   end
   
   def view
-    @member = Member.find(params[:id])
+    @member = Member.find_by_username(params[:username])
     @links = @member.links.paginate(:page => params[:page],
                                     :order => 'updated_on DESC')
   end
   
   def friends_urls
-    @member = Member.find(params[:id])
+    @member = Member.find_by_username(params[:username])
     
     # Angelo Ashmore, 11/10/08: this is a very inefficient process
     
@@ -31,24 +31,48 @@ class MembersController < ApplicationController
   end
   
   def befriend
-    @member = Member.find(params[:id])
-    existing_friends = YAML.load(@master_member.friends)
-    
-    if existing_friends.include?(@member.id)
-      flash[:notice] = "You are already <em>great</em> friends with #{@member.username}"
-      redirect_to :action => 'view', :id => @member.id
+    @member = Member.find_by_username(params[:username])
+    if @member == @master_member
+      flash[:notice] = "You can't befriend yourself. Really, you can't."
     else
-      existing_friends << @member.id
-      @master_member.update_attribute('friends', YAML.dump(existing_friends))
+      existing_friends = YAML.load(@master_member.friends)
+
+      if existing_friends.include?(@member.id)
+        flash[:notice] = "You are already <em>great</em> friends with #{@member.username}"
+      else
+        existing_friends << @member.id
+        @master_member.update_attribute('friends', YAML.dump(existing_friends))
       
-      flash[:notice] = "You have just befriended #{@member.username}"
-      redirect_to :action => 'view', :id => @member.id
+        flash[:notice] = "You have just befriended #{@member.username}"
+      end
     end
+    
+    redirect_to :action => 'view', :username => @member.username
+  end
+  
+  def unfriend
+    @member = Member.find_by_username(params[:username])
+    if @member == @master_member
+      flash[:notice] = "You can't unfriend yourself. Emo."
+    else
+      existing_friends = YAML.load(@master_member.friends)
+
+      if existing_friends.include?(@member.id)
+        existing_friends.delete(@member.id)
+        @master_member.update_attribute('friends', YAML.dump(existing_friends))
+      
+        flash[:notice] = "#{@member.username} is no longer a friend. #{helpers.pronoun(@member, 'he_she').capitalize} must have done something bad&hellip;"
+      else
+        flash[:notice] = "Looks like you aren't friends with #{@member.username} to begin with"
+      end
+    end
+    
+    redirect_to :action => 'view', :username => @member.username
   end
   
   def edit
     if request.post?
-      @member = Member.find(params[:id])
+      @member = Member.find_by_username(params[:username])
       
       if params[:member][:password]
         if params[:member][:password] == ""
@@ -72,12 +96,12 @@ class MembersController < ApplicationController
       end
     end
     
-    redirect_to :action => 'view', :id => @member.id
+    redirect_to :action => 'view', :username => @member.username
   end
   
   def delete
     if request.post?
-      @member = Member.find(params[:id])
+      @member = Member.find_by_username(params[:username])
       
     end
   end
