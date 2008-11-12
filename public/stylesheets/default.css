@@ -405,20 +405,6 @@ div#content ul.feed li.row2 {
   background-color: #f5f7fB;
 }
 
-div#content p.pagination {
-  padding: 20px 0 10px 0;
-  font-size: 11px;
-  border-top: 4px solid #d6d6d6;
-}
-
-div#content p.pagination a,
-div#content p.pagination span.ellipse {
-  padding-right: 10px;
-  color: #333;
-  font-weight: bold;
-  text-decoration: none;
-}
-
 div#content div.pagination {
   padding: 20px 0 10px 0;
   font-size: 11px;

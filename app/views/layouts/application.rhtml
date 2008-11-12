@@ -45,65 +45,63 @@
   <div id="container">
     <h1><%= link_to "<span class=\"hide\">The Urld</span>", :controller => 'numenor' %></h1>
     <!-- <%= image_tag "interface/newaroundhere.gif", :size => "230x35", :alt => "New around here? Create an account!" unless session[:logged_in] == true %> -->
-    <div id="substance">
-      <%- if flash[:notice] or flash[:error] -%>
-      <p id="flash" class="fake_link" onclick="Element.hide('flash');">
-        <span class="highlight"><%= flash[:notice] || flash[:error] %></span>
-      </p>
+    <%- if flash[:notice] or flash[:error] -%>
+    <p id="flash" class="fake_link" onclick="Element.hide('flash');">
+      <span class="highlight"><%= flash[:notice] || flash[:error] %></span>
+    </p>
+    <%- end -%>
+    
+    <div id="sidebar">
+      <%-
+        sidebar = File.join(RAILS_ROOT, "app", "views", "sidebars", params[:controller], params[:action] + ".rhtml")
+        if File.exists?(sidebar)
+      -%>
+      <%= render "/sidebars/#{params[:controller]}/#{params[:action]}" %>
+      <%- else -%>
+      <%- if session[:logged_in] == true -%>
+      <h3>Hi, <%= link_to @master_member.username, :controller => 'members', :action => 'view', :username => @master_member.username %></h3>
+      <div class="box">
+        <h5>You &amp; Your Friends</h5>
+        <p class="friends">
+          <%= friends_icons @master_member, :include_member => true %>
+        </p>
+      </div>
+      <%- else -%>
+      <h3>Login</h3>
+      <div class="box">
+        <% form_tag :controller => 'members', :action => 'login' do %>
+          <p>
+            <%= label_tag "member", "username" %> <%= text_field "member", "username" %>
+            <%= label_tag "member", "password", :name => "Password <strong><a href=\"#\">?</a></strong>" %> <%= password_field "member", "password" %>
+            <%= submit_tag "Login" %>
+          </p>
+        <% end %>
+      </div>
       <%- end -%>
       
-      <div id="sidebar">
-        <%-
-          sidebar = File.join(RAILS_ROOT, "app", "views", "sidebars", params[:controller], params[:action] + ".rhtml")
-          if File.exists?(sidebar)
-        -%>
-        <%= render "/sidebars/#{params[:controller]}/#{params[:action]}" %>
-        <%- else -%>
-        <%- if session[:logged_in] == true -%>
-        <h3>Hi, <%= link_to @master_member.username, :controller => 'members', :action => 'view', :username => @master_member.username %></h3>
-        <div class="box">
-          <h5>You &amp; Your Friends</h5>
-          <p class="friends">
-            <%= friends_icons @master_member, :include_member => true %>
-          </p>
-        </div>
-        <%- else -%>
-        <h3>Login</h3>
-        <div class="box">
-          <% form_tag :controller => 'members', :action => 'login' do %>
-            <p>
-              <%= label_tag "member", "username" %> <%= text_field "member", "username" %>
-              <%= label_tag "member", "password", :name => "Password <strong><a href=\"#\">?</a></strong>" %> <%= password_field "member", "password" %>
-              <%= submit_tag "Login" %>
-            </p>
-          <% end %>
-        </div>
+      <h3>Categories</h3>
+      <h4>General Categories</h4>
+      <ul>
+        <%- @categories.each do |c| -%>
+        <li><%= link_to c.name, :controller => 'categories', :action => 'view', :name => c.name %></li>
         <%- end -%>
-        
-        <h3>Categories</h3>
-        <h4>General Categories</h4>
-        <ul>
-          <%- @categories.each do |c| -%>
-          <li><%= link_to c.name, :controller => 'categories', :action => 'view', :name => c.name %></li>
-          <%- end -%>
-          <li><%= link_to "Uncategorized", :controller => 'categories', :action => 'view', :name => "Uncategorized" %></li>
-        </ul>
+        <li><%= link_to "Uncategorized", :controller => 'categories', :action => 'view', :name => "Uncategorized" %></li>
+      </ul>
 
-        <h4>Subcategories</h4>
-        <ul>
-          <%- @subcategories.each do |c| -%>
-          <li><%= link_to c.name, :controller => 'categories', :action => 'view', :name => c.name %></li>
-          <%- end -%>
-        </ul>
+      <h4>Subcategories</h4>
+      <ul>
+        <%- @subcategories.each do |c| -%>
+        <li><%= link_to c.name, :controller => 'categories', :action => 'view', :name => c.name %></li>
         <%- end -%>
-      </div>
-      
-      <div id="content">
-        <%= @content_for_layout %>
-      </div>
-      
-      <br class="clear" />
+      </ul>
+      <%- end -%>
     </div>
+    
+    <div id="content">
+      <%= @content_for_layout %>
+    </div>
+    
+    <br class="clear" />
   </div>
 
 </body>

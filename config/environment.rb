@@ -22,5 +22,6 @@ Rails::Initializer.run do |config|
   end
 end
 
+TEMP_PAGES_LOCATION = File.join(RAILS_ROOT, "tmp", "pages")
 FAVICONS_LOCATION = File.join(RAILS_ROOT, "public", "images", "favicons")
 FORBIDDEN_NAMES = ['index', 'new', 'edit', 'delete']
