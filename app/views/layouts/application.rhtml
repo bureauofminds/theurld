@@ -105,8 +105,7 @@
     
     <p class="small superfade">
       <strong>The Urld Development Build</strong><br/>
-      This page took ##### seconds to load. Revision <%= @svn_info['Revision'] %>, <%= longdate Time.parse(@svn_info['Last Changed Date']) %>.<br/>
-      Note: This is updated by hand and not always accurate.
+      Revision <%= @svn_info['Revision'] %>, <%= datetime Time.parse(@svn_info['Last Changed Date']) %>
     </p>
   </div>
 
