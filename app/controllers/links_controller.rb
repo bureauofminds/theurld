@@ -12,6 +12,7 @@ class LinksController < ApplicationController
     
     when :post
       require 'net/http'
+      require 'open-uri'
       require 'hpricot'
       
       scheme = URI.parse(params[:link][:uri]).scheme
@@ -36,32 +37,23 @@ class LinksController < ApplicationController
         @link.member_id = @master_member.id
         @link.domain_id = @domain.id
         @link.category_id = params[:link][:category_id] || nil
-        @link.title = ''
-        @link.uri = params[:link][:uri]
-        @link.path = uri.path.to_s
-        @link.code = generate_code
-        @link.save
-        
         # images won't return a title, so filename is used
         # hopefully we can come up with a better method
-        temp_page_location = File.join(TEMP_PAGES_LOCATION, "link_#{@link.id}.html")
         begin
-          system("wget \"#{uri.to_s}\" -O \"#{temp_page_location}\"")
-          
-          document_html = Hpricot(File.open(temp_page_location).read)
-          title = document_html.at("title").inner_html.strip
-          
+          document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
+          title = document_html.search("title").html.strip
           @link.title = title.length > 0 ? title : File.basename(uri.to_s)
         rescue Exception => e
           log_error(e)
           @link.title = File.basename(uri.to_s)
         end
-        File.delete(temp_page_location) if File.exists?(temp_page_location)
-        
-        @link.category.number_of_links = @link.category.number_of_links + 1 if @link.category
+        @link.uri = params[:link][:uri]
+        @link.path = uri.path.to_s
+        @link.code = generate_code
         @link.save
         
         @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
+        @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @link.category
       end
       
       redirect_to :controller => '/'
@@ -72,45 +64,40 @@ class LinksController < ApplicationController
   
   def add_domain(uri)
     @domain = Domain.new
+    begin
+      title = Hpricot(open("#{uri.scheme}://#{uri.host}")).at("title").inner_html
+      @domain.title = title.length > 0 ? title : uri.host
+    rescue
+      @domain.title = uri.host
+    end
     @domain.scheme = uri.scheme
     @domain.domain = uri.host
     @domain.save
-    
-    temp_page_location = File.join(TEMP_PAGES_LOCATION, "domain_#{@domain.id}.html")
-    
-    begin
-      system("wget \"#{uri.scheme}://#{uri.host}\" -O \"#{temp_page_location}\"")
-      
-      document_html = Hpricot(File.open(temp_page_location).read)
-      title = document_html.at("title").inner_html.strip
-      
-      @domain.title = title.length > 0 ? title : uri.host
-    rescue Exception => e
-      log_error(e)
-      @domain.title = uri.host
-    end
-    
-    File.delete(temp_page_location) if File.exists?(temp_page_location)
     
     favicon_location  = File.join(FAVICONS_LOCATION, "#{@domain.id}")
     
     begin
       if Net::HTTP.new(@domain.domain).request_head(("favicon.ico")).to_s != "404"
         require 'RMagick'
-        
-        # be sure to have wget available
-        system("wget \"#{@domain.scheme}://#{@domain.domain}/favicon.ico\" -O \"#{favicon_location}.ico\"")
-        
-        if File.exists?(favicon_location + ".ico")
+      
+        thread = Thread.new do
+          Net::HTTP.start(@domain.domain) { |http|
+            resp = http.get("/favicon.ico")
+            open(favicon_location + ".ico", "w") { |favicon|
+              favicon.write(resp.body)
+            }
+          }
+    
           original_file = Magick::Image.read(favicon_location + ".ico").first.resize_to_fit(16,16)
           # this doesn't work apparently
           # transparent GIFs are given a black background
           # 
           # original_file.background_color = 'none'
           original_file.write(favicon_location + ".gif")
-  
-          @domain.favicon = 1
+    
+          @domain.update_attribute('favicon', 1)
         end
+        thread.join(2)
       end
     rescue Exception => e
       log_error(e)
@@ -120,8 +107,6 @@ class LinksController < ApplicationController
       # to get the favicon again when a user submits the same
       # domain again and the favicon has yet to be retrieved
     end
-    
-    @domain.save
     
     File.delete(favicon_location + ".ico") if File.exists?(favicon_location + ".ico")
   end
