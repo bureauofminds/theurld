@@ -1,0 +1,11 @@
+<%- if flash[:notice] or flash[:error] -%>
+<p><%= flash[:notice] || flash[:error] %></p>
+<%- end -%>
+
+<%- form_tag do -%>
+  <p>
+    <%= label_tag "authorization", "code", :name => "Authorization code" %> <%= password_field "authorization", "code" %> <%= submit_tag "Submit" %>
+  </p>
+<%- end -%>
+
+Cool sites: <%= link_to "Google", "http://google.com" %> <%= link_to "The Urld", :action => 'index' %>

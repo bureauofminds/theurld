@@ -23,4 +23,32 @@ class NumenorController < ApplicationController
     @links = @links.reverse.paginate(:page => params[:page])
   end
   
+  # Used to authorize access to development builds
+  def authorize
+    if session[:authorized_for_development] == true
+      flash[:notice] = "This computer is already authorized. If you would like to deauthorize this computer, <a href=\"/deauthorize\">click here</a>."
+      redirect_to :action => 'index' and return
+    else
+      if request.post?
+        if md5(params[:authorization][:code]) == DEVELOPMENT_AUTHORIZATION_CODE
+          session[:authorized_for_development] = true
+        
+          flash[:notice] = "This computer has been authorized"
+          redirect_to :action => 'index' and return
+        else
+          flash[:error] = "Wrong. This attempt has been logged and our goons are on their way to your house."
+        end
+      end
+    
+      render :layout => 'authorize'
+    end
+  end
+  
+  def deauthorize
+    session[:authorized_for_development] = false
+    
+    flash[:notice] = "Deauthorized"
+    redirect_to :action => 'authorize'
+  end
+  
 end

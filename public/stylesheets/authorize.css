@@ -1,0 +1,52 @@
+@import "reset.css";
+
+body {
+  font-family: Monaco, Georgia, 'Times New Roman', sans-serif;
+  font-size: 10px;
+  color: #000;
+  line-height: 15px;
+  letter-spacing: 1px;
+  background-color: #fff;
+}
+
+a {
+  padding: 0 3px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #00f;
+}
+
+a:hover {
+  background-color: #000;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+br.clear {
+  clear: both;
+}
+
+div#container {
+  width: 400px;
+  margin: 200px auto 200px auto;
+  padding: 20px;
+  background-color: #eee;
+}
+
+div#container label {
+  float: left;
+  display: block;
+  margin-right: 20px;
+  font-weight: bold;
+  line-height: 23px;
+}
+
+div#container input {
+  margin-right: 20px;
+}
+
+div#container input.submit {
+  margin: 0;
+}

@@ -456,6 +456,12 @@ div#content div.pagination span.current {
   color: #666;
 }
 
+/* footer */
+
+div#footer a {
+  text-decoration: none;
+}
+
 /* forms */
 
 div.box form fieldset {

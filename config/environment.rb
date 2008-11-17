@@ -22,5 +22,9 @@ Rails::Initializer.run do |config|
   end
 end
 
+# Used to authorize during the developmental builds
+# Remove when in production
+DEVELOPMENT_AUTHORIZATION_CODE = "f5ba7c8fc348b9e17dbd2a5686ea05f7"
+
 FAVICONS_LOCATION = File.join(RAILS_ROOT, "public", "images", "favicons")
 FORBIDDEN_NAMES = ['index', 'new', 'edit', 'delete']

@@ -7,8 +7,19 @@ class ApplicationController < ActionController::Base
   
   require 'will_paginate'
   
+  # keep out the mere mortals!
+  # delete this when we go into production, of course
+  before_filter :authorize_development_build, :except => 'authorize'
+  
   before_filter :setup
   before_filter :svn_info
+  
+  def authorize_development_build
+    unless session[:authorized_for_development] == true
+      flash[:notice] = "This is a private development build of The Urld. You aren't allowed in. <em>Or aRe YoU?</em>"
+      redirect_to :controller => 'numenor', :action => 'authorize' and return false
+    end
+  end
   
   def md5(input)
     Digest::MD5.hexdigest(input.to_s)

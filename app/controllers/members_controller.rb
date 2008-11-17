@@ -136,7 +136,7 @@ class MembersController < ApplicationController
         # flash[:notice] = "Loggedin successfully."
         redirect_to session[:referrer] || '/' and return
       else
-        flash[:notice] = "The username or password you specified is incorrect. Please try again."
+        flash[:error] = "The username or password you specified is incorrect. Please try again."
         @member.password = nil
       end
     end
@@ -149,7 +149,7 @@ class MembersController < ApplicationController
       flash[:notice] = "You have logged out."
       redirect_to :controller => '/'
     else
-      flash[:notice] = "An error occured while logging out. Please try again."
+      flash[:error] = "An error occured while logging out. Please try again."
       redirect_to :controller => '/'
     end
   end

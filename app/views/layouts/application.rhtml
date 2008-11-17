@@ -112,10 +112,13 @@
     
     <br class="clear" />
     
-    <p class="small superfade">
-      <strong>The Urld Development Build</strong><br/>
-      Revision <%= @svn_info['Revision'] %>, <%= datetime Time.parse(@svn_info['Last Changed Date']) %>
-    </p>
+    <div id="footer">
+      <p class="small superfade">
+        <strong>The Urld Development Build</strong><br/>
+        Revision <%= @svn_info['Revision'] %>, <%= datetime Time.parse(@svn_info['Last Changed Date']) %><br/>
+        <%= link_to "Deauthorize this computer", {:controller => 'numenor', :action => 'deauthorize'}, :class => "superfade" %>
+      </p>
+    </div>
   </div>
 
 </body>
