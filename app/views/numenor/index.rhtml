@@ -2,7 +2,9 @@
 <div class="box">
   <ul class="tabs">
     <li class="active"><%= link_to "Public URL Feed", :action => 'index' %></li>
-    <li><%= link_to "Friends URL Feed", :action => 'friends_urls' %></li>
+    <%- if session[:logged_in] == true -%>
+	  <li><%= link_to "Friends URL Feed", :action => 'friends_urls' %></li>
+	  <%- end -%>
   </ul>
   
   <div class="small">

@@ -1,6 +1,6 @@
 <h3>About <%= @member.username %></h3>
 <div class="box">
-  <%- unless @member == @master_member -%>
+  <%- if session[:logged_in] == true and @member != @master_member -%>
   <h5>Options</h5>
   <div class="buttons">
     <%- if YAML.load(@master_member.friends).include?(@member.id) -%>

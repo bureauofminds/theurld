@@ -36,15 +36,24 @@
       <ul id="quick_navigation">
         <li><a href="#">About</a></li>
         <li><%= link_to "Create An Account", :controller => 'members', :action => 'register' %></li>
-        <li><%= link_to "Login", :controller => 'members', :action => 'login' %></li>
+        <!--><li><%# link_to "Login", :controller => 'members', :action => 'login' %></li>-->
       </ul>
       <%- end -%>
     </div>
   </div>
   
   <div id="container">
-    <h1><%= link_to "<span class=\"hide\">The Urld</span>", :controller => 'numenor' %></h1>
-    <!-- <%= image_tag "interface/newaroundhere.gif", :size => "230x35", :alt => "New around here? Create an account!" unless session[:logged_in] == true %> -->
+    <div id="logo"><h1><%= link_to "<span class=\"hide\">The Urld</span>", :controller => 'numenor' %></h1></div>
+    <%- if session[:logged_in] == false -%>
+	  <div id="new">
+	    <%= image_tag "interface/newaroundhere.gif", :size => "230x35", :alt => "New around here? Create an account!" %>
+	  </div>
+	<%- else -%>
+	  <div id="info">
+		<%= image_tag "interface/iconmessage.gif" %> <%= link_to "0 Messages", :controller => 'messages' %>&nbsp; &nbsp; &nbsp;
+		<%= image_tag "interface/iconinvite.gif" %> <%= link_to "0 Invites", :controller => 'invite' %>
+	  </div>
+	<%- end -%>
     <%- if flash[:notice] or flash[:error] -%>
     <p id="flash" class="fake_link" onclick="Element.hide('flash');">
       <span class="highlight"><%= flash[:notice] || flash[:error] %></span>
