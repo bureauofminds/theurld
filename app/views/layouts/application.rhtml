@@ -28,7 +28,7 @@
         </p>
       <% end %>
       <ul id="quick_navigation">
-        <li><%= link_to "My Account", :controller => 'members', :action => 'view', :id => @master_member.id %></li>
+        <li><%= link_to "My Account", :controller => 'members', :action => 'view', :username => @master_member.username %></li>
         <li><%= link_to "Settings", :controller => 'members', :action => 'settings' %></li>
         <li><%= link_to "Logout", :controller => 'members', :action => 'logout' %></li>
       </ul>
