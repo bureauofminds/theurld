@@ -99,17 +99,11 @@ class MembersController < ApplicationController
     redirect_to :action => 'view', :username => @member.username
   end
   
-  def delete
-    if request.post?
-      @member = Member.find_by_username(params[:username])
-      
-    end
-  end
-  
   def register
     if request.post?
       params[:member][:password] = md5(params[:member][:password])
       @member = Member.new(params[:member])
+      @member.gender = @member.downcase
       existing_member = Member.find_by_username(@member.username)
       
       if existing_member
