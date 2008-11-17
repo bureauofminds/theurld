@@ -1,5 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/service.wsdl', :action => 'wsdl'
+  
+  # Remove when in production
+  map.connect '/authorize', :controller => 'numenor', :action => 'authorize'
+  map.connect '/deauthorize', :controller => 'numenor', :action => 'deauthorize'
 
   map.connect '', :controller => 'numenor', :action => 'index'
   map.connect '/login', :controller => 'members', :action => 'login'
