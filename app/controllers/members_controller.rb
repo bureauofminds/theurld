@@ -103,7 +103,6 @@ class MembersController < ApplicationController
     if request.post?
       params[:member][:password] = md5(params[:member][:password])
       @member = Member.new(params[:member])
-      @member.gender = @member.gender.downcase
       existing_member = Member.find_by_username(@member.username)
       
       if existing_member
