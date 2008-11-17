@@ -7,12 +7,13 @@ body {
   font-size: 12px;
   color: #333;
   line-height: 16px;
-	background-color: #fff;
+  background-color: #fff;
+  /* url(http://s3.amazonaws.com/twitter_production/profile_background_images/2866511/Birds.jpg) fixed no-repeat top left */
 }
 
 a {
   color: #06c;
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 a.disguised {
@@ -152,11 +153,32 @@ div#quick_bar_container div#quick_bar ul#quick_navigation li {
 
 div#container {
   width: 900px;
+  padding: 0 10px;
   margin: 0 auto;
+  clear: both;
+  background-color: #fff;
 }
 
-div#container h1 {
-  width: 190px;
+div#logo {
+  float: left;
+  width: 126px;
+}
+
+div#info, div#new {
+  margin-top: 20px;
+  float: right;
+  height: 35px;
+}
+
+div#info {
+  width: 172px;
+  padding: 14px 10px 15px 0;
+  text-align: right;
+  background: url('../images/interface/info.gif') no-repeat;
+}
+
+div#info img {
+  margin-bottom: 2px;
 }
 
 div#container h1 a {
@@ -176,11 +198,13 @@ div#container p#flash {
   text-align: center;
   text-decoration: underline;
   border-top: 1px solid #999;
+  clear: both;
 }
 
 /* sidebar */
 
 div#sidebar {
+  clear: both;
   float: left;
   width: 190px;
 }
@@ -430,4 +454,51 @@ div#content div.pagination span.ellipse {
 
 div#content div.pagination span.current {
   color: #666;
+}
+
+/* forms */
+
+div.box form fieldset {
+  margin-bottom: 10px;
+}
+div.box form legend {
+  padding: 0 2px;
+  font-weight: bold;
+}
+div.box form label {
+  display: inline-block;
+  /* line-height: 1.8; */
+  vertical-align: top;
+}
+div.box form fieldset ol {
+  margin: 0;
+  padding: 0;
+}
+div.box form fieldset li {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+}
+div.box form fieldset fieldset {
+  border: none;
+  margin: 3px 0 0;
+}
+div.box form fieldset fieldset legend {
+  padding: 0 0 5px;
+  font-weight: normal;
+}
+div.box form fieldset fieldset label {
+  display: block;
+  width: auto;
+}
+div.box form em {
+  font-weight: bold;
+  font-style: normal;
+  color: #f00;
+}
+div.box form label {
+  width: 120px; /* Width of labels */
+}
+div.box form fieldset fieldset label {
+  margin-left: 123px; /* Width plus 3 (html space) */
 }
