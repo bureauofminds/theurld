@@ -23,7 +23,7 @@
       </li>
       <li>
         <%= label_tag "member", "gender" %>
-        <%= select_tag(:gender, options_for_select([['Male'], ['Female'], ['Other']])) %>
+        <%= select "member", "gender", { "Male" => "male", "Other" => "other", "Female" => "female" } %>
       </li>
       <li>
       <%= submit_tag "Create account" %>
