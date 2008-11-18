@@ -41,7 +41,7 @@ class LinksController < ApplicationController
         # hopefully we can come up with a better method
         begin
           document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
-          title = document_html.search("title").html.strip
+          title = document_html.at("title").first.inner_html.strip
           @link.title = title.length > 0 ? title : File.basename(uri.to_s)
         rescue Exception => e
           log_error(e)
@@ -65,7 +65,8 @@ class LinksController < ApplicationController
   def add_domain(uri)
     @domain = Domain.new
     begin
-      title = Hpricot(open("#{uri.scheme}://#{uri.host}")).at("title").inner_html
+      document_html = Hpricot(open("#{uri.scheme}://#{uri.host}"))
+      title = document_html.at("title").first.inner_html.strip
       @domain.title = title.length > 0 ? title : uri.host
     rescue
       @domain.title = uri.host
