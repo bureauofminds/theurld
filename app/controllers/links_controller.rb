@@ -42,7 +42,7 @@ class LinksController < ApplicationController
           thread = Thread.new do
             uri.open do |u|
             	u.each do |l|
-            	  title = (/(<title>)(.*)(<\/title>)/).match(l)
+            	  title = (/(<title>)(.*)(<\/title>)/i).match(l)
             	  if title
               	  @link.title = title[2].to_s.strip
               	  thread.kill
@@ -79,7 +79,7 @@ class LinksController < ApplicationController
       thread = Thread.new do
         "#{uri.scheme}://#{uri.host}".open do |u|
         	u.each do |l|
-        	  title = (/(<title>)(.*)(<\/title>)/).match(l)
+        	  title = (/(<title>)(.*)(<\/title>)/i).match(l)
         	  if title
           	  @domain.title = title[2].to_s.strip
           	  thread.kill
