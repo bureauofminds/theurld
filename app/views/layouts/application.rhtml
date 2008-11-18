@@ -44,14 +44,14 @@
   
   <div id="container">
     <div id="logo"><h1><%= link_to "<span class=\"hide\">The Urld</span>", :controller => 'numenor' %></h1></div>
-    <%- if session[:logged_in] == false -%>
-	  <div id="new">
-	    <%= image_tag "interface/newaroundhere.gif", :size => "230x35", :alt => "New around here? Create an account!" %>
-	  </div>
-	  <%- else -%>
+    <%- if session[:logged_in] == true -%>
 	  <div id="info">
 		<%= image_tag "interface/iconmessage.gif" %> <%= link_to "0 Messages", :controller => 'messages' %>&nbsp; &nbsp; &nbsp;
 		<%= image_tag "interface/iconinvite.gif" %> <%= link_to "0 Invites", :controller => 'invite' %>
+	  </div>
+	  <%- else -%>
+	  <div id="new">
+	    <%= image_tag "interface/newaroundhere.gif", :size => "230x35", :alt => "New around here? Create an account!" %>
 	  </div>
 	  <%- end -%>
     <%- if flash[:notice] or flash[:error] -%>
