@@ -13,7 +13,6 @@ class LinksController < ApplicationController
     when :post
       require 'net/http'
       require 'open-uri'
-      require 'hpricot'
       
       scheme = URI.parse(params[:link][:uri]).scheme
       if !scheme or scheme.downcase != "http"
@@ -40,13 +39,24 @@ class LinksController < ApplicationController
         # images won't return a title, so filename is used
         # hopefully we can come up with a better method
         begin
-          document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
-          title = document_html.at("title").first.inner_html.strip
-          @link.title = title.length > 0 ? title : File.basename(uri.to_s)
+          thread = Thread.new do
+            uri.open do |u|
+            	u.each do |l|
+            	  title = (/(<title>)(.*)(<\/title>)/).match(l)
+            	  if title
+              	  @link.title = title[2].to_s.strip
+              	  thread.kill
+            	  end
+        	    end
+            end
+          end
+          thread.join(2)
         rescue Exception => e
           log_error(e)
           @link.title = File.basename(uri.to_s)
         end
+        
+        @link.title = File.basename(uri.to_s) unless @link.title.length > 0
         @link.uri = params[:link][:uri]
         @link.path = uri.path.to_s
         @link.code = generate_code
@@ -64,13 +74,26 @@ class LinksController < ApplicationController
   
   def add_domain(uri)
     @domain = Domain.new
+    
     begin
-      document_html = Hpricot(open("#{uri.scheme}://#{uri.host}"))
-      title = document_html.at("title").first.inner_html.strip
-      @domain.title = title.length > 0 ? title : uri.host
-    rescue
+      thread = Thread.new do
+        "#{uri.scheme}://#{uri.host}".open do |u|
+        	u.each do |l|
+        	  title = (/(<title>)(.*)(<\/title>)/).match(l)
+        	  if title
+          	  @domain.title = title[2].to_s.strip
+          	  thread.kill
+        	  end
+    	    end
+        end
+      end
+      thread.join(2)
+    rescue Exception => e
+      log_error(e)
       @domain.title = uri.host
     end
+    
+    @domain.title = uri.host unless @domain.title.length > 0
     @domain.scheme = uri.scheme
     @domain.domain = uri.host
     @domain.save
