@@ -15,11 +15,14 @@ class LinksController < ApplicationController
       require 'open-uri'
       
       scheme = URI.parse(params[:link][:uri]).scheme
-      if !scheme or scheme.downcase != "http"
+      if scheme == nil
+        params[:link][:uri] = "http://" + params[:link][:uri]
+        scheme = "http"
+      end
+      if scheme.downcase != "http"
         flash[:error] = "Sorry, only HTTP URIs are currently supported."
         return redirect_to session[:referrer] || '/'
       end
-      params[:link][:uri] = "http://" + params[:link][:uri] if scheme == nil
       uri = URI.parse(params[:link][:uri])
       
       response = Net::HTTP.new(uri.host).request_head((uri.path.length > 0 ? uri.path : "index"))
@@ -41,13 +44,14 @@ class LinksController < ApplicationController
         begin
           thread = Thread.new do
             uri.open do |u|
-            	u.each do |l|
-            	  title = (/(<title>)(.*)(<\/title>)/i).match(l)
-            	  if title
-              	  @link.title = title[2].to_s.strip
-              	  thread.kill
-            	  end
-        	    end
+              u.each do |l|
+                l = l.strip
+                title = (/(<title>)(.*)(<\/title>)/i).match(l)
+                if title
+                  @link.title = title[2].to_s.strip
+                  thread.kill
+                end
+              end
             end
           end
           thread.join(2)
@@ -78,13 +82,13 @@ class LinksController < ApplicationController
     begin
       thread = Thread.new do
         "#{uri.scheme}://#{uri.host}".open do |u|
-        	u.each do |l|
-        	  title = (/(<title>)(.*)(<\/title>)/i).match(l)
-        	  if title
-          	  @domain.title = title[2].to_s.strip
-          	  thread.kill
-        	  end
-    	    end
+          u.each do |l|
+            title = (/(<title>)(.*)(<\/title>)/i).match(l)
+            if title
+              @domain.title = title[2].to_s.strip
+              thread.kill
+            end
+          end
         end
       end
       thread.join(2)
