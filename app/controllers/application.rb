@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def is_superuser?
+    redirect_to :controller => '/' unless @master_member.superuser?
+  end
+  
   def md5(input)
     Digest::MD5.hexdigest(input.to_s)
   end

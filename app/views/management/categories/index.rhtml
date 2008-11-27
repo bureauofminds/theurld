@@ -1,0 +1,22 @@
+<h2>Categories</h2>
+<div class="box">  
+  <table width="100%" cellspacing="1" class="style">
+    <colgroup>
+      <col width="25%" />
+      <col width="60%" />
+      <col width="15%" />
+    </colgroup>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th class="center">Number of Links</th>
+    </tr>
+    <%- @categories.each do |c| -%>
+    <tr class="<%= cycle("row1", "row2") %>">
+      <td><%= link_to truncate(c.name, 25), :action => 'view', :name => c.name %></td>
+      <td><%=h truncate(c.description, 75) %></td>
+      <td align="center"><%= c.number_of_links %></td>
+    </tr>
+    <%- end -%>
+  </table>
+</div>

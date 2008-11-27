@@ -17,9 +17,14 @@ module ApplicationHelper
     RedCloth.new((text || ''), [:hard_breaks]).to_html
   end
   
-  def label_tag(model, attribute, options = {})
+  def label_tag(object_name, attribute, options = {})
     name = options[:name] || attribute.titleize.capitalize
-    "<label for=\"#{model}_#{attribute}\"#{" class=\""+options[:class]+"\"" if options[:class]}>#{name}</label>"
+    "<label for=\"#{object_name}_#{attribute}\"#{" class=\""+options[:class]+"\"" if options[:class]}>#{name}</label>"
+  end
+  
+  def checkbox(object_name, method, options = {})
+    options[:class] = "checkbox"
+    check_box(object_name, method, options)
   end
   
   def submit_tag(name)

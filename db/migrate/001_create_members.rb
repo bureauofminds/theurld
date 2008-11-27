@@ -14,6 +14,8 @@ class CreateMembers < ActiveRecord::Migration
       t.column :friends, :text
       t.column :enemies, :text
       
+      t.column :superuser, :integer, :default => 0, :null => false
+      
       t.column :created_on, :datetime, :null => false
       t.column :updated_on, :datetime, :null => false
     end

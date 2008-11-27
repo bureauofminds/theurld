@@ -1,0 +1,30 @@
+@import "default.css";
+
+/* generic stripping */
+
+.row1 {
+  background-color: #fff;
+}
+
+.row2 {
+  background-color: #f5f7fB;
+}
+
+table.style tr th {
+  margin-bottom: 10px;
+  padding-top: 7px;
+  font-size: 11px;
+  color: #999;
+  font-weight: normal;
+  text-align: left;
+  border-bottom: 4px solid #d6d6d6;
+}
+
+table.style tr th.center {
+  text-align: center;
+}
+
+table.style tr th,
+table.style tr td {
+  padding: 5px 0;
+}

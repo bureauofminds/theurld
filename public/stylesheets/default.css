@@ -383,6 +383,10 @@ div#content ul.tabs li.active a {
   background-image: url('/images/interface/tab_right.gif');
 }
 
+div#content ul.tabs li.active a:hover {
+  background-color: transparent;
+}
+
 div#content p.page_info {
   float: left;
 }
