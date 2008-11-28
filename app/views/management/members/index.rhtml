@@ -15,7 +15,7 @@
     </tr>
     <%- @members.each do |m| -%>
     <tr class="<%= cycle("row1", "row2") %>">
-      <td><%= link_to truncate(m.username, 25), :action => 'view', :name => m.username %></td>
+      <td><%= link_to truncate(m.username, 25), :action => 'view', :name => m.username %> <%= "<span class=\"tag superuser\">superuser</span>" if m.superuser? %></td>
       <td><%= mail_to truncate(m.email_address, 30) %></td>
       <td><%= shortdate m.created_on %></td>
       <td><%= shortdate m.updated_on %></td>
