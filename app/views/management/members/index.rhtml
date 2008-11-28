@@ -1,0 +1,25 @@
+<h2>Members</h2>
+<div class="box">  
+  <table width="100%" cellspacing="1" class="style">
+    <colgroup>
+      <col width="30%" />
+      <col width="30%" />
+      <col width="20%" />
+      <col width="20%" />
+    </colgroup>
+    <tr>
+      <th>Username</th>
+      <th>Email Address</th>
+      <th>Registered on</th>
+      <th>Last Active on</th>
+    </tr>
+    <%- @members.each do |m| -%>
+    <tr class="<%= cycle("row1", "row2") %>">
+      <td><%= link_to truncate(m.username, 25), :action => 'view', :name => m.username %></td>
+      <td><%= mail_to truncate(m.email_address, 30) %></td>
+      <td><%= shortdate m.created_on %></td>
+      <td><%= shortdate m.updated_on %></td>
+    </tr>
+    <%- end -%>
+  </table>
+</div>

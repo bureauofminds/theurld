@@ -1,0 +1,13 @@
+<h3>Find a Member</h3>
+<div class="box">
+  <% form_tag :action => 'search' do %>
+    <p>Fill out as much as possible</p>
+    <p>
+      <%= label_tag "member", "username" %> <%= text_field "member", "username" %>
+      <%= label_tag "member", "email_address" %> <%= text_field "member", "email_address" %>
+      <%= label_tag "member", "first_name" %> <%= text_field "member", "first_name" %>
+      <%= label_tag "member", "last_name" %> <%= text_field "member", "last_name" %>
+      <%= submit_tag "Search" %>
+    </p>
+  <% end %>
+</div>
