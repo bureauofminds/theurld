@@ -14,7 +14,7 @@
     <%- @categories.each do |c| -%>
     <tr class="<%= cycle("row1", "row2") %>">
       <td><%= link_to truncate(c.name, 25), :action => 'view', :name => c.name %></td>
-      <td><%=h truncate(c.description, 75) %></td>
+      <td><%=h truncate(c.description, 65) %></td>
       <td align="center"><%= c.number_of_links %></td>
     </tr>
     <%- end -%>

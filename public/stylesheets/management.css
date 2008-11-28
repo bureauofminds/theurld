@@ -11,8 +11,7 @@
 }
 
 table.style tr th {
-  margin-bottom: 10px;
-  padding-top: 7px;
+  padding-bottom: 5px;
   font-size: 11px;
   color: #999;
   font-weight: normal;
@@ -24,7 +23,6 @@ table.style tr th.center {
   text-align: center;
 }
 
-table.style tr th,
 table.style tr td {
   padding: 5px 0;
 }
