@@ -30,6 +30,15 @@ class MembersController < ApplicationController
     @links = @links.reverse.paginate(:page => params[:page])
   end
   
+  def export_urls
+    @member = Member.find_by_username(params[:username])
+    
+    urls = ""
+    @member.links.each { |l| urls << "#{l.uri}<br/>\n" }
+    
+    render :text => urls
+  end
+  
   def befriend
     @member = Member.find_by_username(params[:username])
     if @member == @master_member

@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect '/members/:username', :controller => 'members', :action => 'view'
   map.connect '/members/:username/friends_urls', :controller => 'members', :action => 'friends_urls'
+  map.connect '/members/:username/export_urls', :controller => 'members', :action => 'export_urls'
   map.connect '/members/:username/befriend', :controller => 'members', :action => 'befriend'
   map.connect '/members/:username/unfriend', :controller => 'members', :action => 'unfriend'
   

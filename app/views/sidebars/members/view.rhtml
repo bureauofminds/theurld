@@ -1,17 +1,18 @@
 <h3>About <%= @member.username %></h3>
 <div class="box">
-  <%- if session[:logged_in] == true and @member != @master_member -%>
   <h5>Options</h5>
   <div class="buttons">
+    <%- if session[:logged_in] == true and @member != @master_member -%>
     <%- if YAML.load(@master_member.friends).include?(@member.id) -%>
     <p class="button"><%= link_to "Unfriend #{@member.username}", :action => 'unfriend', :username => @member.username %></p>
     <%- else -%>
     <p class="button"><%= link_to "Befriend #{@member.username}", :action => 'befriend', :username => @member.username %></p>
     <%- end -%>
     <p class="button"><%= link_to "Send message", :action => 'new_message', :username => @member.username %></p>
+    <%- end -%>
+    <p class="button"><%= link_to "Export URLs", :action => 'export_urls', :username => @member.username %></p>
     <br class="clear" />
   </div>
-  <%- end -%>
   
   <h5><%= pronoun(@member, 'his_her').capitalize %> Biography</h5>
   <%= format_text(@member.biography || "#{@member.username.capitalize} is too lazy to write a biography.") %>
