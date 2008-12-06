@@ -1,8 +1,17 @@
 <h2>POST A URL</h2>
 
-<div class="cell">
+<div class="box">
+  <p class="small fade">This is a temporary layout</p>
+  
+  <p>
+    You may enter multiple URLs in the box below.<br/>
+    <strong>One URL per line</strong>, please.
+  </p>
   <% form_tag do %>
-    <%= text_field "link", "uri" %>
-    <%= submit_tag "Add" %>
+    <p><%= label_tag "category", "id", :name => "Category for all links" %> <%= collection_select "category", "id", @categories, "id", "name", {:prompt => "Select category"} %></p>
+    <p>
+      <%= text_area "link", "uri", :style => 'width: 500px; height: 100px;' %><br/>
+      <%= submit_tag "Add" %>
+    </p>
   <% end %>
 </div>

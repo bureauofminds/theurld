@@ -12,65 +12,79 @@ class LinksController < ApplicationController
     
     when :post
       require 'net/http'
+      require 'hpricot'
       require 'open-uri'
       
-      scheme = URI.parse(params[:link][:uri]).scheme
-      if scheme == nil
-        params[:link][:uri] = "http://" + params[:link][:uri]
-        scheme = "http"
-      end
-      if scheme.downcase != "http"
-        flash[:error] = "Sorry, only HTTP URIs are currently supported."
-        return redirect_to session[:referrer] || '/'
-      end
-      uri = URI.parse(params[:link][:uri])
+      @category = Category.find(params[:category][:id]) unless params[:category][:id].length < 1
       
-      response = Net::HTTP.new(uri.host).request_head((uri.path.length > 0 ? uri.path : "index"))
+      number_of_links = 0
       
-      if response == 404
-        flash[:error] = "Looks like that page doesn't exist!"
-        return redirect_to session[:referrer] || '/'
-      else
-        @domain = Domain.find(:first,
-                              :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
-        add_domain(uri) if !@domain
-
-        @link = Link.new
-        @link.member_id = @master_member.id
-        @link.domain_id = @domain.id
-        @link.category_id = params[:link][:category_id] || nil
-        # images won't return a title, so filename is used
-        # hopefully we can come up with a better method
-        begin
-          thread = Thread.new do
-            uri.open do |u|
-              u.each do |l|
-                l = l.strip
-                title = (/(<title>)(.*)(<\/title>)/i).match(l)
-                if title
-                  @link.title = title[2].to_s.strip
-                  thread.kill
-                end
-              end
-            end
+      params[:link][:uri].each_line do |uri|
+        uri = uri.strip.chomp
+        
+        if uri.length > 0
+          scheme = URI.parse(uri).scheme
+          if scheme == nil
+            uri = "http://" + uri
+            scheme = "http"
           end
-          thread.join(2)
-        rescue Exception => e
-          log_error(e)
-          @link.title = File.basename(uri.to_s)
+          if scheme.downcase != "http"
+            flash[:error] = "Sorry, only HTTP URIs are currently supported."
+            return redirect_to session[:referrer] || '/'
+          end
+          uri = URI.parse(uri)
+
+          response = Net::HTTP.new(uri.host).request_head((uri.path.length > 0 ? uri.path : "index"))
+
+          if response == 404
+            flash[:error] = "Looks like that page doesn't exist!"
+            return redirect_to session[:referrer] || '/'
+          else
+            @domain = Domain.find(:first,
+                                  :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
+            add_domain(uri) if !@domain
+
+            @link = Link.new
+            @link.member_id = @master_member.id
+            @link.domain_id = @domain.id
+            @link.category_id = @category ? @category.id : nil
+            # images won't return a title, so filename is used
+            # hopefully we can come up with a better method
+            begin
+              document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
+              title = document_html.search("title").html.strip
+              @link.title = title.length > 0 ? title : File.basename(uri.to_s)
+            rescue Exception => e
+              log_error(e)
+              @link.title = File.basename(uri.to_s)
+            end
+
+            @link.title = File.basename(uri.to_s) unless @link.title.length > 0
+            @link.uri = uri.to_s
+            @link.path = uri.path.to_s
+            @link.code = generate_code
+            @link.save
+
+            @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
+            @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
+            number_of_links += 1
+          end
         end
-        
-        @link.title = File.basename(uri.to_s) unless @link.title.length > 0
-        @link.uri = params[:link][:uri]
-        @link.path = uri.path.to_s
-        @link.code = generate_code
-        @link.save
-        
-        @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
-        @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @link.category
       end
       
-      redirect_to :controller => '/'
+      if number_of_links == 0
+        flash[:notice] = "No URLs were added"
+      elsif number_of_links == 1
+        flash[:notice] = "URL added successfully"
+      else
+        flash[:notice] = "#{number_of_links} URLs added successfully"
+      end
+      
+      if @category
+        redirect_to :controller => 'categories', :action => 'view', :name => @category.name
+      else
+        redirect_to :controller => 'numenor'
+      end
     end
   end
   
@@ -80,21 +94,12 @@ class LinksController < ApplicationController
     @domain = Domain.new
     
     begin
-      thread = Thread.new do
-        "#{uri.scheme}://#{uri.host}".open do |u|
-          u.each do |l|
-            title = (/(<title>)(.*)(<\/title>)/i).match(l)
-            if title
-              @domain.title = title[2].to_s.strip
-              thread.kill
-            end
-          end
-        end
-      end
-      thread.join(2)
+      document_html = Hpricot(open(uri.host, "User-Agent" => "theurld"))
+      title = document_html.search("title").html.strip
+      @domain.title = title.length > 0 ? title : File.basename(uri.to_s)
     rescue Exception => e
       log_error(e)
-      @domain.title = uri.host
+      @domain.title = File.basename(uri.to_s)
     end
     
     @domain.title = uri.host unless @domain.title.length > 0
