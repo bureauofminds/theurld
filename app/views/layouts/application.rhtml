@@ -14,33 +14,7 @@
     <a href="#content"><strong>Jump to content</strong></a>
   </div>
   
-  <div id="quick_bar_container">
-    <div id="quick_bar">
-      <%- if session[:logged_in] == true -%>
-      <p class="post_url"><%= link_to "Post a URL", :controller => 'links', :action => 'new' %></p>
-      <% form_tag :controller => 'links', :action => 'new' do %>
-        <p>
-          <%= label_tag "link", "uri", :name => "Quick submit" %>
-          <%= text_field "link", "uri", :value => "http://", :style => "color: #aaa;", :onfocus => "this.value = ''; this.style.color = '#000';" %>
-          <%= collection_select 'link', 'category_id', @categories, 'id', 'name', {:prompt => "Select category"} %>
-          <%= submit_tag "Go" %>
-          <%= hidden_field "link", "quick", :value => true %>
-        </p>
-      <% end %>
-      <ul id="quick_navigation">
-        <li><%= link_to "My Account", :controller => 'members', :action => 'view', :username => @master_member.username %></li>
-        <li><%= link_to "Settings", :controller => 'members', :action => 'settings' %></li>
-        <li><%= link_to "Logout", :controller => 'members', :action => 'logout' %></li>
-      </ul>
-      <%- else -%>
-      <ul id="quick_navigation">
-        <li><a href="#">About</a></li>
-        <li><%= link_to "Login", :controller => 'members', :action => 'login' %></li>
-        <li><%= link_to "Create An Account", :controller => 'members', :action => 'register' %></li>
-      </ul>
-      <%- end -%>
-    </div>
-  </div>
+  <%= render :partial => '/layouts/quickbar' %>
   
   <div id="container">
     <div id="logo"><h1><%= link_to "<span class=\"hide\">The Urld</span>", :controller => 'numenor' %></h1></div>
