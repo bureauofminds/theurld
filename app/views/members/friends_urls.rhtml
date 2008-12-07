@@ -1,8 +1,8 @@
 <h2><%= @member.username %>'s URL Feed</h2>
 <div class="box">
   <ul class="tabs">
-    <li><%= link_to "Public URL Feed", :action => 'view', :username => @member.username %></li>
-    <li class="active"><%= link_to "Friends URL Feed", :action => 'friends_urls', :username => @member.username %></li>
+    <li><%= link_to "#{pronoun(@member, 'his_her').capitalize} URL Feed", :action => 'view', :username => @member.username %></li>
+    <li class="active"><%= link_to "#{pronoun(@member, 'his_her').capitalize} Friends URL Feed", :action => 'friends_urls', :username => @member.username %></li>
   </ul>
   
   <div class="small">

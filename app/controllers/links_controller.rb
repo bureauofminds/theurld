@@ -63,28 +63,25 @@ class LinksController < ApplicationController
             @link.uri = uri.to_s
             @link.path = uri.path.to_s
             @link.code = generate_code
-            @link.save
-
-            @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
-            @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
-            number_of_links += 1
+            
+            if @link.save
+              @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
+              @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
+              number_of_links += 1
+            end
           end
         end
       end
       
-      if number_of_links == 0
+      if number_of_links < 1
         flash[:notice] = "No URLs were added"
-      elsif number_of_links == 1
+      elsif number_of_links == 1 or params[:link][:quick]
         flash[:notice] = "URL added successfully"
       else
         flash[:notice] = "#{number_of_links} URLs added successfully"
       end
       
-      if @category
-        redirect_to :controller => 'categories', :action => 'view', :name => @category.name
-      else
-        redirect_to :controller => 'numenor'
-      end
+      redirect_to session[:referrer] || '/' and return
     end
   end
   
@@ -147,6 +144,8 @@ class LinksController < ApplicationController
   def generate_code
     chars = ("a".."z").to_a + ("1".."9").to_a
     code = Array.new(5, '').collect{chars[rand(chars.size)]}.join
+    
+    # Loop this method if the generated code matches an already existing one
     existing_code = Link.find_by_code(code)
     if existing_code or FORBIDDEN_NAMES.include?(code)
       generate_code and return false

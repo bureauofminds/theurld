@@ -8,7 +8,6 @@ body {
   color: #333;
   line-height: 16px;
   background-color: #fff;
-  /* url(http://s3.amazonaws.com/twitter_production/profile_background_images/2866511/Birds.jpg) fixed no-repeat top left */
 }
 
 a {
@@ -161,7 +160,7 @@ div#container {
 
 div#logo {
   float: left;
-  width: 126px;
+  width: 190px;
 }
 
 div#info, div#new {
@@ -174,7 +173,9 @@ div#info {
   width: 172px;
   padding: 14px 10px 15px 0;
   text-align: right;
-  background: url('../images/interface/info.gif') no-repeat;
+  background-image: url('/images/interface/info.gif');
+  background-position: top right;
+  background-repeat: no-repeat;
 }
 
 div#info img {

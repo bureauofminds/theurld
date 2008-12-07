@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   before_filter :authorize_development_build, :except => 'authorize'
   
   before_filter :setup
+  before_filter :save_referrer, :except => ['login', 'logout', 'register']
   before_filter :svn_info
   
   def authorize_development_build
@@ -30,10 +31,7 @@ class ApplicationController < ActionController::Base
   end
   
   def setup
-    unless ['login', 'logout', 'register'].include?(params[:action])
-      @master_member = Member.find(session[:member_id]) if session[:logged_in] == true
-      session[:referrer] = request.request_uri
-    end
+    @master_member = Member.find(session[:member_id]) if session[:logged_in] == true
     
     @categories = Category.find(:all,
                                 :conditions => 'subcategory = 0',
@@ -41,6 +39,16 @@ class ApplicationController < ActionController::Base
     @subcategories = Category.find(:all,
                                    :conditions => 'subcategory = 1',
                                    :order => 'name ASC')
+  end
+  
+  def save_referrer
+    # not an elegant solution to excluding a certain controller and action
+    controler_action_exceptions = [['links', 'new'],
+                                   ['numenor', 'view']]
+    
+    unless controler_action_exceptions.include?([params[:controller], params[:action]])
+      session[:referrer] = request.request_uri
+    end
   end
   
   def svn_info
