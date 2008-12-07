@@ -2,9 +2,11 @@ class LinksWorker < BackgrounDRb::MetaWorker
   set_worker_name :links_worker
   
   require 'rubygems'
+  
   require 'net/http'
   require 'hpricot'
   require 'open-uri'
+  require 'RMagick'
   
   def create(args = nil)
     # this method is called, when worker is loaded for the first time
@@ -89,27 +91,22 @@ class LinksWorker < BackgrounDRb::MetaWorker
     favicon_location  = File.join(FAVICONS_LOCATION, "#{@domain.id}")
     
     begin
-      if Net::HTTP.new(@domain.domain).request_head(("favicon.ico")).to_s != "404"
-        require 'RMagick'
-      
-        thread = Thread.new do
-          Net::HTTP.start(@domain.domain) { |http|
-            resp = http.get("/favicon.ico")
-            open(favicon_location + ".ico", "w") { |favicon|
-              favicon.write(resp.body)
-            }
+      if Net::HTTP.new(@domain.domain).request_head(("favicon.ico")).to_s != "404"      
+        Net::HTTP.start(@domain.domain) { |http|
+          resp = http.get("/favicon.ico")
+          open(favicon_location + ".ico", "w") { |favicon|
+            favicon.write(resp.body)
           }
-    
-          original_file = Magick::Image.read(favicon_location + ".ico").first.resize_to_fit(16,16)
-          # this doesn't work apparently
-          # transparent GIFs are given a black background
-          # 
-          # original_file.background_color = 'none'
-          original_file.write(favicon_location + ".gif")
-    
-          @domain.update_attribute('favicon', 1)
-        end
-        thread.join(2)
+        }
+
+        original_file = Magick::Image.read(favicon_location + ".ico").first.resize_to_fit(16,16)
+        # this doesn't work apparently
+        # transparent GIFs are given a black background
+        # 
+        # original_file.background_color = 'none'
+        original_file.write(favicon_location + ".gif")
+
+        @domain.update_attribute('favicon', 1)
       end
     rescue
       # Angelo Ashmore, 11/10/08: 

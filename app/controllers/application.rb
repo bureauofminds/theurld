@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   # delete this when we go into production, of course
   before_filter :authorize_development_build, :except => 'authorize'
   
-  before_filter :setup
+  before_filter :setup, :except => ['logout']
   before_filter :save_referrer, :except => ['login', 'logout', 'register']
   before_filter :svn_info
   
