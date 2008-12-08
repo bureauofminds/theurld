@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   before_filter :authorize_development_build, :except => 'authorize'
   
   before_filter :setup, :except => ['logout']
-  before_filter :save_referrer, :except => ['login', 'logout', 'register']
+  before_filter :save_referrer, :except => ['login', 'logout', 'register', 'export']
   before_filter :svn_info
   
   def authorize_development_build

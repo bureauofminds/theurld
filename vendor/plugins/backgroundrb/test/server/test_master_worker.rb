@@ -20,7 +20,7 @@ context "Master Worker in general should" do
       end
 
       def gen_worker_key(worker_name,worker_key = nil)
-        return worker_name if worker_key.nil?
+        return worker_name.to_sym if worker_key.nil?
         return "#{worker_name}_#{worker_key}".to_sym
       end
       def ask_worker key,data

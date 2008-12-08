@@ -10,15 +10,19 @@ class LinksWorker < BackgrounDRb::MetaWorker
   
   def create(args = nil)
     # this method is called, when worker is loaded for the first time
+    
+    if args
+      logger.info "#{args[:uri].to_s}"
+      new(args)
+    end
+    
+    self.delete
   end
   
   def new(args)
     uri = args[:uri]
     master_member_id = args[:master_member_id]
     category_id = args[:category_id]
-    number_of_links = args[:number_of_links]
-    
-    logger.info "Adding link now! #{uri.to_s}"
     
     uri = uri.strip.chomp
     
@@ -30,7 +34,7 @@ class LinksWorker < BackgrounDRb::MetaWorker
       end
       if scheme.downcase != "http"
         flash[:error] = "Sorry, only HTTP URIs are currently supported."
-        return redirect_to session[:referrer] || '/'
+        return redirect_to(session[:referrer] || '/')
       end
       uri = URI.parse(uri)
 
@@ -38,7 +42,7 @@ class LinksWorker < BackgrounDRb::MetaWorker
 
       if response == 404
         flash[:error] = "Looks like that page doesn't exist!"
-        return redirect_to session[:referrer] || '/'
+        return redirect_to(session[:referrer] || '/')
       else
         @domain = Domain.find(:first,
                               :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
@@ -66,7 +70,6 @@ class LinksWorker < BackgrounDRb::MetaWorker
         if @link.save
           @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
           @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) unless category_id == nil
-          number_of_links += 1
         end
       end
     end
