@@ -24,7 +24,6 @@ class LinksController < ApplicationController
       params[:link][:uri].each_line do |uri|
         # create a new background process for each uri
         spawn do
-          logger.info "starting url adding!"
           uri = uri.strip.chomp
 
           if uri.length > 0
@@ -148,7 +147,7 @@ class LinksController < ApplicationController
     # Loop this method if the generated code matches an already existing one
     existing_code = Link.find_by_code(code)
     if existing_code or FORBIDDEN_NAMES.include?(code)
-      generate_code and return false
+      generate_code
     else
       code
     end
