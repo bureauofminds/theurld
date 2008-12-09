@@ -15,9 +15,10 @@ span.tag {
   margin-left: 5px;
   padding: 0 2px;
   font-size: 10px;
+  font-weight: bold;
 }
 
-span.tag.superuser { color: #fff; background-color: #f77; }
+span.tag.superuser { color: #fff; background-color: #f10; }
 
 table.style tr th {
   padding-bottom: 5px;
