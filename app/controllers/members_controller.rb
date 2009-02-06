@@ -43,7 +43,7 @@ class MembersController < ApplicationController
         existing_friends << @member.id
         @master_member.update_attribute('friends', YAML.dump(existing_friends))
       
-        flash[:notice] = "You have just befriended #{@member.username}"
+        flash[:notice] = "&hearts; You have just befriended #{@member.username}"
       end
     end
     
