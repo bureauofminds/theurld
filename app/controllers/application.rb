@@ -42,10 +42,10 @@ class ApplicationController < ActionController::Base
   end
   
   def save_referrer
-    # not an elegant solution to excluding a certain controller and action
+    # Not an elegant solution to excluding a certain controller and action
     controler_action_exceptions = [['links', 'new'],
-                                   ['numenor', 'view']]
-    
+                                   ['links', 'view']]
+  
     unless controler_action_exceptions.include?([params[:controller], params[:action]])
       session[:referrer] = request.request_uri
     end
