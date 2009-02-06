@@ -47,19 +47,24 @@ module ApplicationHelper
     infos.to_s
   end
   
+  def avatar(member, options = {})
+    link_to(image_tag("avatars/#{member.avatar? ? member.id : 'default'}.gif", :size => (options[:size] || "16x16"), :alt => member.username, :class => 'avatar'), :controller => 'members', :action => 'view', :username => member.username)
+  end
+  
   def friends_icons(member, options = {})
     friends = (options[:include_member] || '') == true ? [member.id] : []
     YAML.load(member.friends).each { |f| friends << f }
     
-    if friends.length > 0
+    # no friends? :'(
+    unless friends.empty?
       html = ""
       friends.each do |f|
         friend = Member.find(f)
-        html << link_to(image_tag("avatars/#{f}.gif", :size => "16x16", :alt => friend.username), :controller => 'members', :action => 'view', :username => friend.username)
+        html << avatar(friend)
       end
       html
     else
-      "<span class=\"small\">#{pronoun(member, 'he_she').capitalize} is friendless :(</span>"
+      "<span class=\"small\">#{pronoun(member, 'he_she').capitalize} is friendless :(</span>" unless options[:verbose] == false
     end
   end
   

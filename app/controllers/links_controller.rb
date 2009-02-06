@@ -47,7 +47,8 @@ class LinksController < ApplicationController
               @domain = Domain.find(:first,
                                     :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
               add_domain(uri) if !@domain
-
+              
+              logger.info "====== Adding new URL: #{uri}"
               @link = Link.new
               @link.member_id = @master_member.id
               @link.domain_id = @domain.id
@@ -93,6 +94,7 @@ class LinksController < ApplicationController
   private
   
   def add_domain(uri)
+    logger.info "=== Adding new domain: #{uri.host}"
     @domain = Domain.new
     
     begin
@@ -108,7 +110,7 @@ class LinksController < ApplicationController
     @domain.domain = uri.host
     @domain.save
     
-    favicon_location  = File.join(FAVICONS_LOCATION, "#{@domain.id}")
+    favicon_location  = File.join(FAVICONS_ROOT, "#{@domain.id}")
     
     begin
       if Net::HTTP.new(@domain.domain).request_head(("favicon.ico")).to_s != "404"      

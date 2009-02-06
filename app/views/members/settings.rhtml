@@ -1,0 +1,24 @@
+<h2>Settings</h2>
+<div class="box">
+  <p>CAN U SAY SETTINGS? I BET U CAN!</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  
+  <% form_tag({}, :multipart => true) do %>
+    <h3>General Information</h3>
+    <p>
+      <%= label_tag "member", "username" %> <%= text_field "member", "username", :disabled => true %><br/>
+      <%= label_tag "member", "password", :name => "New Password" %> <%= password_field "member", "password", :value => '' %><br/>
+    </p>
+    
+    <h3>Optional</h3>
+    <p>
+      <%= label_tag "member", "avatar_file" %> <%= file_field "member", "avatar_file" %><br/>
+      <%= label_tag "member", "biography" %> <%= text_area "member", "biography" %>
+    </p>
+    
+    <p>
+      Please be sure to double check what you are changing before saving! Cuz we care about u and would never want to hurt u&hellip;<br/>
+      <%= submit_tag "Save" %>
+    </p>
+  <% end %>
+</div>

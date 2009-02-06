@@ -29,5 +29,11 @@ end
 # Remove when in production
 DEVELOPMENT_AUTHORIZATION_CODE = "f5ba7c8fc348b9e17dbd2a5686ea05f7"
 
-FAVICONS_LOCATION = File.join(RAILS_ROOT, "public", "images", "favicons")
+# Directory where avatars are saved
+AVATAR_ROOT = File.join(RAILS_ROOT, "public", "images", "avatars")
+
+# Directory where avatars are saved
+FAVICONS_ROOT = File.join(RAILS_ROOT, "public", "images", "favicons")
+
+# These usernames will conflict with system actions, so they are not allowed
 FORBIDDEN_NAMES = ['index', 'new', 'edit', 'delete']

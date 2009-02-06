@@ -30,15 +30,6 @@ class MembersController < ApplicationController
     @links = @links.reverse.paginate(:page => params[:page])
   end
   
-  def export_urls
-    @member = Member.find_by_username(params[:username])
-    
-    urls = ""
-    @member.links.each { |l| urls << "#{l.uri}<br/>\n" }
-    
-    render :text => urls
-  end
-  
   def befriend
     @member = Member.find_by_username(params[:username])
     if @member == @master_member
@@ -79,33 +70,70 @@ class MembersController < ApplicationController
     redirect_to :action => 'view', :username => @member.username
   end
   
-  def edit
+  def export_urls
+    @member = Member.find_by_username(params[:username])
+    
+    urls = ""
+    @member.links.each { |l| urls << "#{l.uri}\n" }
+    
+    render :text => urls
+  end
+  
+  def settings
+    # needed for form
+    @member = @master_member
+    
     if request.post?
-      @member = Member.find_by_username(params[:username])
+      # don't allow username changes
+      params[:member].delete('username')
       
-      if params[:member][:password]
-        if params[:member][:password] == ""
-          flash[:error] = "A blank password is not allowed. Please try again."
-          redirect_to :action => 'view', :id => @member.id and return
-        else
-          params[:member][:password] = md5(params[:member][:password])
-        end
-        
-        if @member.update_attributes(params[:member])
-          flash[:notice] = "Password updated successfully."
-        else
-          flash[:error] = "A problem occured while updating your password. Please try again."
-        end
+      # if no new password, remove it from the param so it doesn't get updated
+      if params[:member][:password].empty?
+        params[:member].delete('password')
       else
-        if @member.update_attributes(params[:member])
-          flash[:notice] = "Updated successfully."
+        md5(params[:member][:password])
+      end
+      
+      unless params[:member][:avatar_file] == ""
+        require 'RMagick'
+        
+        Dir.mkdir(AVATAR_ROOT) unless File.exists?(AVATAR_ROOT)
+        
+        data = params[:member][:avatar_file]
+        
+        if data.content_type.starts_with?('image')
+          original_filename = data.original_filename
+          temporary_file = File.join(AVATAR_ROOT, @master_member.id.to_s + ".temp" + File.extname(original_filename))
+          final_file = File.join(AVATAR_ROOT, @master_member.id.to_s + ".gif")
+
+          File.open(temporary_file, 'w') { |f| f.write(data.read) }
+
+          img = Magick::Image.read(temporary_file).first
+          thumb = img.scale(16, 16)
+          thumb.write(final_file)
+
+          File.delete(temporary_file)
+
+          params[:member][:avatar] = true
         else
-          flash[:error] = "A problem occured while updating your information. Please try again."
+          data = nil
+          avatar_error = "Your avatar, however, was not a valid image."
         end
       end
+      
+      params[:member].delete('avatar_file')
+      
+      if @master_member.update_attributes(params[:member])
+        unless avatar_error
+          flash[:notice] = "Updated successfully."
+        else
+          flash[:notice] = "Updated successfully. Your avatar, however, was not a valid image type."
+        end
+      else
+        params[:member][:password] = nil
+        flash[:error] = "A problem occured while updating your information. Please try again."
+      end
     end
-    
-    redirect_to :action => 'view', :username => @member.username
   end
   
   def register

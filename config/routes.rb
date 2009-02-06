@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/login', :controller => 'members', :action => 'login'
   map.connect '/logout', :controller => 'members', :action => 'logout'
   map.connect '/register', :controller => 'members', :action => 'register'
+  map.connect '/settings', :controller => 'members', :action => 'settings'
   
   map.connect '/page/:page', :controller => 'numenor'
   map.connect '/friends_urls', :controller => 'numenor', :action => 'friends_urls'

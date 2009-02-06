@@ -5,7 +5,7 @@
     <% form_tag :controller => 'links', :action => 'new' do %>
       <p>
         <%= label_tag "link", "uri", :name => "Quick submit" %>
-        <%= text_field "link", "uri", :value => "http://", :style => "color: #aaa;", :onfocus => "this.value = ''; this.style.color = '#000';" %>
+        <%= text_field "link", "uri", :value => "http://", :style => "color: #aaa;", :onfocus => "if ('http://' == this.value) this.value = ''; this.style.color = '#000';", :onblur => "if (this.value.length < 1) { this.value = 'http://'; this.style.color = '#aaa'; }" %>
         <%= collection_select "category", "id", @categories, "id", "name", {:prompt => "Select category"} %>
         <%= submit_tag "Go" %>
         <%= hidden_field "link", "quick", :value => true %>
