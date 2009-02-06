@@ -4,6 +4,7 @@
     <p>
       <%= label_tag "category", "name" %> <%= text_field "category", "name" %>
       <%= label_tag "category", "description", :name => "Description <span class=\"fade\">(optional)</span>" %> <%= text_field "category", "description" %>
+      <%= label_tag "category", "subcategory" %> <%= check_box "category", "subcategory" %>
       <%= submit_tag "Add" %>
     </p>
   <% end %>

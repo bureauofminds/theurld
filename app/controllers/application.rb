@@ -55,11 +55,10 @@ class ApplicationController < ActionController::Base
     @svn_info = YAML.load(`svn info`)
   end
   
-  # user Application helpers in the controllers
+  # use Application helpers in the controllers
   def helpers
     Helper.instance
   end
-  
   class Helper
     include Singleton
     include ApplicationHelper

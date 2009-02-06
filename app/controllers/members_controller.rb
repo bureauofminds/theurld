@@ -71,10 +71,12 @@ class MembersController < ApplicationController
   end
   
   def export_urls
+    # Angelo 02/06/09 - Need to make this export to CSV, TXT, or something
+    
     @member = Member.find_by_username(params[:username])
     
     urls = ""
-    @member.links.each { |l| urls << "#{l.uri}\n" }
+    @member.links.each { |l| urls << "#{l.uri}\n<br/>" }
     
     render :text => urls
   end

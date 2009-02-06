@@ -4,7 +4,7 @@
   
   <ul class="tabs">
     <li class="active"><%= link_to "Public URL Feed", :action => 'index' %></li>
-    <%- if session[:logged_in] == true -%>
+    <%- if session[:logged_in] == true and !YAML.load(@master_member.friends).empty? -%>
     <li><%= link_to "Friends URL Feed", :action => 'friends_urls', :name => @category.name %></li>
     <%- end -%>
   </ul>

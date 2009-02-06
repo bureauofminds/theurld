@@ -1,4 +1,4 @@
-<h3>About <%= @member.username %></h3>
+<h3>About <%= link_to @member.username, :controller => 'members', :action => 'view', :username => @member.username %></h3>
 <div class="box">
   <h5>Options</h5>
   <div class="buttons">

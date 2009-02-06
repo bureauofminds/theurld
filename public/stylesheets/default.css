@@ -303,7 +303,9 @@ div#sidebar div.box form label {
   margin-bottom: 2px;
 }
 
-div#sidebar div.box form input {
+div#sidebar div.box form input,
+div#sidebar div.box form select {
+  display: block;
   width: 155px;
   margin: 0 0 5px 0;
 }
