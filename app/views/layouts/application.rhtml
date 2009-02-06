@@ -35,13 +35,12 @@
     <%- end -%>
     
     <div id="sidebar">
-      <%-
-        sidebar = File.join(RAILS_ROOT, "app", "views", "sidebars", params[:controller], params[:action] + ".rhtml")
-        if File.exists?(sidebar)
-      -%>
+      <%- if File.exists?(File.join(RAILS_ROOT, "app", "views", "sidebars", params[:controller], params[:action] + ".rhtml")) -%>
       <%= render "/sidebars/#{params[:controller]}/#{params[:action]}" %>
+      <%- elsif File.exists?(File.join(RAILS_ROOT, "app", "views", "sidebars", params[:controller], "default.rhtml")) -%>
+      <%= render "/sidebars/#{params[:controller]}/default" %>
       <%- else -%>
-      <%= render "/sidebars/default/default" %>
+      <%= render "/sidebars/default" %>
       <%- end -%>
     </div>
     
