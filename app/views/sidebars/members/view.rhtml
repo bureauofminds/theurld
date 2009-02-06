@@ -15,7 +15,7 @@
   </div>
   
   <h5><%= pronoun(@member, 'his_her').capitalize %> Biography</h5>
-  <%= format_text((@member.biography unless @member.biography.empty?) || "#{@member.username.capitalize} is too lazy to write a biography.") %>
+  <%= format_text((@member.biography if @member.biography and !@member.biography.empty?) || "#{@member.username.capitalize} is too lazy to write a biography.") %>
   
   <h5><%= pronoun(@member, 'his_her').capitalize %> Friends</h5>
   <p class="friends">
