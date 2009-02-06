@@ -48,29 +48,41 @@ class LinksController < ApplicationController
                                     :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
               add_domain(uri) if !@domain
               
-              logger.info "====== Adding new URL: #{uri}"
-              @link = Link.new
-              @link.member_id = @master_member.id
-              @link.domain_id = @domain.id
-              @link.category_id = @category ? @category.id : nil
-              # images won't return a title, so filename is used
-              # hopefully we can come up with a better method
-              begin
-                document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
-                title = document_html.search("title").html.strip
-                @link.title = title.length > 0 ? title : File.basename(uri.to_s)
-              rescue
-                @link.title = File.basename(uri.to_s)
-              end
+              @link = Link.find(:first,
+                                :conditions => ['uri = ?', uri.to_s])
+              
+              if @link
+                # Angelo Ashmore, 2/5/2009:
+                # Need a way of recording the subsequent relationships
+                @link.update_attribute("latest_on", Time.now)
+              else
+                # change this into a method like add_domain
+                
+                logger.info "====== Adding new URL: #{uri}"
+                @link = Link.new
+                @link.member_id = @master_member.id
+                @link.domain_id = @domain.id
+                @link.category_id = @category ? @category.id : nil
+                # images won't return a title, so filename is used
+                # hopefully we can come up with a better method
+                begin
+                  document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
+                  title = document_html.search("title").html.strip
+                  @link.title = title.length > 0 ? title : File.basename(uri.to_s)
+                rescue
+                  @link.title = File.basename(uri.to_s)
+                end
 
-              @link.title = File.basename(uri.to_s) unless @link.title.length > 0
-              @link.uri = uri.to_s
-              @link.path = uri.path.to_s
-              @link.code = generate_code
+                @link.title = File.basename(uri.to_s) unless @link.title.length > 0
+                @link.uri = uri.to_s
+                @link.path = uri.path.to_s
+                @link.code = generate_code
+                @link.latest_on = Time.now
 
-              if @link.save
-                @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
-                @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
+                if @link.save
+                  @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
+                  @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
+                end
               end
             end
           end

@@ -13,6 +13,7 @@ class CreateLinks < ActiveRecord::Migration
       t.column :code, :string, :null => false
       
       t.column :created_on, :datetime, :null => false
+      t.column :latest_on, :datetime, :null => false
       t.column :updated_on, :datetime, :null => false
     end
   end
