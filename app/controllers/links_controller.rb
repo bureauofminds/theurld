@@ -18,53 +18,17 @@ class LinksController < ApplicationController
       @category = Category.find(params[:category][:id]) unless params[:category][:id].length < 1
       
       index = 0
-      start_time = Time.now
-      workers = []
       
-      params[:link][:uri].each_line do |uri|
-        # create a new background process for each uri
-        spawn do
-          uri = uri.strip.chomp
+      if params[:link][:quick]
+        # if URL is coming from the quickbar, don't spawn workers
+        add_link(uri)
+      else
+        params[:link][:uri].each_line do |uri|
+          # create a new background process for each uri
+          spawn { add_link(uri) }
 
-          if uri.length > 0 and uri != "http://"
-            scheme = URI.parse(uri).scheme
-            if scheme == nil
-              uri = "http://" + uri
-              scheme = "http"
-            end
-            if scheme.downcase != "http"
-              flash[:error] = "Sorry, only HTTP URIs are currently supported."
-              return redirect_to(session[:referrer] || '/')
-            end
-            uri = URI.parse(uri)
-
-            response = Net::HTTP.new(uri.host).request_head((uri.path.length > 0 ? uri.path : "index"))
-
-            if response == 404
-              flash[:error] = "Looks like that page doesn't exist!"
-              return redirect_to(session[:referrer] || '/')
-            else
-              @domain = Domain.find(:first,
-                                    :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
-              add_domain(uri) if !@domain
-              
-              @link = Link.find(:first,
-                                :conditions => ['uri = ?', uri.to_s])
-              
-              if @link
-                # Angelo Ashmore, 2/5/2009:
-                # Need a way of recording the subsequent relationships
-                @link.update_attribute("latest_on", Time.now)
-                
-                @master_member.links << @link
-              else
-                add_link(uri)
-              end
-            end
-          end
+          index += 1
         end
-        
-        index += 1
       end
       
       if index < 1
@@ -82,33 +46,69 @@ class LinksController < ApplicationController
   private
   
   def add_link(uri)
-    # assume @category, @domain, etc. is already defined
+    uri = uri.strip.chomp
     
-    logger.info "====== Adding new URL: #{uri}"
-    @link = Link.new
-    @link.domain_id = @domain.id
-    @link.category_id = @category ? @category.id : nil
-    # images won't return a title, so filename is used
-    # hopefully we can come up with a better method
-    begin
-      document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
-      title = document_html.search("title").html.strip
-      @link.title = title.length > 0 ? title : File.basename(uri.to_s)
-    rescue
-      @link.title = File.basename(uri.to_s)
-    end
+    if uri.length > 0 and uri != "http://"
+      scheme = URI.parse(uri).scheme
+      if scheme == nil
+        uri = "http://" + uri
+        scheme = "http"
+      end
+      if scheme.downcase != "http"
+        flash[:error] = "Sorry, only HTTP URIs are currently supported."
+        return redirect_to(session[:referrer] || '/')
+      end
+      uri = URI.parse(uri)
 
-    @link.title = File.basename(uri.to_s) unless @link.title.length > 0
-    @link.uri = uri.to_s
-    @link.path = uri.path.to_s
-    @link.code = generate_code(5)
-    @link.latest_on = Time.now
+      response = Net::HTTP.new(uri.host).request_head((uri.path.length > 0 ? uri.path : "index"))
 
-    if @link.save
-      @master_member.links << @link
-      
-      @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
-      @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
+      if response == 404
+        flash[:error] = "Looks like that page doesn't exist!"
+        return redirect_to(session[:referrer] || '/')
+      else
+        @domain = Domain.find(:first,
+                              :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
+        if @domain
+          get_favicon(@domain) unless @domain.favicon?
+        else
+          add_domain(uri)
+        end
+        
+        @link = Link.find(:first,
+                          :conditions => ['uri = ?', uri.to_s])
+        
+        if @link
+          @link.update_attribute("latest_on", Time.now)
+          @master_member.links << @link
+        else
+          logger.info "====== Adding new URL: #{uri}"
+          @link = Link.new
+          @link.domain_id = @domain.id
+          @link.category_id = @category ? @category.id : nil
+          # images won't return a title, so filename is used
+          # hopefully we can come up with a better method
+          begin
+            document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
+            title = document_html.search("title").html.strip
+            @link.title = title.length > 0 ? title : File.basename(uri.to_s)
+          rescue
+            @link.title = File.basename(uri.to_s)
+          end
+
+          @link.title = File.basename(uri.to_s) unless @link.title.length > 0
+          @link.uri = uri.to_s
+          @link.path = uri.path.to_s
+          @link.code = generate_code(5)
+          @link.latest_on = Time.now
+
+          if @link.save
+            @master_member.links << @link
+
+            @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
+            @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
+          end
+        end
+      end
     end
   end
   
@@ -129,6 +129,11 @@ class LinksController < ApplicationController
     @domain.domain = uri.host
     @domain.save
     
+    get_favicon(@domain)
+  end
+  
+  def get_favicon(domain)
+    Dir.mkdir(FAVICONS_ROOT) unless File.exists?(FAVICONS_ROOT)
     favicon_location  = File.join(FAVICONS_ROOT, "#{@domain.id}")
     
     begin
@@ -151,11 +156,7 @@ class LinksController < ApplicationController
         @domain.update_attribute('favicon', 1)
       end
     rescue
-      # Angelo Ashmore, 11/10/08: 
-      # doesn't really matter if it fails to get the favicon
-      # but maybe there should be a way for it to try
-      # to get the favicon again when a user submits the same
-      # domain again and the favicon has yet to be retrieved
+      # it's okay if the favicon can't be obtained
     end
     
     File.delete(favicon_location + ".ico") if File.exists?(favicon_location + ".ico")
