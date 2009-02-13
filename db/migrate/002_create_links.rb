@@ -1,7 +1,6 @@
 class CreateLinks < ActiveRecord::Migration
   def self.up
     create_table :links do |t|
-      t.column :member_id, :integer, :null => false
       t.column :domain_id, :integer, :null => false
       t.column :category_id, :integer
       

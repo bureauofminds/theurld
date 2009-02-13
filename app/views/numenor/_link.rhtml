@@ -1,6 +1,7 @@
 <%-
   domain = link.domain
   category = link.category
+  member = link.members.last
 -%>
 <li class="<%= cycle("row1", "row2") %>">
   <%= favicon domain %><%= link_to "#{truncate(link.title, 100)}", :controller => 'links', :action => 'view', :code => link.code %>
@@ -14,6 +15,14 @@
   <p id="info_<%= link.id %>" class="desc" style="display: none;">
     <%= link_to domain.domain, "#{domain.scheme}://#{domain.domain}", :class => "disguised" %> &#8212; <span class="text">Temporarily blank for now.</span>
     <%- if category -%>Filed in <em><%= link_to category.name, :controller => 'categories', :action => 'view', :id => category.id %></em> on<%- end -%>
-    <em><%= longdate(link.created_on) %></em> by <em><%= link_to link.member.username, :controller => 'members', :action => 'view', :username => link.member.username %></em>
+    <em><%= longdate(link.created_on) %></em> by <em><%= link_to member.username, :controller => 'members', :action => 'view', :username => member.username %></em>
+    <%- if link.members.length > 1 -%>
+    <span class="small fade">(<span class="fake_link" onclick="Element.toggle('others_<%= link.id %>')"><%= pluralize((link.members.length - 1), "other") %></span>)</span>
+    <span id="others_<%= link.id %>" class="others" style="display: none;">
+      <%- link.members.each do |m| -%>
+      <%= link_to(m.username, :controller => 'members', :action => 'view', :username => m.username) %><%= "," unless m == link.members.last %>
+      <%- end -%>
+    </span>
+    <%- end -%>
   </p>
 </li>

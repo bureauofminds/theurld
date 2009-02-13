@@ -1,6 +1,7 @@
 class Link < ActiveRecord::Base
   
-  belongs_to :member
+  has_and_belongs_to_many :members
+  
   belongs_to :domain
   belongs_to :category
   

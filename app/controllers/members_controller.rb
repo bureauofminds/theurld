@@ -145,6 +145,7 @@ class MembersController < ApplicationController
       existing_member = Member.find_by_username(@member.username)
       
       if existing_member
+        @member.password = nil
         flash[:error] = "A member with the username &quot;#{@member.username}&quot; already exists. Please chose a new, unique username." and return
       else
         @member.friends = YAML.dump([])

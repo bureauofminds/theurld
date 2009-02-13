@@ -1,9 +1,5 @@
 class LinksController < ApplicationController
   
-  require 'net/http'
-  require 'hpricot'
-  require 'open-uri'
-  
   def view
     @link = Link.find_by_code(params[:code])
     redirect_to @link.uri
@@ -15,6 +11,10 @@ class LinksController < ApplicationController
       ###
     
     when :post
+      require 'net/http'
+      require 'hpricot'
+      require 'open-uri'
+      
       @category = Category.find(params[:category][:id]) unless params[:category][:id].length < 1
       
       index = 0
@@ -26,7 +26,7 @@ class LinksController < ApplicationController
         spawn do
           uri = uri.strip.chomp
 
-          if uri.length > 0
+          if uri.length > 0 and uri != "http://"
             scheme = URI.parse(uri).scheme
             if scheme == nil
               uri = "http://" + uri
@@ -55,34 +55,10 @@ class LinksController < ApplicationController
                 # Angelo Ashmore, 2/5/2009:
                 # Need a way of recording the subsequent relationships
                 @link.update_attribute("latest_on", Time.now)
-              else
-                # change this into a method like add_domain
                 
-                logger.info "====== Adding new URL: #{uri}"
-                @link = Link.new
-                @link.member_id = @master_member.id
-                @link.domain_id = @domain.id
-                @link.category_id = @category ? @category.id : nil
-                # images won't return a title, so filename is used
-                # hopefully we can come up with a better method
-                begin
-                  document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
-                  title = document_html.search("title").html.strip
-                  @link.title = title.length > 0 ? title : File.basename(uri.to_s)
-                rescue
-                  @link.title = File.basename(uri.to_s)
-                end
-
-                @link.title = File.basename(uri.to_s) unless @link.title.length > 0
-                @link.uri = uri.to_s
-                @link.path = uri.path.to_s
-                @link.code = generate_code
-                @link.latest_on = Time.now
-
-                if @link.save
-                  @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
-                  @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
-                end
+                @master_member.links << @link
+              else
+                add_link(uri)
               end
             end
           end
@@ -94,9 +70,9 @@ class LinksController < ApplicationController
       if index < 1
         flash[:notice] = "No URLs were added"
       elsif index == 1 or params[:link][:quick]
-        flash[:notice] = "URL added successfully"
+        flash[:notice] = "URL added to the queue successfully"
       else
-        flash[:notice] = "#{index} URLs added successfully"
+        flash[:notice] = "#{index} URLs added to the queue successfully"
       end
       
       redirect_to session[:referrer] || '/' and return
@@ -104,6 +80,37 @@ class LinksController < ApplicationController
   end
   
   private
+  
+  def add_link(uri)
+    # assume @category, @domain, etc. is already defined
+    
+    logger.info "====== Adding new URL: #{uri}"
+    @link = Link.new
+    @link.domain_id = @domain.id
+    @link.category_id = @category ? @category.id : nil
+    # images won't return a title, so filename is used
+    # hopefully we can come up with a better method
+    begin
+      document_html = Hpricot(open(uri, "User-Agent" => "theurld"))
+      title = document_html.search("title").html.strip
+      @link.title = title.length > 0 ? title : File.basename(uri.to_s)
+    rescue
+      @link.title = File.basename(uri.to_s)
+    end
+
+    @link.title = File.basename(uri.to_s) unless @link.title.length > 0
+    @link.uri = uri.to_s
+    @link.path = uri.path.to_s
+    @link.code = generate_code(5)
+    @link.latest_on = Time.now
+
+    if @link.save
+      @master_member.links << @link
+      
+      @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
+      @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
+    end
+  end
   
   def add_domain(uri)
     logger.info "=== Adding new domain: #{uri.host}"
@@ -154,14 +161,14 @@ class LinksController < ApplicationController
     File.delete(favicon_location + ".ico") if File.exists?(favicon_location + ".ico")
   end
   
-  def generate_code
+  def generate_code(length)
     chars = ("a".."z").to_a + ("1".."9").to_a
-    code = Array.new(5, '').collect{chars[rand(chars.size)]}.join
+    code = Array.new(length, '').collect{chars[rand(chars.size)]}.join
     
     # Loop this method if the generated code matches an already existing one
     existing_code = Link.find_by_code(code)
     if existing_code or FORBIDDEN_NAMES.include?(code)
-      generate_code
+      generate_code(length)
     else
       code
     end

@@ -441,6 +441,11 @@ div#content ul.feed li p.desc span.text {
   color: #333;
 }
 
+div#content ul.feed li span.others {
+  display: block;
+  margin: 7px 0 0 0;
+}
+
 div#content ul.feed li.row1 {
   background-color: #fff;
 }
