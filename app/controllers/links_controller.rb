@@ -6,40 +6,41 @@ class LinksController < ApplicationController
   end
   
   def new
-    case request.method
-    when :get
-      ###
+    require 'net/http'
+    require 'hpricot'
+    require 'open-uri'
     
-    when :post
-      require 'net/http'
-      require 'hpricot'
-      require 'open-uri'
+    @category = Category.find(params[:category][:id]) unless params[:category][:id].length < 1
+    
+    case params[:link][:quick]
+    when :true
+      # save the Link directly
+      add_link(params[:link][:uri])
       
-      @category = Category.find(params[:category][:id]) unless params[:category][:id].length < 1
-      
-      index = 0
-      
-      if params[:link][:quick]
-        # if URL is coming from the quickbar, don't spawn workers
-        add_link(uri)
+      if @successful
+        flash[:notice] = "URL added successfully"
       else
-        params[:link][:uri].each_line do |uri|
-          # create a new background process for each uri
-          spawn { add_link(uri) }
-
-          index += 1
-        end
-      end
-      
-      if index < 1
-        flash[:notice] = "No URLs were added"
-      elsif index == 1 or params[:link][:quick]
-        flash[:notice] = "URL added to the queue successfully"
-      else
-        flash[:notice] = "#{index} URLs added to the queue successfully"
+        flash[:error] = "An error occured while adding your URL. Please try again."
+        @link = Link.new(params[:link])
       end
       
       redirect_to session[:referrer] || '/' and return
+    
+    when :false
+      # create a new LinkQueue with all the URLs
+      @queue = LinkQueue.new
+      @queue.urls = []
+      
+      params[:link][:uri].each_line do |uri|
+        uri = uri.strip.chomp
+        @queue.urls << uri
+        index += 1
+      end
+      
+      @queue.urls = YAML.dump(@queue.urls)
+      @queue.save
+      
+      redirect_to :action => 'queue', :id => @queue.id
     end
   end
   
@@ -102,6 +103,8 @@ class LinksController < ApplicationController
           @link.latest_on = Time.now
 
           if @link.save
+            @successful = true
+            
             @master_member.links << @link
 
             @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
