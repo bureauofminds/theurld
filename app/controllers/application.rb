@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
   before_filter :save_referrer, :except => ['login', 'logout', 'register', 'export_urls']
   before_filter :svn_info
   
+  after_filter OutputCompressionFilter
+  
   def authorize_development_build
     unless session[:authorized_for_development] == true
       flash[:notice] = "This is a private development build of The Urld. You aren't allowed in. <em>Or aRe YoU?</em>"
