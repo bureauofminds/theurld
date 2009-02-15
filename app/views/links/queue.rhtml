@@ -1,0 +1,24 @@
+<h2>Processing URL Queue</h2>
+
+<div class="box">
+  <p class="small"><em>Queue ID # <%= @queue.id %> was created on <%= datetime @queue.created_on %> and contains <strong><%= pluralize @queue.size, "URL" %></strong></em>.</p>
+  
+  <table width="100%" cellspacing="1" id="queue" class="style">
+    <colgroup>
+      <col width="5%" />
+      <col width="10%" />
+      <col width="85%" />
+    </colgroup>
+    <tr>
+      <th colspan="2">Status</th>
+      <th>URL</th>
+    </tr>
+    <%- @queue.uris.each_with_index do |u, i| -%>
+    <tr id="url_<%= i %>" class="<%= cycle("row1", "row2") %>">
+      <td align="center"><%= i + 1 %></td>
+      <td align="center" class="small"><span id="url_status_<%= i %>" class="fade">Waiting&hellip;</span></td>
+      <td class="small"><code><%=h truncate(u, 83) %></code></td>
+    </tr>
+    <%- end -%>
+  </table>
+</div>

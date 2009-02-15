@@ -3,7 +3,8 @@ class CreateLinkQueues < ActiveRecord::Migration
     create_table :link_queues do |t|
       t.column :member_id, :integer, :null => false
       
-      t.column :urls, :text
+      t.column :uris, :text
+      t.column :size, :text, :integer, :null => false, :default => 0
       
       t.column :created_on, :datetime, :null => false
       t.column :updated_on, :datetime, :null => false

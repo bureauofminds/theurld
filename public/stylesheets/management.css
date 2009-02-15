@@ -1,15 +1,5 @@
 @import "default.css";
 
-/* generic stripping */
-
-.row1 {
-  background-color: #fff;
-}
-
-.row2 {
-  background-color: #f5f7fB;
-}
-
 /* tags */
 span.tag {
   margin-left: 5px;
@@ -19,20 +9,3 @@ span.tag {
 }
 
 span.tag.superuser { color: #fff; background-color: #f10; }
-
-table.style tr th {
-  padding-bottom: 5px;
-  font-size: 11px;
-  color: #999;
-  font-weight: normal;
-  text-align: left;
-  border-bottom: 4px solid #d6d6d6;
-}
-
-table.style tr th.center {
-  text-align: center;
-}
-
-table.style tr td {
-  padding: 5px 0;
-}

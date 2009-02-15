@@ -6,42 +6,89 @@ class LinksController < ApplicationController
   end
   
   def new
-    require 'net/http'
-    require 'hpricot'
-    require 'open-uri'
-    
-    @category = Category.find(params[:category][:id]) unless params[:category][:id].length < 1
-    
-    case params[:link][:quick]
-    when :true
-      # save the Link directly
-      add_link(params[:link][:uri])
+    if request.post?
+      require 'net/http'
+      require 'hpricot'
+      require 'open-uri'
       
-      if @successful
-        flash[:notice] = "URL added successfully"
+      @category = Category.find(params[:category][:id]) unless params[:category][:id].length < 1
+      
+      case params[:link][:quick]
+      when "true"
+        # save the Link directly
+        add_link(params[:link][:uri])
+        
+        if @successful
+          flash[:notice] = "URL added successfully"
+        else
+          params[:link].delete('quick')
+          @link = Link.new(params[:link])
+          flash[:error] = "An error occured while adding your URL. Please try again."
+        end
+        
+        redirect_to session[:referrer] || '/' and return
+        
       else
-        flash[:error] = "An error occured while adding your URL. Please try again."
-        @link = Link.new(params[:link])
+        # create a new LinkQueue with all the URLs
+        @queue = LinkQueue.new
+        @queue.member_id = @master_member.id
+        @queue.uris = []
+        
+        params[:link][:uri].each_line do |uri|
+          uri = uri.strip.chomp
+          @queue.uris << uri if uri.length > 0
+        end
+        
+        @queue.size = @queue.uris.length
+        
+        if @queue.size > 0
+          @queue.uris = YAML.dump(@queue.uris)
+                    
+          if @queue.save
+            flash[:notice] = "URL Queue created successfully"
+            redirect_to :action => 'queue', :id => @queue.id
+          else
+            @link = Link.new(params[:link])
+            flash[:error] = "A problem occured while creating the URL Queue. Please try again."
+          end
+        else
+          @link = Link.new(params[:link])
+          flash[:error] = "It doesn't look like you have any URLs to add&hellip;"
+        end
       end
-      
-      redirect_to session[:referrer] || '/' and return
-    
-    when :false
-      # create a new LinkQueue with all the URLs
-      @queue = LinkQueue.new
-      @queue.urls = []
-      
-      params[:link][:uri].each_line do |uri|
-        uri = uri.strip.chomp
-        @queue.urls << uri
-        index += 1
-      end
-      
-      @queue.urls = YAML.dump(@queue.urls)
-      @queue.save
-      
-      redirect_to :action => 'queue', :id => @queue.id
     end
+  end
+  
+  def queue
+    # one after another, waiting for the prior links to process before moving on,
+    # urls are added with process_url via ajax
+    
+    @queue = LinkQueue.find(params[:id])
+    @queue.uris = YAML.load(@queue.uris)
+    
+    # run the javascript when the page loads
+    # this function is loaded in queue.js
+    # 
+    # NOTE: Using setTimout will let the page load before running;
+    #       In Safari at least, the progress bar will remain loading while
+    #       the URLs are added, so this will fix that.
+    # 
+    # @queue.size needs to be lowered by one because index starts with 0
+    @onload = "setTimeout('addLink(#{@queue.id}, 0, #{@queue.size})', 0);"
+  end
+  
+  def process_queue
+    # :action => 'queue' uses this to add links
+    # accessed via ajax
+    
+    @queue = LinkQueue.find(params[:id])
+    @queue.uris = YAML.load(@queue.uris)
+    uri = @queue.uris[params[:index].to_i]
+    
+    add_link(uri)
+    
+    # I'm not sure how to get onFailure working yet
+    render :nothing => true
   end
   
   private
@@ -65,7 +112,7 @@ class LinksController < ApplicationController
 
       if response == 404
         flash[:error] = "Looks like that page doesn't exist!"
-        return redirect_to(session[:referrer] || '/')
+        return redirect_to session[:referrer] || '/'
       else
         @domain = Domain.find(:first,
                               :conditions => ['scheme = ? and domain = ?', uri.scheme, uri.host])
@@ -79,8 +126,10 @@ class LinksController < ApplicationController
                           :conditions => ['uri = ?', uri.to_s])
         
         if @link
-          @link.update_attribute("latest_on", Time.now)
-          @master_member.links << @link
+          unless @link.members.include?(@master_member)
+            @link.update_attribute("latest_on", Time.now)
+            @master_member.links << @link
+          end
         else
           logger.info "====== Adding new URL: #{uri}"
           @link = Link.new

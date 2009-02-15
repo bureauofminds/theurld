@@ -17,6 +17,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/category/:name', :controller => 'categories', :action => 'view'
   map.connect '/category/:name/friends_urls', :controller => 'categories', :action => 'friends_urls'
   
+  map.connect '/links/queue/:id/:index', :controller => 'links', :action => 'process_queue'
+  
   map.connect '/members/:username', :controller => 'members', :action => 'view'
   map.connect '/members/:username/friends_urls', :controller => 'members', :action => 'friends_urls'
   map.connect '/members/:username/export_urls', :controller => 'members', :action => 'export_urls'

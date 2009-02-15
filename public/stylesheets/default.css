@@ -477,6 +477,27 @@ div#content div.pagination span.current {
   color: #666;
 }
 
+div#content table.style tr th {
+  padding-bottom: 5px;
+  font-size: 11px;
+  color: #999;
+  font-weight: normal;
+  text-align: left;
+  border-bottom: 4px solid #d6d6d6;
+}
+
+div#content table.style tr th.center {
+  text-align: center;
+}
+
+div#content table.style tr td {
+  padding: 5px 0;
+}
+
+div#content table#queue tr td span.loading { padding: 1px 3px; color: #fff; background-color: #aaa; }
+div#content table#queue tr td span.success { padding: 1px 3px; color: #fff; background-color: #5d5; }
+div#content table#queue tr td span.failure { padding: 1px 3px; color: #fff; background-color: #f00; }
+
 /* footer */
 
 div#footer a {
@@ -528,4 +549,14 @@ div.box form label {
 }
 div.box form fieldset fieldset label {
   margin-left: 123px; /* Width plus 3 (html space) */
+}
+
+/* generic stripping */
+
+.row1 {
+  background-color: #fff;
+}
+
+.row2 {
+  background-color: #f5f7fB;
 }

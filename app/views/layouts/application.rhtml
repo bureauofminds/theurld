@@ -7,8 +7,9 @@
   <title>The Urld</title>
   <%= stylesheet_link_tag 'default' %>
   <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'queue' if params[:controller] == "links" and params[:action] == "queue" %>
 </head>
-<body>
+<body<%= " onload=\"#{@onload}\"" if @onload %>>
   
   <div id="jump_to_content" class="hide">
     <a href="#content"><strong>Jump to content</strong></a>
@@ -19,15 +20,15 @@
   <div id="container">
     <div id="logo"><h1><%= link_to "<span class=\"hide\">The Urld</span>", :controller => 'numenor' %></h1></div>
     <%- if session[:logged_in] == true -%>
-	  <div id="info">
-		<%= image_tag "interface/iconmessage.gif" %> <%= link_to "0 Messages", :controller => 'messages' %>&nbsp; &nbsp; &nbsp;
-		<%= image_tag "interface/iconinvite.gif" %> <%= link_to "0 Invites", :controller => 'invite' %>
-	  </div>
-	  <%- else -%>
-	  <div id="new">
-	    <%= image_tag "interface/newaroundhere.gif", :size => "230x35", :alt => "New around here? Create an account!" %>
-	  </div>
-	  <%- end -%>
+    <div id="info">
+    <%= image_tag "interface/iconmessage.gif" %> <%= link_to "0 Messages", :controller => 'messages' %>&nbsp; &nbsp; &nbsp;
+    <%= image_tag "interface/iconinvite.gif" %> <%= link_to "0 Invites", :controller => 'invite' %>
+    </div>
+    <%- else -%>
+    <div id="new">
+      <%= image_tag "interface/newaroundhere.gif", :size => "230x35", :alt => "New around here? Create an account!" %>
+    </div>
+    <%- end -%>
     <%- if flash[:notice] or flash[:error] -%>
     <p id="flash" class="fake_link" onclick="Element.hide('flash');">
       <span class="highlight"><%= flash[:notice] || flash[:error] %></span>
