@@ -23,7 +23,9 @@ class NumenorController < ApplicationController
     @links = @links.reverse.paginate(:page => params[:page])
   end
   
-  # Used to authorize access to development builds
+  # Below methods are used to authorize access to development builds
+  # The authorization code is stored as an MD5 hash in environment.rb
+  
   def authorize
     if session[:authorized_for_development] == true
       flash[:notice] = "This computer is already authorized. If you would like to deauthorize this computer, <a href=\"/deauthorize\">click here</a>."

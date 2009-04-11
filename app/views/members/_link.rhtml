@@ -12,8 +12,8 @@
     <%= image_tag "interface/url_minus.gif", :size => "16x16", :alt => "Hide details" %>
   </a>
   <p id="info_<%= link.id %>" class="desc" style="display: none;">
-    <%= link_to domain.domain, "#{domain.scheme}://#{domain.domain}", :class => "disguised" %> &#8212; <span class="text">Temporarily blank for now.</span>
+    <%= link_to domain.domain, "#{domain.scheme}://#{domain.domain}", :class => "disguised" %> &mdash; <span class="text">Temporarily blank for now.</span>
     <%- if category -%>Filed in <em><%= link_to category.name, :controller => 'categories', :action => 'view', :id => category.id %></em> on<%- end -%>
-    <em><%= longdate(link.created_on) %></em> by <em><%= link_to link.member.username, :controller => 'members', :action => 'view', :username => link.member.username %></em>
+    <em><%= longdate(link.created_on) %></em> by <em><%= link_to member.username, :controller => 'members', :action => 'view', :username => member.username %></em>
   </p>
 </li>

@@ -21,7 +21,7 @@
   </div>
 
   <ul class="feed">
-    <%= render :partial => 'link', :collection => @links %>
+    <%= render :partial => 'link', :collection => @links, :locals => { :member => @member } %>
 	</ul>
 
   <%= will_paginate @links %>
