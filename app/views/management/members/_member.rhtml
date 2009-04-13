@@ -1,0 +1,7 @@
+<tr class="<%= cycle("row1", "row2") %>">
+  <td><%= link_to truncate(member.username, 25), :action => 'view', :name => member.username %> <%= "<span class=\"tag superuser\">superuser</span>" if member.superuser? %></td>
+  <td><%= mail_to truncate(member.email_address, 30) %></td>
+  <td><%= shortdate member.created_on %></td>
+  <td><%= shortdate member.updated_on %></td>
+  <td align="center"><%= member.number_of_links %></td>
+</tr>

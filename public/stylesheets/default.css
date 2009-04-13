@@ -339,6 +339,33 @@ div#content h2 {
   border-top: 4px solid #333;
 }
 
+div#content h2 a {
+  color: #333;
+  text-decoration: none;
+}
+
+div#content h2 a:hover {
+  text-decoration: underline;
+}
+
+div#content h3 {
+  margin: 0 0 10px 20px;
+  padding-bottom: 7px;
+  font-size: 11px;
+  color: #999;
+  font-weight: normal;
+  border-bottom: 4px solid #d6d6d6;
+}
+
+div#content h3 a {
+  color: #999;
+  text-decoration: none;
+}
+
+div#content h3 a:hover {
+  text-decoration: underline;
+}
+
 div#content div.box {
   padding-left: 20px;
 }

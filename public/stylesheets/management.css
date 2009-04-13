@@ -1,5 +1,17 @@
 @import "default.css";
 
+/* management bar */
+p#management_bar {
+  margin-bottom: 0;
+  padding: 5px;
+  font-size: 11px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  line-height: 11px;
+  background-color: #ff0;
+}
+
 /* tags */
 span.tag {
   margin-left: 5px;

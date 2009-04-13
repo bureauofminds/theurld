@@ -9,7 +9,7 @@ class Management::CategoriesController < Management::ApplicationController
       ###
     
     when :post
-      if params[:category][:id].empty?
+      # if params[:category][:id].empty?
         @category = Category.new(params[:category])
         
         existing_category = Category.find_by_name(@category.name)
@@ -23,18 +23,18 @@ class Management::CategoriesController < Management::ApplicationController
         else
           flash[:error] = "An error occured while creating the category. Please try again."
         end
-      else
-        @category = Category.find(params[:category][:id])
-        
-        @subcategory = @category.subcategories.create(params[:category])
-        
-        if @subcategory
-          flash[:notice] = "Subcategory has been added successfully"
-        else
-          @category = Category.new(params[:category])
-          flash[:error] = "An error occured while creating the subcategory. Please try again."
-        end
-      end
+      # else
+      #   @category = Category.find(params[:category][:id])
+      #   
+      #   @subcategory = @category.subcategories.create(params[:category])
+      #   
+      #   if @subcategory
+      #     flash[:notice] = "Subcategory has been added successfully"
+      #   else
+      #     @category = Category.new(params[:category])
+      #     flash[:error] = "An error occured while creating the subcategory. Please try again."
+      #   end
+      # end
       
       redirect_to :action => 'index'
     end

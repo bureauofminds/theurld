@@ -131,7 +131,7 @@ class LinksController < ApplicationController
             @master_member.links << @link
           end
         else
-          logger.info "====== Adding new URL: #{uri}"
+          # logger.info "====== Adding new URL: #{uri}"
           @link = Link.new
           @link.domain_id = @domain.id
           @link.category_id = @category ? @category.id : nil
@@ -165,7 +165,7 @@ class LinksController < ApplicationController
   end
   
   def add_domain(uri)
-    logger.info "=== Adding new domain: #{uri.host}"
+    # logger.info "=== Adding new domain: #{uri.host}"
     @domain = Domain.new
     
     begin

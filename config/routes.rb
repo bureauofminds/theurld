@@ -25,6 +25,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/members/:username/befriend', :controller => 'members', :action => 'befriend'
   map.connect '/members/:username/unfriend', :controller => 'members', :action => 'unfriend'
   
+  # Management
+  map.connect '/management', :controller => 'management/management'
+  map.connect '/management/categories', :controller => 'management/categories'
+  
   # This should be of lowest priority (the below routes are the defaults from Rails)
   map.connect '/:code', :controller => 'links', :action => 'view'
 

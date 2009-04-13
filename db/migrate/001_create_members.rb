@@ -9,6 +9,8 @@ class CreateMembers < ActiveRecord::Migration
       t.column :email_address, :string, :null => false
       t.column :gender, :string, :null => false
       
+      t.column :number_of_links, :null => false, :default => 0
+      
       t.column :avatar, :integer, :null => false, :default => 0
       t.column :biography, :text
       

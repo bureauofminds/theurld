@@ -1,0 +1,11 @@
+<h2>Management</h2>
+
+<h3><%= link_to "Members", :controller => 'management/members' %></h3>
+<div class="box">  
+  <p>There <%= @superusers.length == 1 ? "is" : "are" %> currently <strong><%= pluralize(@members.length, "member") %></strong>. Of these, <strong><%= @superusers.length %> <%= @superusers.length == 1 ? "is a" : "are" %> superuser<%= "s" unless @superusers.length == 1 %></strong>.</p>
+</div>
+
+<h3><%= link_to "Categories", :controller => 'management/categories' %></h3>
+<div class="box">  
+  <p>There <%= @categories.length == 1 ? "is" : "are" %> currently <strong><%= pluralize(@categories.length, "category") %></strong>.</p>
+</div>
