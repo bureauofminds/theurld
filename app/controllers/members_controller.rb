@@ -140,8 +140,8 @@ class MembersController < ApplicationController
   
   def register
     if request.post?
-      params[:login][:password] = md5(params[:login][:password])
-      @member = Member.new(params[:login])
+      params[:member][:password] = md5(params[:member][:password])
+      @member = Member.new(params[:member])
       existing_member = Member.find_by_username(@member.username)
       
       if existing_member
@@ -159,7 +159,7 @@ class MembersController < ApplicationController
   
   def login
     if request.post?
-      @member = Member.new(params[:member])
+      @member = Member.new(params[:login])
       existing_member = Member.find(:first,
                                     :conditions => ['username = ? AND password = ?', @member.username, md5(@member.password)])
       
