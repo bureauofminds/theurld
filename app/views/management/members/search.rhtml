@@ -15,6 +15,12 @@
       <th>Last Active on</th>
       <th class="center">Number of Links</th>
     </tr>
+    <%- unless @members.empty? -%>
     <%= render :partial => 'member', :collection => @members %>
+    <%- else -%>
+    <tr class="none">
+      <td colspan="5" align="center" class="fade">Your query returned no results</td>
+    </tr>
+    <%- end -%>
   </table>
 </div>

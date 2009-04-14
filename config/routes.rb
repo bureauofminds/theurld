@@ -21,13 +21,14 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect '/members/:username', :controller => 'members', :action => 'view'
   map.connect '/members/:username/friends_urls', :controller => 'members', :action => 'friends_urls'
-  map.connect '/members/:username/export_urls', :controller => 'members', :action => 'export_urls'
+  map.connect '/members/:username/export', :controller => 'members', :action => 'export'
   map.connect '/members/:username/befriend', :controller => 'members', :action => 'befriend'
   map.connect '/members/:username/unfriend', :controller => 'members', :action => 'unfriend'
   
   # Management
   map.connect '/management', :controller => 'management/management'
   map.connect '/management/categories', :controller => 'management/categories'
+  map.connect '/management/members/edit/:username', :controller => 'management/members', :action => 'edit'
   
   # This should be of lowest priority (the below routes are the defaults from Rails)
   map.connect '/:code', :controller => 'links', :action => 'view'

@@ -48,7 +48,7 @@ module ApplicationHelper
   end
   
   def avatar(member, options = {})
-    link_to(image_tag("avatars/#{member.avatar? ? member.id : 'default'}.gif", :size => (options[:size] || "16x16"), :alt => member.username, :class => 'avatar'), :controller => 'members', :action => 'view', :username => member.username)
+    link_to(image_tag("avatars/#{member.avatar? ? member.id : 'default'}.gif", :size => (options[:size] || "16x16"), :alt => member.username, :class => 'avatar'), :controller => '/members', :action => 'view', :username => member.username)
   end
   
   def friends_icons(member, options = {})

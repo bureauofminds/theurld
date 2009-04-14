@@ -1,0 +1,33 @@
+<p class="fade small"><em>This page may be changed in the future.</em></p>
+
+<% form_tag do %>
+<fieldset>
+  <ol>
+    <li>
+      <%= label_tag "member", "username" %> <%= text_field "member", "username" %>
+    </li>
+    <li>
+      <%= label_tag "member", "password" %> <%= password_field "member", "password" %>
+    </li>
+    <li>
+      <%= label_tag "member", "first_name" %> <%= text_field "member", "first_name" %>
+    </li>
+    <li>
+      <%= label_tag "member", "last_name" %> <%= text_field "member", "last_name" %>
+    </li>
+    <li>
+      <%= label_tag "member", "email_address" %> <%= text_field "member", "email_address" %>
+    </li>
+    <li>
+      <%= label_tag "member", "gender" %>
+      <%= select "member", "gender", { "Male" => "male", "Other" => "other", "Female" => "female" } %>
+    </li>
+    <li>
+      <%= label_tag "member", "superuser", :name => "Superuser<br/><span class=\"fade small\">Use with caution!</span>" %> <%= checkbox "member", "superuser" %>
+    </li>
+    <li>
+    <%= submit_tag "Create account" %>
+    </li>
+  </ol>
+</fieldset>
+<%- end -%>

@@ -1,0 +1,13 @@
+<div class="box">
+  <% form_tag :action => 'search' do %>
+    <p>Fill out as much as possible</p>
+    <p>
+      <%= label_tag "query", "username" %> <%= text_field "query", "username" %>
+      <%= label_tag "query", "email_address" %> <%= text_field "query", "email_address" %>
+      <%= label_tag "query", "first_name" %> <%= text_field "query", "first_name" %>
+      <%= label_tag "query", "last_name" %> <%= text_field "query", "last_name" %>
+      <%= label_tag "query", "superuser", :name => "Superuser (optional)" %> <%= check_box "query", "superuser" %>
+    </p>
+    <p><%= submit_tag "Search" %></p>
+  <% end %>
+</div>

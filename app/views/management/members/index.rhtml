@@ -9,11 +9,11 @@
       <col width="15%" />
     </colgroup>
     <tr>
-      <th>Username</th>
-      <th>Email Address</th>
-      <th>Registered on</th>
-      <th>Last Active on</th>
-      <th class="center">Number of Links</th>
+      <th><%= link_to "Username", :sort => "username", :order => (params[:order] ? (params[:order] == "asc" ? "desc" : "asc") : "asc") %></th>
+      <th><%= link_to "Email Address", :sort => "email_address", :order => (params[:order] ? (params[:order] == "asc" ? "desc" : "asc") : "asc") %></th>
+      <th><%= link_to "Registered on", :sort => "created_on", :order => (params[:order] ? (params[:order] == "asc" ? "desc" : "asc") : "asc") %></th>
+      <th><%= link_to "Last Active on", :sort => "updated_on", :order => (params[:order] ? (params[:order] == "asc" ? "desc" : "asc") : "asc") %></th>
+      <th class="center"><%= link_to "Number of Links", :sort => "number_of_links", :order => (params[:order] ? (params[:order] == "asc" ? "desc" : "asc") : "asc") %></th>
     </tr>
     <%= render :partial => 'member', :collection => @members %>
   </table>

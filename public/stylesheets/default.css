@@ -349,12 +349,12 @@ div#content h2 a:hover {
 }
 
 div#content h3 {
-  margin: 0 0 10px 20px;
-  padding-bottom: 7px;
+  margin-bottom: 10px;
+  padding-top: 7px;
   font-size: 11px;
   color: #999;
   font-weight: normal;
-  border-bottom: 4px solid #d6d6d6;
+  border-top: 4px solid #d6d6d6;
 }
 
 div#content h3 a {
@@ -368,15 +368,6 @@ div#content h3 a:hover {
 
 div#content div.box {
   padding-left: 20px;
-}
-
-div#content div.box h3 {
-  margin-bottom: 10px;
-  padding-top: 7px;
-  font-size: 11px;
-  color: #999;
-  font-weight: normal;
-  border-top: 4px solid #d6d6d6;
 }
 
 div#content ul.tabs {
@@ -505,16 +496,25 @@ div#content div.pagination span.current {
 }
 
 div#content table.style tr th {
-  padding-bottom: 5px;
+  padding: 5px 0;
   font-size: 11px;
   color: #999;
   font-weight: normal;
   text-align: left;
-  border-bottom: 4px solid #d6d6d6;
+  border-top: 4px solid #d6d6d6;
 }
 
 div#content table.style tr th.center {
   text-align: center;
+}
+
+div#content table.style tr th a {
+  color: #999;
+  text-decoration: none;
+}
+
+div#content table.style tr th a:hover {
+  text-decoration: underline;
 }
 
 div#content table.style tr td {

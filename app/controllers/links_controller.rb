@@ -155,7 +155,8 @@ class LinksController < ApplicationController
             @successful = true
             
             @master_member.links << @link
-
+            
+            @master_member.update_attribute('number_of_links', @master_member.number_of_links + 1)
             @domain.update_attribute('number_of_links', @domain.number_of_links + 1)
             @link.category.update_attribute('number_of_links', @link.category.number_of_links + 1) if @category
           end
