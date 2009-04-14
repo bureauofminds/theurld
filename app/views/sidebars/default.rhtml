@@ -11,8 +11,8 @@
 <div class="box">
   <% form_tag :controller => '/members', :action => 'login' do %>
     <p>
-      <%= label_tag "member", "username" %> <%= text_field "member", "username" %>
-      <%= label_tag "member", "password", :name => "Password <strong><a href=\"#\">?</a></strong>" %> <%= password_field "member", "password" %>
+      <%= label_tag "login", "username" %> <%= text_field "login", "username" %>
+      <%= label_tag "login", "password", :name => "Password <strong><a href=\"#\">?</a></strong>" %> <%= password_field "login", "password" %>
       <%= submit_tag "Login" %>
     </p>
   <% end %>
